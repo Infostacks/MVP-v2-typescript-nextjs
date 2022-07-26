@@ -1,7 +1,7 @@
 import Header from "../../components/ChatScreen/Header";
 import Conversation from "../../components/ChatScreen/Conversation";
 import ChatArea from "../../components/ChatScreen/ChatArea";
-import "../../styles/Conversation.module.css";
+// import "../../styles/Conversation.module.css";
 const index = () => {
   return (
     <div className="app">
