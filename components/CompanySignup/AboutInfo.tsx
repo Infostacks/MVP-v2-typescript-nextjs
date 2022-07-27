@@ -1,117 +1,281 @@
-import React, { useState, useRef } from "react";
-import styles from '../../styles/Global.js'
-import {
-  Link,
-  Element,
-  Events,
-  animateScroll as scroll,
-  scrollSpy,
-  scroller,
-} from "react-scroll";
+import React, { useState } from "react";
+import { useForm, SubmitHandler } from "react-hook-form";
+import { motion } from "framer-motion";
+
+type Inputs = {
+  fullname: string;
+  email: string;
+  industry: string;
+  address: string;
+  location: string;
+  country: string;
+  about: string;
+  projectname: string;
+  techstack: string;
+  linkto: string;
+};
 
 const aboutinfo = () => {
-  const [files, setFile] = useState([]);
-  const [message, setMessage] = useState();
-  const ref = useRef(null);
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  const [formStep, setFormStep] = useState(0);
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors, isValid },
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+  } = useForm<Inputs>();
+  const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data);
 
-  // const handleFile = (e) => {
-  //   setMessage("");
-  //   let file = e.target.files;
+  const completeFormStep = () => {
+    setFormStep((cur) => cur + 1);
+  };
 
-  //   for (let i = 0; i < file.length; i++) {
-  //     const fileType = file[i]["type"];
-  //     const validImageTypes = ["image/gif", "image/jpeg", "image/png"];
-  //     if (validImageTypes.includes(fileType)) {
-  //       setFile([...files, file[i]]);
-  //     } else {
-  //       setMessage("only images accepted");
-  //     }
-  //   }
-  // };
-  // const removeImage = (i) => {
-  //   setFile(files.filter((x) => x.name !== i));
-  // };
-
-  Events.scrollEvent.register("begin", function () {
-    console.log("begin", arguments);
-  });
-
-  Events.scrollEvent.register("end", function () {
-    console.log("end", arguments);
-  });
+  const renderBtn = () => {
+    if (formStep > 11) {
+      return undefined;
+    } else if (formStep === 10) {
+      return (
+        <motion.button
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+          type="submit"
+          disabled={!isValid}
+          onClick={completeFormStep}
+          className={`rounded-lg w-28 text-white pt-1 pb-1 text-sm `}
+          style={{ backgroundColor: "#006d77" }}
+        >
+          Create Account
+        </motion.button>
+      );
+    } else {
+      return (
+        <motion.button
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9, color: "#f77f00", backgroundColor: "#f8edeb" }}
+          transition={{ duration: .3 }}
+          type="button"
+          disabled={!isValid}
+          onClick={completeFormStep}
+          className={`rounded-lg w-28 text-white pt-1 pb-1 text-sm `}
+          style={{ backgroundColor: "#F18F01" }}
+        >
+          Next Step
+        </motion.button>
+      );
+    }
+  };
 
   return (
-    <div className="w-full bg-slate-50 flex flex-col gap-3 pb-10 overflow-y-hidden">
-      <h1 className="text-2xl font-semibold text-slate-600 p-10">Register Here</h1>
-      <Element
-        name="test1"
-        id="1"
-        className="flex justify-center items-center h-screen w-full bg-slate-300 font-bold flex-col"
+    <div className="w-3/4 h-3/4 bg-[#508AA8] bg-opacity-70 flex flex-col items-center rounded-3xl justify-center gap-3">
+      <h1
+        className="py-5 text-3xl font-semibold text-[#ffb703]"
+        style={{ fontFamily: "Bebas Neue" }}
       >
-        1
-        <button
-          type="button"
-          className="text-white bg-green-600 hover:bg-gradient-to-br focus:ring-1 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
-          // onClick={handleClick}
-        >
-          <Link
-            activeClass="active"
-            to="test2"
-            spy={true}
-            smooth={true}
-            duration={500}
+        Company Sign up
+      </h1>
+
+      <form action="" className="flex flex-col justify-center gap-y-5">
+        {formStep === 0 && (
+          <motion.section
+            initial={{ y: 10, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: -10, opacity: 0 }}
+            transition={{ duration: 1 }}
           >
-            Next
-          </Link>
-        </button>
-      </Element>
-      <Element
-        name="test2"
-        id="2"
-        ref={ref}
-        className="flex justify-center items-center h-screen w-full bg-orange-600 font-bold flex-col"
-      >
-        2
-        <Link
-          activeClass="active"
-          to="test3"
-          spy={true}
-          smooth={true}
-          duration={500}
-        >
-          <button type="button" className={styles.greenBtn}>
-            Next
-          </button>
-        </Link>
-      </Element>
-      <Element
-        name="test3"
-        id="3"
-        className="flex justify-center items-center h-screen w-full bg-fuchsia-500 font-bold flex-col"
-      >
-        3
-        <Link
-          activeClass="active"
-          to="test3"
-          spy={true}
-          smooth={true}
-          duration={500}
-        >
-          <button type="button" className={styles.greenBtn}>
-            Next
-          </button>
-        </Link>
-      </Element>
-      <Element
-        name="test4"
-        id="4"
-        className="flex justify-center items-center h-screen w-full bg-lime-500 font-bold flex-col"
-      >
-        4
-        <button type="button" className={styles.greenBtn}>
-          Next
-        </button>
-      </Element>
+            <div className="flex flex-col gap-2">
+              <label className="text-md text-slate-50">
+                Company Full Name:
+              </label>
+              <input
+                id="fullname"
+                type="text"
+                className="w-72 h-10 drop-shadow-md bg-[#ffb703] bg-opacity-75 text-white rounded-2xl pl-4 border-[1px] text-md z-12"
+                // {...register("fullname", { required: true })}
+              />
+              {errors.fullname && <p>{errors.fullname.message}</p>}
+            </div>
+          </motion.section>
+        )}
+        {formStep === 1 && (
+          <motion.section
+            initial={{ y: 10, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: -10, opacity: 0 }}
+            transition={{ duration: 1 }}
+          >
+            <div className="flex flex-col gap-2">
+              <label className="text-md text-slate-50">Company Email:</label>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                className="w-72 h-10 drop-shadow-md bg-[#ffb703] bg-opacity-75 text-white  rounded-2xl pl-4 border-[1px] text-md z-12"
+              />
+            </div>
+          </motion.section>
+        )}
+        {formStep === 2 && (
+          <motion.section
+            initial={{ y: 10, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: -10, opacity: 0 }}
+            transition={{ duration: 1 }}
+          >
+            <div className="flex flex-col gap-2">
+              <label className="text-md text-slate-50">Industry:</label>
+              <input
+                id="industry"
+                name="industry"
+                type="text"
+                className="w-72 h-10 drop-shadow-md bg-[#ffb703] bg-opacity-75 text-white  rounded-2xl pl-4 border-[1px] text-md z-12"
+              />
+            </div>
+          </motion.section>
+        )}
+        {formStep === 3 && (
+          <motion.section
+            initial={{ y: 10, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: -10, opacity: 0 }}
+            transition={{ duration: 1 }}
+          >
+            <div className="flex flex-col gap-2">
+              <label className="text-md text-slate-50">Address:</label>
+              <input
+                id="address"
+                name="address"
+                type="text"
+                className="w-72 h-10 drop-shadow-md bg-[#ffb703] bg-opacity-75 text-white  rounded-2xl pl-4 border-[1px] text-md z-12"
+              />
+            </div>
+          </motion.section>
+        )}
+        {formStep === 4 && (
+          <motion.section
+            initial={{ y: 10, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: -10, opacity: 0 }}
+            transition={{ duration: 1 }}
+          >
+            <div className="flex flex-col gap-2">
+              <label className="text-md text-slate-50">Location/ City:</label>
+              <input
+                id="location"
+                name="location"
+                type="text"
+                className="w-72 h-10 drop-shadow-md bg-[#ffb703] bg-opacity-75 text-white  rounded-2xl pl-4 border-[1px] text-md z-12"
+              />
+            </div>
+          </motion.section>
+        )}
+        {formStep === 5 && (
+          <motion.section
+            initial={{ y: 10, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: -10, opacity: 0 }}
+            transition={{ duration: 1 }}
+          >
+            <div className="flex flex-col gap-2">
+              <label className="text-md text-slate-50">Country:</label>
+              <input
+                id="country"
+                name="country"
+                type="text"
+                className="w-72 h-10 drop-shadow-md bg-[#ffb703] bg-opacity-75 text-white  rounded-2xl pl-4 border-[1px] text-md z-12"
+              />
+            </div>
+          </motion.section>
+        )}
+        {formStep === 6 && (
+          <motion.section
+            initial={{ y: 10, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: -10, opacity: 0 }}
+            transition={{ duration: 1 }}
+          >
+            <div className="flex flex-col gap-2">
+              <label className="text-md text-slate-50">About Company:</label>
+              <textarea
+                id="about"
+                name="about"
+                className="w-72 h-40 drop-shadow-md bg-[#ffb703] bg-opacity-75 text-white  rounded-2xl pl-4 py-3 border-[1px] text-md z-12"
+              />
+            </div>
+          </motion.section>
+        )}
+        {formStep === 7 && (
+          <motion.section
+            initial={{ y: 10, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: -10, opacity: 0 }}
+            transition={{ duration: 1 }}
+          >
+            <div className="flex flex-col gap-2">
+              <label className="text-md text-slate-50">Project Name:</label>
+              <input
+                id="projectname"
+                name="projectname"
+                type="text"
+                className="w-72 h-10 drop-shadow-md bg-[#ffb703] bg-opacity-75 text-white  rounded-2xl pl-4 border-[1px] text-md z-12"
+              />
+            </div>
+          </motion.section>
+        )}
+        {formStep === 8 && (
+          <motion.section
+            initial={{ y: 10, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: -10, opacity: 0 }}
+            transition={{ duration: 1 }}
+          >
+            <div className="flex flex-col gap-2">
+              <label className="text-md text-slate-50">Tech Stack:</label>
+              <input
+                id="techstack"
+                name="techstack"
+                type="text"
+                className="w-72 h-10 drop-shadow-md bg-[#ffb703] bg-opacity-75 text-white  rounded-2xl pl-4 border-[1px] text-md z-12"
+              />
+            </div>
+          </motion.section>
+        )}
+        {formStep === 9 && (
+          <motion.section
+            initial={{ y: 10, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: -10, opacity: 0 }}
+            transition={{ duration: 1 }}
+          >
+            <div className="flex flex-col gap-2">
+              <label className="text-md text-slate-50">Link To:</label>
+              <input
+                id="linkto"
+                name="linkto"
+                type="text"
+                className="w-72 h-10 drop-shadow-md bg-[#ffb703] bg-opacity-75 text-white  rounded-2xl pl-4 border-[1px] text-md z-12"
+              />
+            </div>
+          </motion.section>
+        )}
+        {formStep === 10 && (
+          <motion.section
+            initial={{ y: 10, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: -10, opacity: 0 }}
+            transition={{ duration: 1 }}
+          >
+            <label className="text-md text-slate-50">Congratulations!</label>
+          </motion.section>
+        )}
+        {renderBtn()}
+        {/* <pre>{JSON.stringify(watch(), null, 10)}</pre> */}
+      </form>
+
+      {/* horizontal line  */}
+
+      {/* horizontal line  */}
+      {/* <div className="w-full h-[1px] bg-slate-400 "></div> */}
     </div>
   );
 };

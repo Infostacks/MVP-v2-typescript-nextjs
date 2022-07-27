@@ -5,6 +5,7 @@ import { GrFacebookOption, GrTwitter } from 'react-icons/gr';
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from "react-intersection-observer";
 import { useEffect } from 'react';
+import Image from 'next/image'
 
 const footer = () => {
   
@@ -33,10 +34,12 @@ const footer = () => {
         <div className="flex flex-col justify-center xl:px-40 lg:px-40 md:px-24 px-10 py-20 gap-5 w-full bg-gradient-to-b from-white to-transparent bg-violet-100 bg-opacity-70">
           {/* adress details  */}
           <div className="flex flex-row justify-between w-full items-center">
-            <img
-              className="h-8 w-8"
-              src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg"
-              alt="Workflow"
+            <Image 
+            src={"https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg"}
+            unoptimized
+            alt="Workflow"
+            width={50}
+            height={50}
             />
             <div className="flex xl:flex-row lg:flex-row md:flex-row flex-col gap-5">
               <div className="flex flex-row gap-3 items-center">
