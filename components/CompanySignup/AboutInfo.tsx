@@ -8,12 +8,13 @@ const aboutinfo = () => {
   const [formStep, setFormStep] = useState(0);
   const [errors, setErrors] = useState(null);
   const [confirmPassError, setConfirmPassError] = useState(false);
-  const { signIn, signUp, resetPassword } = useAuth();
+  // const { signIn, signUp, resetPassword } = useAuth();
+  const [confirmPassword, setConfirmPassword] = useState("");
   const [formData, setFormData] = useState({
     fullname: "",
     email: "",
     password: "",
-    confirmPassword: "",
+    // confirmPassword: "",
     industry: "",
     address: "",
     location: "",
@@ -23,7 +24,7 @@ const aboutinfo = () => {
     techstack: "",
     linkto: "",
   });
-console.log(formData)
+
   const companySignUpSchema = {
     // Joi schema for validation
     fullname: Joi.string().required().label("Full name"),
@@ -31,10 +32,10 @@ console.log(formData)
       .email({ minDomainSegments: 2, tlds: { allow: ["com", "net"] } })
       .label("Email"),
     password: Joi.string().required().label("Password"),
-    confirmPassword: Joi.string()
-      .required()
-      .valid(Joi.ref("password"))
-      .label("Password did not match"),
+    // confirmPassword: Joi.string()
+    //   .required()
+    //   .valid(Joi.ref("password"))
+    //   .label("Password did not match"),
     industry: Joi.string().required().label("industry"),
     address: Joi.string().required().label("Address"),
     location: Joi.string().required().label("Location"),
@@ -65,22 +66,25 @@ console.log(formData)
     // Function to handle submit
     setErrors(null);
     let data = validate(); // Validation function call
-    console.log("data: ", data);
 
     if (data) {
       // If validation fails
       setErrors(data);
     } else {
       try {
+        console.log("sign up method called");
+        // await signUp(formData.email, formData.password);
+        alert("Successfully Signed Up. authType Now!");
+        resetForm();
         // If validation passes
-        if (formData.password !== formData.confirmPassword) {
-          setConfirmPassError(true);
-        } else {
-          console.log("sign up method called");
-          await signUp(formData.email, formData.password);
-          alert("Successfully Signed Up. authType Now!");
-          resetForm();
-        }
+        // if (formData.password !== formData.confirmPassword) {
+        //   setConfirmPassError(true);
+        // } else {
+        //   console.log("sign up method called");
+        //   await signUp(formData.email, formData.password);
+        //   alert("Successfully Signed Up. authType Now!");
+        //   resetForm();
+        // }
       } catch (err) {
         console.log(err);
       }
@@ -97,7 +101,7 @@ console.log(formData)
       fullname: "",
       email: "",
       password: "",
-      confirmPassword: "",
+      // confirmPassword: "",
       industry: "",
       address: "",
       location: "",
@@ -108,27 +112,36 @@ console.log(formData)
       linkto: "",
     });
   };
-/////////////////////////////////////////////////////////////////////// pending    error message ////////////////////////////////////////////////////////////////
+
+  /////////////////////////////////////////////////////////////////////// pending    error message ////////////////////////////////////////////////////////////////
   const completeFormStep = () => {
     let data = validate();
-    console.log(data)
-    if (data[formStep]) {
+
+    if (Object.keys(data).includes(Object.keys(formData)[formStep])) {
       setErrors(data);
       setTimeout(() => {
-        setErrors(null)
+        setErrors(null);
       }, 3000);
     } else {
-      setFormStep(formStep + 1);
+      if (formStep === 2) {
+        console.log("in pswd check");
+        if ((formData.password !== confirmPassword) || ((formData.password && confirmPassword) === "")) {
+          setConfirmPassError(true);
+          setTimeout(() => {
+            setConfirmPassError(false);
+          }, 3000);
+        }else{
+          setFormStep(formStep + 1);}
+      } else {
+        setFormStep(formStep + 1);
+      }
     }
-    
   };
-
-  console.log("Form Step", formStep);
 
   const renderBtn = () => {
     if (formStep > 12) {
       return undefined;
-    } else if (formStep === 12) {
+    } else if (formStep === 11) {
       return (
         <motion.button
           whileHover={{ scale: 1.1 }}
@@ -191,7 +204,9 @@ console.log(formData)
                 onChange={handleChange}
                 className="w-72 h-10 drop-shadow-md bg-[#ffb703] bg-opacity-75 text-white rounded-2xl pl-4 border-[1px] text-md z-12"
               />
-              <span className="text-[#DA373E] font-semibold text-xs">{errors ? errors.fullname:""}</span>
+              <span className="text-[#DA373E] font-semibold text-xs">
+                {errors ? errors.fullname : ""}
+              </span>
             </div>
           </motion.section>
         )}
@@ -212,7 +227,9 @@ console.log(formData)
                 onChange={handleChange}
                 className="w-72 h-10 drop-shadow-md bg-[#ffb703] bg-opacity-75 text-white  rounded-2xl pl-4 border-[1px] text-md z-12"
               />
-              <span className="text-[#DA373E] font-semibold text-xs">{errors ? errors.email:""}</span>
+              <span className="text-[#DA373E] font-semibold text-xs">
+                {errors ? errors.email : ""}
+              </span>
             </div>
           </motion.section>
         )}
@@ -238,11 +255,13 @@ console.log(formData)
                 id="confirmPassword"
                 name="confirmPassword"
                 type="password"
-                defaultValue={formData.confirmPassword}
+                defaultValue={confirmPassword}
                 onChange={handleChange}
                 className="w-72 h-10 drop-shadow-md bg-[#ffb703] bg-opacity-75 text-white  rounded-2xl pl-4 border-[1px] text-md z-12"
               />
-              <span className="text-[#DA373E] font-semibold text-xs">{errors ? errors.confirmPassword:""}</span>
+              <span className="text-[#DA373E] font-semibold text-xs">
+                {confirmPassError ? "Password is not match!" : ""}
+              </span>
             </div>
           </motion.section>
         )}
@@ -263,7 +282,9 @@ console.log(formData)
                 onChange={handleChange}
                 className="w-72 h-10 drop-shadow-md bg-[#ffb703] bg-opacity-75 text-white  rounded-2xl pl-4 border-[1px] text-md z-12"
               />
-              <span className="text-[#DA373E] font-semibold text-xs">{errors ? errors.industry:""}</span>
+              <span className="text-[#DA373E] font-semibold text-xs">
+                {errors ? errors.industry : ""}
+              </span>
             </div>
           </motion.section>
         )}
@@ -284,7 +305,9 @@ console.log(formData)
                 onChange={handleChange}
                 className="w-72 h-10 drop-shadow-md bg-[#ffb703] bg-opacity-75 text-white  rounded-2xl pl-4 border-[1px] text-md z-12"
               />
-              <span className="text-[#DA373E] font-semibold text-xs">{errors ? errors.address:""}</span>
+              <span className="text-[#DA373E] font-semibold text-xs">
+                {errors ? errors.address : ""}
+              </span>
             </div>
           </motion.section>
         )}
@@ -305,7 +328,9 @@ console.log(formData)
                 onChange={handleChange}
                 className="w-72 h-10 drop-shadow-md bg-[#ffb703] bg-opacity-75 text-white  rounded-2xl pl-4 border-[1px] text-md z-12"
               />
-              <span className="text-[#DA373E] font-semibold text-xs">{errors ? errors.location:""}</span>
+              <span className="text-[#DA373E] font-semibold text-xs">
+                {errors ? errors.location : ""}
+              </span>
             </div>
           </motion.section>
         )}
@@ -326,7 +351,9 @@ console.log(formData)
                 onChange={handleChange}
                 className="w-72 h-10 drop-shadow-md bg-[#ffb703] bg-opacity-75 text-white  rounded-2xl pl-4 border-[1px] text-md z-12"
               />
-              <span className="text-[#DA373E] font-semibold text-xs">{errors ? errors.country:""}</span>
+              <span className="text-[#DA373E] font-semibold text-xs">
+                {errors ? errors.country : ""}
+              </span>
             </div>
           </motion.section>
         )}
@@ -347,7 +374,9 @@ console.log(formData)
                 style={{ resize: "none" }}
                 className="w-72 h-40 drop-shadow-md bg-[#ffb703] bg-opacity-75 text-white  rounded-2xl pl-4 py-3 border-[1px] text-md z-12"
               />
-              <span className="text-[#DA373E] font-semibold text-xs">{errors ? errors.about:""}</span>
+              <span className="text-[#DA373E] font-semibold text-xs">
+                {errors ? errors.about : ""}
+              </span>
             </div>
           </motion.section>
         )}
@@ -368,7 +397,9 @@ console.log(formData)
                 onChange={handleChange}
                 className="w-72 h-10 drop-shadow-md bg-[#ffb703] bg-opacity-75 text-white  rounded-2xl pl-4 border-[1px] text-md z-12"
               />
-              <span className="text-[#DA373E] font-semibold text-xs">{errors ? errors.projectname:""}</span>
+              <span className="text-[#DA373E] font-semibold text-xs">
+                {errors ? errors.projectname : ""}
+              </span>
             </div>
           </motion.section>
         )}
@@ -389,7 +420,9 @@ console.log(formData)
                 onChange={handleChange}
                 className="w-72 h-10 drop-shadow-md bg-[#ffb703] bg-opacity-75 text-white  rounded-2xl pl-4 border-[1px] text-md z-12"
               />
-              <span className="text-[#DA373E] font-semibold text-xs">{errors ? errors.techstack:""}</span>
+              <span className="text-[#DA373E] font-semibold text-xs">
+                {errors ? errors.techstack : ""}
+              </span>
             </div>
           </motion.section>
         )}
@@ -410,7 +443,9 @@ console.log(formData)
                 onChange={handleChange}
                 className="w-72 h-10 drop-shadow-md bg-[#ffb703] bg-opacity-75 text-white  rounded-2xl pl-4 border-[1px] text-md z-12"
               />
-              <span className="text-[#DA373E] font-semibold text-xs">{errors ? errors.linkto:""}</span>
+              <span className="text-[#DA373E] font-semibold text-xs">
+                {errors ? errors.linkto : ""}
+              </span>
             </div>
           </motion.section>
         )}
@@ -424,7 +459,7 @@ console.log(formData)
             <label className="text-md text-slate-50">Congratulations!</label>
           </motion.section>
         )}
-        
+
         {renderBtn()}
       </form>
 
