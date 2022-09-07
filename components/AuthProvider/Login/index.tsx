@@ -17,7 +17,7 @@ const LogInCard = (props: InputProps) => {
           <label htmlFor="email" className="text-xs text-slate-500">
             Email:{" "}
           </label>
-          <AnimatedBorderDiv>
+          <AnimatedBorderDiv animateRemaningBorders={false}>
             <input
               id="email"
               name="email"
@@ -30,7 +30,7 @@ const LogInCard = (props: InputProps) => {
           <label htmlFor="password" className="text-xs text-slate-500">
             Password:
           </label>
-          <AnimatedBorderDiv>
+          <AnimatedBorderDiv animateRemaningBorders={false}>
             <input
               id="password"
               name="password"

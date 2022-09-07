@@ -5,6 +5,7 @@ import { MdExpandMore } from "react-icons/md";
 
 const contact = () => {
 
+    // eslint-disable-next-line react-hooks/rules-of-hooks
     const { ref, inView } = useInView({
         threshold: [0, 0.5, 1.0],
     });
@@ -44,7 +45,7 @@ const contact = () => {
             rightAnimation.start({ x: "5vw", opacity: 0 });
             btnAnimation.start({ opacity: 0, translateY: "-80vh" });
         }
-    }, [inView]);
+    }, [btnAnimation, inView, leftAnimation, rightAnimation]);
 
     const uRef = useRef(null);
     useEffect(() => {
@@ -54,7 +55,7 @@ const contact = () => {
     return (
       <div
         ref={ref}
-        className="flex flex-col md:flex-row lg:flex-row xl:flex-row  items-center justify-center h-screen px-20 py-5 gap-5 w-full"
+        className="bg-white flex flex-col md:flex-row lg:flex-row xl:flex-row  items-center justify-center h-screen px-20 py-5 gap-5 w-full"
       >
         {/* Left side form */}
         <div className="flex flex-col justify-center items-center xl:gap-5 lg:gap-5 md:gap-5 gap-2 xl:w-1/2 lg:w-1/2 md:w-1/2 h-1/2 w-screen">

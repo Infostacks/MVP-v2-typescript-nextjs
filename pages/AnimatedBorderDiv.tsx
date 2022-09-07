@@ -5,7 +5,6 @@ const AnimatedBorder = styled.div`
   position: relative;
   z-index: 15;
 `;
-
 // Left Border styles
 const leftBorderTopBottom = keyframes`
     from {height: 0%;}
@@ -23,7 +22,6 @@ const LeftBorder = styled.div`
   backface-visibility: hidden;
   z-index: 15;
 `;
-
 // Right border styles
 const rightBorderTopBottom = keyframes`
     from {height: 0%;}
@@ -40,7 +38,6 @@ const RightBorder = styled.div`
   position: absolute;
   z-index: 15;
 `;
-
 // Top border styles
 const topBorderTopBottom = keyframes`
     from {width: 0%;}
@@ -58,14 +55,11 @@ const TopBorder = styled.div`
   backface-visibility: hidden;
   z-index: 15;
 `;
-
 // Bottom Border styles
-
 const bottomBorderTopBottom = keyframes`
     from {width: 0%;}
     to {width: 100%;}
 `;
-
 const BottomBorder = styled.div`
   bottom: 0;
   left: 0;
@@ -77,8 +71,15 @@ const BottomBorder = styled.div`
   position: absolute;
   z-index: 15;
 `;
-class AnimatedBorderDiv extends React.Component {
-  constructor(props: {} | Readonly<{}>) {
+
+interface AnimatedBorderProps {
+  animateRemaningBorders?: boolean;
+}
+// type MyState = {
+//   animateRemaningBorders: boolean; // like this
+// };
+class AnimatedBorderDiv extends React.Component<AnimatedBorderProps> {
+  constructor(props: AnimatedBorderProps) {
     super(props);
     this.onAnimationStart = this.onAnimationStart.bind(this);
     this.onAnimationEnd = this.onAnimationEnd.bind(this);
@@ -89,8 +90,8 @@ class AnimatedBorderDiv extends React.Component {
 
   componentDidMount() {
     let el = document.getElementById("leftBorderAnimated");
-    this.prefixEventHandler(el, "AnimationStart", this.onAnimationStart);
-    this.prefixEventHandler(el, "AnimationEnd", this.onAnimationEnd);
+    this.prefixEventHandler(el, "AnimationStart", this.onAnimationStart, undefined);
+    this.prefixEventHandler(el, "AnimationEnd", this.onAnimationEnd, undefined);
   }
 
   onAnimationStart(props: any) {
@@ -120,7 +121,7 @@ class AnimatedBorderDiv extends React.Component {
 
   render() {
     let otherDivs = null;
-
+    
     if (this.state.animateRemaningBorders) {
       otherDivs = [<RightBorder />, <BottomBorder />];
     }

@@ -168,7 +168,7 @@ const Login: NextPage = () => {
       errors[item.path[0]] = item.message;
     }
     return errors;
-  };;
+  };
 
   const handleSubmit = async () => {
     // Function to handle submit
@@ -183,7 +183,6 @@ const Login: NextPage = () => {
         setIsAnimating(false);
       }, 1500);
     } else {
-      // If validation passes
       try {
         if (authType===1) {
           if (formData.password !== formData.confirmPassword) {
