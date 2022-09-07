@@ -135,7 +135,7 @@ const contact = () => {
             autoplay
             loop
             mode="normal"
-            src="https://assets8.lottiefiles.com/packages/lf20_7wwm6az7.json"
+            src="https://assets5.lottiefiles.com/packages/lf20_7wwm6az7.json"
           ></lottie-player>
         </div>
       </div>
