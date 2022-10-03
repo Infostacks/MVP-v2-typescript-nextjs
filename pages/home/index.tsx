@@ -1,5 +1,5 @@
 import Head from "next/head";
-import HeaderSection from "../../components/HomeComponents/Header";
+import HeaderSection from "../../components/Navbar/Header";
 import PreviewSection from "../../components/HomeComponents/PreviewSection";
 import PromotionSection from '../../components/HomeComponents/PromotionSection';
 import FeaturedSection from '../../components/HomeComponents/FeaturedSection'
@@ -17,29 +17,26 @@ const index = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="flex flex-col items-center m-0 p-0 w-screen overflow-x-hidden">
-        <div className="w-screen fixed top-0 z-50">
-          <HeaderSection />
-        </div>
-        <div className="w-screen h-screen">
+      <main className="flex flex-col items-center mx-auto p-0 w-full overflow-x-hidden">
+        <div className="w-full h-screen">
           <PreviewSection />
         </div>
-        <div className="w-screen h-screen">
+        <div className="w-full h-screen">
           <PromotionSection />
         </div>
-        <div className="h-screen w-screen">
+        <div className="h-full w-screen">
           <FeaturedSection />
         </div>
-        <div className="w-screen h-full bg-slate-50 py-5">
+        <div className="w-full h-full bg-slate-50 py-5">
           <ProudProjects />
         </div>
-        <div className="w-screen h-full mt-5 mb-5">
+        <div className="w-full h-full mt-5 mb-5">
           <Companies />
         </div>
-        <div className="w-screen h-screen py-5">
+        <div className="w-full h-screen py-5">
           <Contact />
         </div>
-        <div className="w-screen">
+        <div className="w-full">
           <Footer />
         </div>
       </main>
