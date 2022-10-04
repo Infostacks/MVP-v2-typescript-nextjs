@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 /* eslint-disable react-hooks/rules-of-hooks */
 import React, { useState } from "react";
 import { motion } from "framer-motion";
@@ -5,19 +6,19 @@ import Joi from "joi-browser";
 import useAuth from "../../hooks/useAuth";
 
 const aboutinfo = () => {
-  const [formStep, setFormStep] = useState(0);
+  const [formStep, setFormStep] = useState(6);
   const [errors, setErrors] = useState(null);
   const [confirmPassError, setConfirmPassError] = useState(false);
-  // const { signIn, signUp, resetPassword } = useAuth();
-  const [confirmPassword, setConfirmPassword] = useState("");
+  // const { signIn, signUp, resetfullname } = useAuth();
+  const [confirmfullname, setConfirmfullname] = useState("");
   const [formData, setFormData] = useState({
+    jobtypeoption: "",
+    developerNeeded: "",
     fullname: "",
+    // confirmfullname: "",
     email: "",
-    password: "",
-    // confirmPassword: "",
-    industry: "",
-    address: "",
-    location: "",
+    phoneNumber: "",
+    developerType: "",
     country: "",
     about: "",
     projectname: "",
@@ -27,18 +28,16 @@ const aboutinfo = () => {
 
   const companySignUpSchema = {
     // Joi schema for validation
-    fullname: Joi.string().required().label("Full name"),
-    email: Joi.string()
-      .email({ minDomainSegments: 2, tlds: { allow: ["com", "net"] } })
-      .label("Email"),
-    password: Joi.string().required().label("Password"),
-    // confirmPassword: Joi.string()
+    jobtypeoption: Joi.string().required().label("Full name"),
+    developerNeeded: Joi.string().required().label("Developers Needed"),
+    fullname: Joi.string().required().label("fullname"),
+    // confirmfullname: Joi.string()
     //   .required()
-    //   .valid(Joi.ref("password"))
-    //   .label("Password did not match"),
-    industry: Joi.string().required().label("industry"),
-    address: Joi.string().required().label("Address"),
-    location: Joi.string().required().label("Location"),
+    //   .valid(Joi.ref("fullname"))
+    //   .label("fullname did not match"),
+    email: Joi.string().required().label("email"),
+    phoneNumber: Joi.string().required().label("phoneNumber"),
+    developerType: Joi.string().required().label("developerType"),
     country: Joi.string().required().label("country"),
     about: Joi.string().required().label("about"),
     projectname: Joi.string().required().label("projectname"),
@@ -73,15 +72,15 @@ const aboutinfo = () => {
     } else {
       try {
         console.log("sign up method called");
-        // await signUp(formData.email, formData.password);
+        // await signUp(formData.developerNeeded, formData.fullname);
         alert("Successfully Signed Up. authType Now!");
         resetForm();
         // If validation passes
-        // if (formData.password !== formData.confirmPassword) {
+        // if (formData.fullname !== formData.confirmfullname) {
         //   setConfirmPassError(true);
         // } else {
         //   console.log("sign up method called");
-        //   await signUp(formData.email, formData.password);
+        //   await signUp(formData.developerNeeded, formData.fullname);
         //   alert("Successfully Signed Up. authType Now!");
         //   resetForm();
         // }
@@ -98,13 +97,12 @@ const aboutinfo = () => {
 
   const resetForm = () => {
     setFormData({
+      jobtypeoption: "",
+      developerNeeded: "",
       fullname: "",
       email: "",
-      password: "",
-      // confirmPassword: "",
-      industry: "",
-      address: "",
-      location: "",
+      phoneNumber: "",
+      developerType: "",
       country: "",
       about: "",
       projectname: "",
@@ -125,13 +123,14 @@ const aboutinfo = () => {
     } else {
       if (formStep === 2) {
         console.log("in pswd check");
-        if ((formData.password !== confirmPassword) || ((formData.password && confirmPassword) === "")) {
+        if ((formData.fullname && confirmfullname) === "") {
           setConfirmPassError(true);
           setTimeout(() => {
             setConfirmPassError(false);
           }, 3000);
-        }else{
-          setFormStep(formStep + 1);}
+        } else {
+          setFormStep(formStep + 1);
+        }
       } else {
         setFormStep(formStep + 1);
       }
@@ -193,19 +192,80 @@ const aboutinfo = () => {
             transition={{ duration: 1 }}
           >
             <div className="flex flex-col gap-2">
-              <label className="text-md text-slate-50">
-                Company Full Name:
+              <label className="text-xl font-bold text-slate-50">
+                What type of hire do you need? *
               </label>
-              <input
-                id="fullname"
-                name="fullname"
-                type="text"
-                defaultValue={formData.fullname}
-                onChange={handleChange}
-                className="w-72 h-10 drop-shadow-md bg-[#ffb703] bg-opacity-75 text-white rounded-2xl pl-4 border-[1px] text-md z-12"
-              />
+              <label className="text-md text-slate-50">
+                We offer full time (40 hours/week) and part time (20 hours/week)
+              </label>
+
+              {/* start  */}
+              <div className="grid xl:grid-cols-2 lg:grid-cols-2 md:grid-cols-2 grid-cols-1 gap-5">
+                <div className="relative">
+                  <input
+                    className="hidden group peer"
+                    type="radio"
+                    name="jobtypeoption"
+                    value="Full Time"
+                    id="full_time"
+                  />
+
+                  <label
+                    className="block p-4 text-sm font-medium border text-gray-200 hover:text-black border-gray-200 rounded-lg cursor-pointer transition-colors shadow-sm peer-checked:border-blue-500 hover:bg-[#ffb703] peer-checked:ring-1 peer-checked:ring-blue-500"
+                    htmlFor="full_time"
+                  >
+                    <span className="text-lg">Full Time</span>
+                  </label>
+
+                  <svg
+                    className="absolute w-5 h-5 text-blue-600 opacity-0 top-4 right-4 peer-checked:opacity-100"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                </div>
+
+                <div className="relative">
+                  <input
+                    className="hidden group peer"
+                    type="radio"
+                    name="jobtypeoption"
+                    value="Part-Time"
+                    id="part_time"
+                    defaultValue={formData.jobtypeoption}
+                    onChange={handleChange}
+                  />
+
+                  <label
+                    className="block p-4 text-sm font-medium border text-gray-200 hover:text-black border-gray-200 rounded-lg cursor-pointer transition-colors shadow-sm peer-checked:border-blue-500 hover:bg-[#ffb703] peer-checked:ring-1 peer-checked:ring-blue-500"
+                    htmlFor="part_time"
+                  >
+                    <span className="text-lg">Part Time</span>
+                  </label>
+
+                  <svg
+                    className="absolute w-5 h-5 text-blue-600 opacity-0 top-4 right-4 peer-checked:opacity-100"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                </div>
+              </div>
+              {/* end  */}
               <span className="text-[#DA373E] font-semibold text-xs">
-                {errors ? errors.fullname : ""}
+                {errors ? errors.jobtypeoption : ""}
               </span>
             </div>
           </motion.section>
@@ -218,17 +278,112 @@ const aboutinfo = () => {
             transition={{ duration: 1 }}
           >
             <div className="flex flex-col gap-2">
-              <label className="text-md text-slate-50">Company Email:</label>
-              <input
-                id="email"
-                name="email"
-                type="email"
-                defaultValue={formData.email}
-                onChange={handleChange}
-                className="w-72 h-10 drop-shadow-md bg-[#ffb703] bg-opacity-75 text-white  rounded-2xl pl-4 border-[1px] text-md z-12"
-              />
+              <label className="text-xl font-bold text-slate-50">
+                How many developers are you looking for? *
+              </label>
+              <label className="text-md text-slate-50">
+                You can start with 1 or 10. We have the talent ready!
+              </label>
+
+              {/* start  */}
+              <div className="grid xl:grid-cols-3 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5">
+                <div className="relative">
+                  <input
+                    className="hidden group peer"
+                    type="radio"
+                    name="developerNeeded"
+                    value="UI/UX"
+                    id="UI/UX"
+                  />
+
+                  <label
+                    className="block p-4 text-sm font-medium border text-gray-200 hover:text-black border-gray-200 rounded-lg cursor-pointer transition-colors shadow-sm peer-checked:border-blue-500 hover:bg-[#ffb703] peer-checked:ring-1 peer-checked:ring-blue-500"
+                    htmlFor="UI/UX"
+                  >
+                    <span className="text-lg">1-2</span>
+                  </label>
+
+                  <svg
+                    className="absolute w-5 h-5 text-blue-600 opacity-0 top-4 right-4 peer-checked:opacity-100"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                </div>
+
+                <div className="relative">
+                  <input
+                    className="hidden group peer"
+                    type="radio"
+                    name="developerNeeded"
+                    value="Frontend"
+                    id="Frontend"
+                    defaultValue={formData.jobtypeoption}
+                    onChange={handleChange}
+                  />
+
+                  <label
+                    className="block p-4 text-sm font-medium border text-gray-200 hover:text-black border-gray-200 rounded-lg cursor-pointer transition-colors shadow-sm peer-checked:border-blue-500 hover:bg-[#ffb703] peer-checked:ring-1 peer-checked:ring-blue-500"
+                    htmlFor="Frontend"
+                  >
+                    <span className="text-lg">2-5</span>
+                  </label>
+
+                  <svg
+                    className="absolute w-5 h-5 text-blue-600 opacity-0 top-4 right-4 peer-checked:opacity-100"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                </div>
+
+                <div className="relative">
+                  <input
+                    className="hidden group peer"
+                    type="radio"
+                    name="developerNeeded"
+                    value="Backend"
+                    id="Backend"
+                    defaultValue={formData.jobtypeoption}
+                    onChange={handleChange}
+                  />
+
+                  <label
+                    className="block p-4 text-sm font-medium border text-gray-200 hover:text-black border-gray-200 rounded-lg cursor-pointer transition-colors shadow-sm peer-checked:border-blue-500 hover:bg-[#ffb703] peer-checked:ring-1 peer-checked:ring-blue-500"
+                    htmlFor="Backend"
+                  >
+                    <span className="text-lg">Backend</span>
+                  </label>
+
+                  <svg
+                    className="absolute w-5 h-5 text-blue-600 opacity-0 top-4 right-4 peer-checked:opacity-100"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                </div>
+              </div>
+              {/* end  */}
               <span className="text-[#DA373E] font-semibold text-xs">
-                {errors ? errors.email : ""}
+                {errors ? errors.jobtypeoption : ""}
               </span>
             </div>
           </motion.section>
@@ -241,26 +396,21 @@ const aboutinfo = () => {
             transition={{ duration: 1 }}
           >
             <div className="flex flex-col gap-2">
-              <label className="text-md text-slate-50">Company Password:</label>
+              <label className="text-xl font-bold text-slate-50">
+                What’s your name? *
+              </label>
+              <label className="text-md text-slate-50">Nice to meet you!</label>
               <input
-                id="password"
-                name="password"
-                type="password"
-                defaultValue={formData.password}
+                id="fullname"
+                name="fullname"
+                placeholder="Your Name"
+                type="text"
+                defaultValue={formData.fullname}
                 onChange={handleChange}
-                className="w-72 h-10 drop-shadow-md bg-[#ffb703] bg-opacity-75 text-white  rounded-2xl pl-4 border-[1px] text-md z-12"
-              />
-              <label className="text-md text-slate-50">Confirm Password:</label>
-              <input
-                id="confirmPassword"
-                name="confirmPassword"
-                type="password"
-                defaultValue={confirmPassword}
-                onChange={handleChange}
-                className="w-72 h-10 drop-shadow-md bg-[#ffb703] bg-opacity-75 text-white  rounded-2xl pl-4 border-[1px] text-md z-12"
+                className="w-full p-4 drop-shadow-md bg-[#ffb703] bg-opacity-75 text-white placeholder:text-white border-gray-200 rounded-lg border text-sm"
               />
               <span className="text-[#DA373E] font-semibold text-xs">
-                {confirmPassError ? "Password is not match!" : ""}
+                {errors ? errors.jobtypeoption : ""}
               </span>
             </div>
           </motion.section>
@@ -273,17 +423,23 @@ const aboutinfo = () => {
             transition={{ duration: 1 }}
           >
             <div className="flex flex-col gap-2">
-              <label className="text-md text-slate-50">Industry:</label>
+              <label className="text-xl font-bold text-slate-50">
+                What is your email? *
+              </label>
+              <label className="text-md text-slate-50">
+                We'll need this for later
+              </label>
               <input
-                id="industry"
-                name="industry"
+                id="email"
+                name="email"
+                placeholder="Your Email"
                 type="text"
-                defaultValue={formData.industry}
+                defaultValue={formData.fullname}
                 onChange={handleChange}
-                className="w-72 h-10 drop-shadow-md bg-[#ffb703] bg-opacity-75 text-white  rounded-2xl pl-4 border-[1px] text-md z-12"
+                className="w-full p-4 drop-shadow-md bg-[#ffb703] bg-opacity-75 text-white placeholder:text-white border-gray-200 rounded-lg border text-sm"
               />
               <span className="text-[#DA373E] font-semibold text-xs">
-                {errors ? errors.industry : ""}
+                {errors ? errors.jobtypeoption : ""}
               </span>
             </div>
           </motion.section>
@@ -296,17 +452,23 @@ const aboutinfo = () => {
             transition={{ duration: 1 }}
           >
             <div className="flex flex-col gap-2">
-              <label className="text-md text-slate-50">Address:</label>
+              <label className="text-xl font-bold text-slate-50">
+                What’s your phone number? *
+              </label>
+              <label className="text-md text-slate-50">
+                Incase we need to reach you
+              </label>
               <input
-                id="address"
-                name="address"
+                id="phoneNumber"
+                name="phoneNumber"
+                placeholder="Your Phone Number"
                 type="text"
-                defaultValue={formData.address}
+                defaultValue={formData.fullname}
                 onChange={handleChange}
-                className="w-72 h-10 drop-shadow-md bg-[#ffb703] bg-opacity-75 text-white  rounded-2xl pl-4 border-[1px] text-md z-12"
+                className="w-full p-4 drop-shadow-md bg-[#ffb703] bg-opacity-75 text-white placeholder:text-white border-gray-200 rounded-lg border text-sm"
               />
               <span className="text-[#DA373E] font-semibold text-xs">
-                {errors ? errors.address : ""}
+                {errors ? errors.jobtypeoption : ""}
               </span>
             </div>
           </motion.section>
@@ -319,17 +481,176 @@ const aboutinfo = () => {
             transition={{ duration: 1 }}
           >
             <div className="flex flex-col gap-2">
-              <label className="text-md text-slate-50">Location/ City:</label>
-              <input
-                id="location"
-                name="location"
-                type="text"
-                defaultValue={formData.location}
-                onChange={handleChange}
-                className="w-72 h-10 drop-shadow-md bg-[#ffb703] bg-opacity-75 text-white  rounded-2xl pl-4 border-[1px] text-md z-12"
-              />
+              <label className="text-xl font-bold text-slate-50">
+                What type of developers are you looking for? *
+              </label>
+              <label className="text-md text-slate-50">
+                We have all types of developers ready to work!
+              </label>
+
+              {/* start  */}
+              <div className="grid xl:grid-cols-3 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5">
+                <div className="relative">
+                  <input
+                    className="hidden group peer"
+                    type="radio"
+                    name="developerType"
+                    value="UI/UX"
+                    id="UI/UX"
+                  />
+
+                  <label
+                    className="block p-4 text-sm font-medium border text-gray-200 hover:text-black border-gray-200 rounded-lg cursor-pointer transition-colors shadow-sm peer-checked:border-blue-500 hover:bg-[#ffb703] peer-checked:ring-1 peer-checked:ring-blue-500"
+                    htmlFor="UI/UX"
+                  >
+                    <span className="text-lg">UI/UX</span>
+                  </label>
+
+                  <svg
+                    className="absolute w-5 h-5 text-blue-600 opacity-0 top-4 right-4 peer-checked:opacity-100"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                </div>
+
+                <div className="relative">
+                  <input
+                    className="hidden group peer"
+                    type="radio"
+                    name="developerType"
+                    value="Frontend"
+                    id="Frontend"
+                    defaultValue={formData.jobtypeoption}
+                    onChange={handleChange}
+                  />
+
+                  <label
+                    className="block p-4 text-sm font-medium border text-gray-200 hover:text-black border-gray-200 rounded-lg cursor-pointer transition-colors shadow-sm peer-checked:border-blue-500 hover:bg-[#ffb703] peer-checked:ring-1 peer-checked:ring-blue-500"
+                    htmlFor="Frontend"
+                  >
+                    <span className="text-lg">Frontend</span>
+                  </label>
+
+                  <svg
+                    className="absolute w-5 h-5 text-blue-600 opacity-0 top-4 right-4 peer-checked:opacity-100"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                </div>
+
+                <div className="relative">
+                  <input
+                    className="hidden group peer"
+                    type="radio"
+                    name="developerType"
+                    value="Backend"
+                    id="Backend"
+                    defaultValue={formData.jobtypeoption}
+                    onChange={handleChange}
+                  />
+
+                  <label
+                    className="block p-4 text-sm font-medium border text-gray-200 hover:text-black border-gray-200 rounded-lg cursor-pointer transition-colors shadow-sm peer-checked:border-blue-500 hover:bg-[#ffb703] peer-checked:ring-1 peer-checked:ring-blue-500"
+                    htmlFor="Backend"
+                  >
+                    <span className="text-lg">Backend</span>
+                  </label>
+
+                  <svg
+                    className="absolute w-5 h-5 text-blue-600 opacity-0 top-4 right-4 peer-checked:opacity-100"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                </div>
+
+                <div className="relative">
+                  <input
+                    className="hidden group peer"
+                    type="radio"
+                    name="developerType"
+                    value="Full stack"
+                    id="Full_stack"
+                    defaultValue={formData.jobtypeoption}
+                    onChange={handleChange}
+                  />
+
+                  <label
+                    className="block p-4 text-sm font-medium border text-gray-200 hover:text-black border-gray-200 rounded-lg cursor-pointer transition-colors shadow-sm peer-checked:border-blue-500 hover:bg-[#ffb703] peer-checked:ring-1 peer-checked:ring-blue-500"
+                    htmlFor="Full stack"
+                  >
+                    <span className="text-lg">Full stack</span>
+                  </label>
+
+                  <svg
+                    className="absolute w-5 h-5 text-blue-600 opacity-0 top-4 right-4 peer-checked:opacity-100"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                </div>
+
+                <div className="relative">
+                  <input
+                    className="hidden group peer"
+                    type="radio"
+                    name="developerType"
+                    value="Other"
+                    id="Other"
+                    defaultValue={formData.jobtypeoption}
+                    onChange={handleChange}
+                  />
+
+                  <label
+                    className="block p-4 text-sm font-medium border text-gray-200 hover:text-black border-gray-200 rounded-lg cursor-pointer transition-colors shadow-sm peer-checked:border-blue-500 hover:bg-[#ffb703] peer-checked:ring-1 peer-checked:ring-blue-500"
+                    htmlFor="Other"
+                  >
+                    <span className="text-lg">Other</span>
+                  </label>
+
+                  <svg
+                    className="absolute w-5 h-5 text-blue-600 opacity-0 top-4 right-4 peer-checked:opacity-100"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                </div>
+              </div>
+              {/* end  */}
               <span className="text-[#DA373E] font-semibold text-xs">
-                {errors ? errors.location : ""}
+                {errors ? errors.jobtypeoption : ""}
               </span>
             </div>
           </motion.section>
@@ -472,6 +793,6 @@ const aboutinfo = () => {
 };
 
 export default aboutinfo;
-function signUp(email: string, password: string) {
+function signUp(developerNeeded: string, fullname: string) {
   throw new Error("Function not implemented.");
 }

@@ -3,15 +3,15 @@ import SideAnimation from "./SideAnimation";
 
 const index = () => {
   return (
-    <div className="companySignupBG ">
-      <div className="bg-white bg-opacity-50 flex xl:flex-row lg:flex-row md:flex-row flex-col m-0 p-0 h-screen w-screen">
-      <div className="h-full w-1/3">
-        <SideAnimation />
+    <div className="companySignupBG">
+      <div className="bg-white bg-opacity-50 flex flex-row m-0 p-0 h-screen w-screen">
+        <div className="h-full w-1/3 xl:block lg:block hidden">
+          <SideAnimation />
+        </div>
+        <div className="h-full xl:w-2/3 lg:w-2/3 w-full flex justify-center items-center">
+          <AboutInfo />
+        </div>
       </div>
-      <div className="h-full w-2/3 flex justify-center items-center">
-        <AboutInfo />
-      </div>
-    </div>
     </div>
   );
 };
