@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from "react";
 
 const SideAnimation = () => {
   const uRef = useRef(null);
-  
+
   useEffect(() => {
     import("@lottiefiles/lottie-player");
   }, []);
