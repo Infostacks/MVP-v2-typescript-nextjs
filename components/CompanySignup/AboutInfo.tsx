@@ -2,11 +2,13 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import Joi from "joi-browser";
+import { hourlyRate, requiredSkills } from "../utils/data";
 import useAuth from "../../hooks/useAuth";
 
-const aboutinfo = () => {
-  const [formStep, setFormStep] = useState(6);
+const hourlyRateinfo = () => {
+  const [formStep, setFormStep] = useState(8);
   const [errors, setErrors] = useState(null);
   const [confirmPassError, setConfirmPassError] = useState(false);
   // const { signIn, signUp, resetfullname } = useAuth();
@@ -19,8 +21,8 @@ const aboutinfo = () => {
     email: "",
     phoneNumber: "",
     developerType: "",
-    country: "",
-    about: "",
+    requiredSkill: "",
+    hourlyRate: "",
     projectname: "",
     techstack: "",
     linkto: "",
@@ -38,8 +40,8 @@ const aboutinfo = () => {
     email: Joi.string().required().label("email"),
     phoneNumber: Joi.string().required().label("phoneNumber"),
     developerType: Joi.string().required().label("developerType"),
-    country: Joi.string().required().label("country"),
-    about: Joi.string().required().label("about"),
+    requiredSkill: Joi.string().required().label("requiredSkill"),
+    hourlyRate: Joi.string().required().label("hourlyRate"),
     projectname: Joi.string().required().label("projectname"),
     techstack: Joi.string().required().label("techstack"),
     linkto: Joi.string().required().label("linkto"),
@@ -103,8 +105,8 @@ const aboutinfo = () => {
       email: "",
       phoneNumber: "",
       developerType: "",
-      country: "",
-      about: "",
+      requiredSkill: "",
+      hourlyRate: "",
       projectname: "",
       techstack: "",
       linkto: "",
@@ -663,17 +665,56 @@ const aboutinfo = () => {
             transition={{ duration: 1 }}
           >
             <div className="flex flex-col gap-2">
-              <label className="text-md text-slate-50">Country:</label>
-              <input
-                id="country"
-                name="country"
-                type="text"
-                defaultValue={formData.country}
-                onChange={handleChange}
-                className="w-72 h-10 drop-shadow-md bg-[#ffb703] bg-opacity-75 text-white  rounded-2xl pl-4 border-[1px] text-md z-12"
-              />
+              <label className="text-md text-slate-50">
+                If you don't know, that's okay. Just press next to skip.
+              </label>
+
+              {/* start  */}
+              <div className="grid xl:grid-cols-3 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5">
+                {requiredSkills.map((skill, index) => {
+                  return (
+                    <div className="relative" key={index}>
+                      <input
+                        className="hidden group peer"
+                        type="radio"
+                        name="requiredSkill"
+                        value={skill.name}
+                        id={skill.name}
+                      />
+
+                      <label
+                        className="flex gap-5 items-center center p-4 text-sm font-medium border text-gray-200 hover:text-black border-gray-200 rounded-lg cursor-pointer transition-colors shadow-sm peer-checked:border-blue-500 hover:bg-[#ffb703] peer-checked:ring-1 peer-checked:ring-blue-500"
+                        htmlFor={skill.name}
+                      >
+                        <Image
+                          src={skill.icon}
+                          alt=""
+                          unoptimized
+                          width="40"
+                          height="40"
+                        />
+                        <span className="text-lg">{skill.name}</span>
+                      </label>
+
+                      <svg
+                        className="absolute w-5 h-5 text-blue-600 opacity-0 top-4 right-4 peer-checked:opacity-100"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                    </div>
+                  );
+                })}
+              </div>
+              {/* end  */}
               <span className="text-[#DA373E] font-semibold text-xs">
-                {errors ? errors.country : ""}
+                {errors ? errors.jobtypeoption : ""}
               </span>
             </div>
           </motion.section>
@@ -686,17 +727,52 @@ const aboutinfo = () => {
             transition={{ duration: 1 }}
           >
             <div className="flex flex-col gap-2">
-              <label className="text-md text-slate-50">About Company:</label>
-              <textarea
-                id="about"
-                name="about"
-                defaultValue={formData.about}
-                onChange={handleChange}
-                style={{ resize: "none" }}
-                className="w-72 h-40 drop-shadow-md bg-[#ffb703] bg-opacity-75 text-white  rounded-2xl pl-4 py-3 border-[1px] text-md z-12"
-              />
+              <label className="text-xl font-semibold text-slate-50">
+                What is the ideal hourly rate range? *
+              </label>
+              <label className="text-md text-slate-50">
+                The average rate of a micro1 developer is $40/hour.
+              </label>
+
+              {/* start  */}
+              <div className="grid xl:grid-cols-3 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5">
+                {hourlyRate.map((rate, index) => {
+                  return (
+                    <div className="relative" key={index}>
+                      <input
+                        className="hidden group peer"
+                        type="radio"
+                        name="hourlyRate"
+                        value={rate.rate}
+                        id={rate.rate}
+                      />
+
+                      <label
+                        className="block p-4 text-sm font-medium border text-gray-200 hover:text-black border-gray-200 rounded-lg cursor-pointer transition-colors shadow-sm peer-checked:border-blue-500 hover:bg-[#ffb703] peer-checked:ring-1 peer-checked:ring-blue-500"
+                        htmlFor={rate.rate}
+                      >
+                        <span className="text-lg">{rate.rate}</span>
+                      </label>
+
+                      <svg
+                        className="absolute w-5 h-5 text-blue-600 opacity-0 top-4 right-4 peer-checked:opacity-100"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                    </div>
+                  );
+                })}
+              </div>
+              {/* end  */}
               <span className="text-[#DA373E] font-semibold text-xs">
-                {errors ? errors.about : ""}
+                {errors ? errors.jobtypeoption : ""}
               </span>
             </div>
           </motion.section>
@@ -709,17 +785,23 @@ const aboutinfo = () => {
             transition={{ duration: 1 }}
           >
             <div className="flex flex-col gap-2">
-              <label className="text-md text-slate-50">Project Name:</label>
+              <label className="text-xl font-bold text-slate-50">
+                What is your email? *
+              </label>
+              <label className="text-md text-slate-50">
+                We'll need this for later
+              </label>
               <input
-                id="projectname"
-                name="projectname"
-                type="text"
-                defaultValue={formData.projectname}
+                id="email"
+                name="email"
+                placeholder="Your Email"
+                type="textarea"
+                defaultValue={formData.fullname}
                 onChange={handleChange}
-                className="w-72 h-10 drop-shadow-md bg-[#ffb703] bg-opacity-75 text-white  rounded-2xl pl-4 border-[1px] text-md z-12"
+                className="w-full p-4 drop-shadow-md bg-[#ffb703] bg-opacity-75 text-white placeholder:text-white border-gray-200 rounded-lg border text-sm"
               />
               <span className="text-[#DA373E] font-semibold text-xs">
-                {errors ? errors.projectname : ""}
+                {errors ? errors.jobtypeoption : ""}
               </span>
             </div>
           </motion.section>
@@ -792,7 +874,7 @@ const aboutinfo = () => {
   );
 };
 
-export default aboutinfo;
+export default hourlyRateinfo;
 function signUp(developerNeeded: string, fullname: string) {
   throw new Error("Function not implemented.");
 }

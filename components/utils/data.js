@@ -240,4 +240,65 @@ const companiesList = [
   "https://arbisoft.com/wp-content/uploads/2019/06/mcdonalds.png",
 ];
 
-export { animList, previewTextData, memberData, proudProjects, companiesList };
+const requiredSkills = [
+  {
+    icon: "https://assets.website-files.com/632a6ffabd6820ec560a3c0c/632a6ffabd6820179a0a3c4d_Ellipse%20157.svg",
+    name: "React",
+  },
+  {
+    icon: "https://assets.website-files.com/632a6ffabd6820ec560a3c0c/632a6ffabd6820e2330a3c75_Figma.svg",
+    name: "Figma",
+  },
+  {
+    icon: "https://assets.website-files.com/632a6ffabd6820ec560a3c0c/632a6ffabd6820f29d0a3c7b_Java-Script.svg",
+    name: "JS",
+  },
+  {
+    icon: "https://assets.website-files.com/632a6ffabd6820ec560a3c0c/632a6ffabd682023b70a3c5a_AWS.svg",
+    name: "AWS",
+  },
+  {
+    icon: "https://assets.website-files.com/632a6ffabd6820ec560a3c0c/632a6ffabd682008a20a3c76_Node.js.svg",
+    name: "Node.js",
+  },
+  {
+    icon: "https://assets.website-files.com/632a6ffabd6820ec560a3c0c/632a6ffabd6820721c0a3c52_Ellipse%20159.svg",
+    name: "Python",
+  },
+  {
+    icon: "https://assets.website-files.com/632a6ffabd6820ec560a3c0c/632a6ffabd682042f80a3c77_React-native.svg",
+    name: "React Native",
+  },
+  {
+    icon: "https://assets.website-files.com/632a6ffabd6820ec560a3c0c/632a6ffabd68204d770a3c7e_Blockchains.svg",
+    name: "Blockchain",
+  },
+];
+
+const hourlyRate = [
+  {
+    rate: "$15-$20",
+  },
+  {
+    rate: "$20-$30",
+  },
+  {
+    rate: "$30-$50",
+  },
+  {
+    rate: "$50-$80",
+  },
+  {
+    rate: "$80+",
+  },
+]
+
+export {
+  animList,
+  previewTextData,
+  memberData,
+  proudProjects,
+  companiesList,
+  requiredSkills,
+  hourlyRate,
+};
