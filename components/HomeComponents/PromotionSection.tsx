@@ -14,38 +14,38 @@ const promotionsection = () => {
   const rightAnimation = useAnimation();
   const btnAnimation = useAnimation();
 
-  useEffect(() => {
-    if (inView) {
-      leftAnimation.start({
-        x: 0,
-        opacity: 1,
-        transition: {
-          duration: 1,
-          bounce: 0.3,
-        },
-      });
+  // useEffect(() => {
+  //   if (inView) {
+  //     leftAnimation.start({
+  //       x: 0,
+  //       opacity: 1,
+  //       transition: {
+  //         duration: 1,
+  //         bounce: 0.3,
+  //       },
+  //     });
 
-      rightAnimation.start({
-        x: 0,
-        opacity: 1,
-        transition: {
-          duration: 1,
-          bounce: 0.3,
-        },
-      });
+  //     rightAnimation.start({
+  //       x: 0,
+  //       opacity: 1,
+  //       transition: {
+  //         duration: 1,
+  //         bounce: 0.3,
+  //       },
+  //     });
 
-      btnAnimation.start({
-        opacity: 1,
-        translateY: [30, -25, 20, -15, 10, 0],
-        transition: { duration: 3, delay: 0.5, type: "spring" },
-      });
-    }
-    if (!inView) {
-      leftAnimation.start({ x: "-5vw", opacity: 0 });
-      rightAnimation.start({ x: "5vw", opacity: 0 });
-      btnAnimation.start({ opacity: 0, translateY: "-80vh" });
-    }
-  }, [inView]);
+  //     btnAnimation.start({
+  //       opacity: 1,
+  //       translateY: [30, -25, 20, -15, 10, 0],
+  //       transition: { duration: 3, delay: 0.5, type: "spring" },
+  //     });
+  //   }
+  //   if (!inView) {
+  //     leftAnimation.start({ x: "-5vw", opacity: 0 });
+  //     rightAnimation.start({ x: "5vw", opacity: 0 });
+  //     btnAnimation.start({ opacity: 0, translateY: "-80vh" });
+  //   }
+  // }, [inView]);
 
   return (
     <div className="bubblePattern">
@@ -59,14 +59,16 @@ const promotionsection = () => {
           <motion.div
             animate={leftAnimation}
           >
-            <Image
-              src={productImages.product1}
-              unoptimized
-              width="370"
-              height="270"
-              className="shadow-md rounded-3xl z-50 opacity-80"
-            />
           </motion.div>
+          <Image 
+              // src={productImages.product1}
+              src={"https://cdni.iconscout.com/illustration/premium/thumb/online-sale-advertising-5365276-4500144.png"}
+              unoptimized
+              width="450"
+              height="400"
+              className="shadow-md  z-50 opacity-80"
+            />
+   
         </div>
 
         {/* Right Side  */}

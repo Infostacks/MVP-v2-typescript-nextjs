@@ -1,12 +1,14 @@
 import Head from "next/head";
 import HeaderSection from "../../components/Navbar/Header";
 import PreviewSection from "../../components/HomeComponents/PreviewSection";
-import PromotionSection from '../../components/HomeComponents/PromotionSection';
-import FeaturedSection from '../../components/HomeComponents/FeaturedSection'
-import ProudProjects from '../../components/HomeComponents/ProudProjects'
-import Companies from '../../components/HomeComponents/Companies'
-import Contact from '../../components/HomeComponents/Contact'
-import Footer from '../../components/HomeComponents/Footer'
+import PromotionSection from "../../components/HomeComponents/PromotionSection";
+import FeaturedSection from "../../components/HomeComponents/FeaturedSection";
+import ProudProjects from "../../components/HomeComponents/ProudProjects";
+import Companies from "../../components/HomeComponents/Companies";
+import Contact from "../../components/HomeComponents/Contact";
+import Footer from "../../components/HomeComponents/Footer";
+import Pro1 from "../../components/HomeComponents/Pro1";
+import HiringProcress from "../../components/HomeComponents/HiringProcress";
 
 const index = () => {
   return (
@@ -24,6 +26,10 @@ const index = () => {
         <div className="w-full h-screen">
           <PromotionSection />
         </div>
+
+        <div>
+          <Pro1 />
+        </div>
         <div className="h-full w-screen">
           <FeaturedSection />
         </div>
@@ -32,6 +38,9 @@ const index = () => {
         </div>
         <div className="w-full h-full mt-5 mb-5">
           <Companies />
+        </div>
+        <div>
+          <HiringProcress />
         </div>
         <div className="w-full h-screen py-5">
           <Contact />
