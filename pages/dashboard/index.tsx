@@ -46,7 +46,7 @@ const dashboard = () => {
           {/* ScreenPlay Box here */}
           <ScreenPlayBox />
 
-          <BarChart/>
+          {/* <BarChart/> */}
         </div>
 
         {/* Top posts column  */}
