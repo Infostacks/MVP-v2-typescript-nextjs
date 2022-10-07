@@ -1,3 +1,9 @@
+import { VscSettingsGear } from "react-icons/vsc";
+import { TbHeartRateMonitor } from "react-icons/tb";
+import { BiMessageAlt } from "react-icons/bi";
+import { HiOutlineDesktopComputer } from "react-icons/hi";
+import { BsCalendar4Week } from "react-icons/bs";
+
 const animList = [
   "https://assets9.lottiefiles.com/packages/lf20_hcwpcdew.json",
   "https://assets2.lottiefiles.com/packages/lf20_01jwptn4.json",
@@ -293,7 +299,37 @@ const hourlyRate = [
   },
 ]
 
+const hiringData=[
+  {
+    icon: <VscSettingsGear className=" w-16 h-16 text-white"/>,
+    heading: "Loom Video",
+    desc: "First, the developers apply online by attaching a 3 minute loom video of themselves going through their resume. Here we can quickly do most of the filtering by assessing experience, resume, and communication."
+  },
+  {
+    icon: <TbHeartRateMonitor className=" w-16 h-16 text-white"/>,
+    heading: "Online Test",
+    desc: "If the candidate passes the 1st step, they then have to take 2 quizzes personalized to their skills."
+  },
+  {
+    icon: <BiMessageAlt className=" w-16 h-16 text-white"/>,
+    heading: "Casual Interview",
+    desc:"We then conduct a casual interview discussing their experience, assessing their soft skills, and seeing if they're passionate about what they do."
+  },
+  {
+    icon: <HiOutlineDesktopComputer className=" w-16 h-16 text-white"/>,
+    heading: "Technical Interview",
+    desc:"Technical Interview After they pass the casual interview, we conduct 1-2 rounds of technical interviews."
+  },
+  {
+    icon: <BsCalendar4Week className=" w-16 h-16 text-white"/>,
+    heading: "Test Phase",
+    desc:"After all the steps above are passed, the developer joins your team for 1 week at no cost. This, without doubt, is the best possible way to truly asses ones skills, communication, team work, and passion. We pay for this so that you can confidently hire the best remote developers for your team."
+  }
+
+]
+
 export {
+  hiringData,
   animList,
   previewTextData,
   memberData,
