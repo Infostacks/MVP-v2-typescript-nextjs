@@ -328,6 +328,8 @@ const hiringData=[
 
 ]
 
+const howitworksCards
+
 export {
   hiringData,
   animList,
