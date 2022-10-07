@@ -1,6 +1,8 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import useAuth from "../../hooks/useAuth";
 import styles from "../../styles/Global.js";
 import React, { useState } from "react";
+import Image from "next/image";
 import { Transition } from "@headlessui/react";
 
 const header = () => {
@@ -23,7 +25,7 @@ const header = () => {
   window.addEventListener("scroll", changeNavBG);
 
   return (
-    <div>
+    <div className="overflow-hidden scroll-hidden">
       <nav
         className={`${
           navbar ? "bg-teal-500 bg-opacity-90 drop-shadow-md" : "bg-transparent"
@@ -33,10 +35,12 @@ const header = () => {
           <div className="flex items-center justify-between h-16">
             <div className="flex justify-between items-center w-full">
               <div className="flex-shrink-0">
-                <img
-                  className="h-8 w-8"
+                <Image
                   src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg"
                   alt="Workflow"
+                  width="40%"
+                  height="40%"
+                  unoptimized
                 />
               </div>
               <div className="flex flex-row justify-center items-center">
@@ -44,46 +48,46 @@ const header = () => {
                   <div className="ml-10 flex items-baseline space-x-4">
                     <a
                       href="#"
-                      className={`text-white hover:bg-gray-700  px-3 py-2 rounded-md text-sm font-medium`}
+                      className={`text-slate-900 hover:bg-gray-700  px-3 py-2 rounded-md text-sm font-medium`}
                     >
                       Services
                     </a>
 
                     <a
                       href="#"
-                      className={`text-white  hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium`}
+                      className={`text-slate-900  hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium`}
                     >
                       Team
                     </a>
 
                     <a
                       href="#"
-                      className={`text-white  hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium`}
+                      className={`text-slate-900  hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium`}
                     >
                       Projects
                     </a>
 
                     <a
                       href="#"
-                      className={`text-white  hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium`}
+                      className={`text-slate-900  hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium`}
                     >
                       Blog
                     </a>
 
                     <a
                       href="#"
-                      className={`text-white  hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium`}
+                      className={`text-slate-900  hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium`}
                     >
                       Contact Us
                     </a>
                     <a
                       href="#"
-                      className={`text-white  hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium`}
+                      className={`text-slate-900  hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium`}
                     >
                       Admin Panel
                     </a>
                     <a
-                      className={`text-white  hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium`}
+                      className={`text-slate-900  hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium`}
                       onClick={handleLogout}
                     >
                       Logout
