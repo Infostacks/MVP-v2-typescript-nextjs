@@ -1,5 +1,5 @@
 import useAuth from "../../hooks/useAuth";
-import styles from '../../styles/Global.js'
+import styles from "../../styles/Global.js";
 import React, { useState } from "react";
 import { Transition } from "@headlessui/react";
 
@@ -13,14 +13,14 @@ const header = () => {
   const [navbar, setNavbar] = useState(false);
 
   const changeNavBG = () => {
-    if(window.scrollY >= 100){
+    if (window.scrollY >= 100) {
       setNavbar(true);
-    }else{
+    } else {
       setNavbar(false);
     }
-  }
+  };
 
-  window.addEventListener('scroll', changeNavBG);
+  window.addEventListener("scroll", changeNavBG);
 
   return (
     <div>
@@ -44,60 +44,46 @@ const header = () => {
                   <div className="ml-10 flex items-baseline space-x-4">
                     <a
                       href="#"
-                      className={`${
-                        navbar ? "text-white" : "text-gray-800"
-                      }hover:bg-gray-700  px-3 py-2 rounded-md text-sm font-medium`}
+                      className={`text-white hover:bg-gray-700  px-3 py-2 rounded-md text-sm font-medium`}
                     >
                       Services
                     </a>
 
                     <a
                       href="#"
-                      className={`${
-                        navbar ? "text-white" : "text-gray-800"
-                      } hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium`}
+                      className={`text-white  hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium`}
                     >
                       Team
                     </a>
 
                     <a
                       href="#"
-                      className={`${
-                        navbar ? "text-white" : "text-gray-800"
-                      } hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium`}
+                      className={`text-white  hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium`}
                     >
                       Projects
                     </a>
 
                     <a
                       href="#"
-                      className={`${
-                        navbar ? "text-white" : "text-gray-800"
-                      } hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium`}
+                      className={`text-white  hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium`}
                     >
                       Blog
                     </a>
 
                     <a
                       href="#"
-                      className={`${
-                        navbar ? "text-white" : "text-gray-800"
-                      } hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium`}
+                      className={`text-white  hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium`}
                     >
                       Contact Us
                     </a>
                     <a
                       href="#"
-                      className={`${
-                        navbar ? "text-white" : "text-gray-800"
-                      } hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium`}
+                      className={`text-white  hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium`}
                     >
                       Admin Panel
                     </a>
                     <a
-                      className={`${
-                        navbar ? "text-white" : "text-gray-800"
-                      } hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium`}
+                      className={`text-white  hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium`}
                       onClick={handleLogout}
                     >
                       Logout
@@ -164,7 +150,10 @@ const header = () => {
         >
           {(ref) => (
             <div className="md:hidden" id="mobile-menu">
-              <div ref={ref} className="mx-2 pt-2 pb-3 border-t-[1px] space-y-1 sm:px-3">
+              <div
+                ref={ref}
+                className="mx-2 pt-2 pb-3 border-t-[1px] space-y-1 sm:px-3"
+              >
                 <a
                   href="#"
                   className="hover:bg-gray-700 text-white block px-3 py-2 rounded-md text-base font-medium"
