@@ -16,7 +16,7 @@ const Home: NextPage = () => {
         />
       </Head>
 
-      <main className="m-0 w-screen h-screen">
+      <main className="m-0 w-screen h-full">
         <HomeComponents/>
       </main>
     </div>

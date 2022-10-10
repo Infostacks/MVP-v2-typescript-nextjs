@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import Image from "next/image";
 import React, { useEffect } from "react";
 import { GrFacebookOption } from "react-icons/gr";
@@ -20,9 +21,8 @@ const featuredsection = () => {
   }, []);
 
   return (
-    <div className="bubblePattern">
       <div
-        className="example example4 bg-white bg-opacity-80 flex flex-col items-center justify-center h-screen py-5 gap-5"
+        className="example example4 flex flex-col items-center justify-center h-screen py-5 gap-5"
       >
         {/* Team  */}
         <div className="flex justify-center">
@@ -32,7 +32,7 @@ const featuredsection = () => {
         </div>
 
         <div className="flex justify-center">
-          <h1 className="text-violet-900 font-bold text-3xl">
+          <h1 className="text-violet-400 font-bold text-3xl">
             Our Best Expertise
           </h1>
         </div>
@@ -86,7 +86,6 @@ const featuredsection = () => {
           </div>
         </div>
       </div>
-    </div>
   );
 };
 

@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import React, { useEffect, useState } from "react";
 import { MdExpandMore } from "react-icons/md";
 import { motion, useAnimation, AnimatePresence } from "framer-motion";
@@ -86,84 +87,81 @@ const previewsection = () => {
   }, [animListNo]);
 
   return (
-    <div className="bubblePattern scrollbar-hide">
-      <div
-        ref={ref}
-        className="flex flex-col md:flex-row lg:flex-row xl:flex-row items-center justify-center h-screen px-20 py-5 gap-5 
-     bg-gradient-to-r from-transparent to-white bg-white bg-opacity-70"
-      >
-        {/* Left Side  */}
-        <div className="flex justify-center xl:w-1/2 lg:w-1/2 md:w-1/2 h-1/2 w-screen">
-          <motion.div className="w-full h-full">
-            <div className="flex flex-col justify-center gap-5 w-2/3">
-              <h3 className="text-violet-500 text-2xl">
-                {previewTextData[animListNo].heading
-                  .split("")
-                  .map((character, i) => {
-                    return <span key={i}>{character}</span>;
-                  })}
-              </h3>
-              <AnimatePresence>
-                <motion.h1 className="text-3xl font-extrabold text-slate-800">
-                  {previewTextData[animListNo].subHeading}
-                </motion.h1>
-              </AnimatePresence>
-              <AnimatePresence>
-                <motion.p className="text-sm text-slate-600">
-                  {previewTextData[animListNo].desc}
-                </motion.p>
-              </AnimatePresence>
-              <div className="flex flex-row items-center justify-start gap-3">
-                <motion.button
-                  animate={btnAnimation}
-                  className="rounded-full bg-violet-500 p-2 text-3xl text-white"
-                >
-                  <motion.div
-                    variants={{
-                      hidden: {
-                        opacity: 1,
-                      },
-                      visible: {
-                        rotateZ: [25, -25],
-                        transition: {
-                          rotateZ: {
-                            yoyo: Infinity,
-                            duration: 1,
-                            delay: 1,
-                            type: "spring",
-                          },
+    <div
+      ref={ref}
+      className="flex flex-col md:flex-row lg:flex-row xl:flex-row items-center justify-center h-screen px-20 py-5 gap-5"
+    >
+      {/* Left Side  */}
+      <div className="flex justify-center xl:w-1/2 lg:w-1/2 md:w-1/2 h-1/2 w-screen">
+        <motion.div className="w-full h-full">
+          <div className="flex flex-col justify-center gap-5 w-2/3">
+            <h3 className="text-violet-500 text-2xl">
+              {previewTextData[animListNo].heading
+                .split("")
+                .map((character, i) => {
+                  return <span key={i}>{character}</span>;
+                })}
+            </h3>
+            <AnimatePresence>
+              <motion.h1 className="text-3xl font-extrabold text-slate-50">
+                {previewTextData[animListNo].subHeading}
+              </motion.h1>
+            </AnimatePresence>
+            <AnimatePresence>
+              <motion.p className="text-sm text-slate-100">
+                {previewTextData[animListNo].desc}
+              </motion.p>
+            </AnimatePresence>
+            <div className="flex flex-row items-center justify-start gap-3">
+              <motion.button
+                animate={btnAnimation}
+                className="rounded-full bg-violet-500 p-2 text-3xl text-white"
+              >
+                <motion.div
+                  variants={{
+                    hidden: {
+                      opacity: 1,
+                    },
+                    visible: {
+                      rotateZ: [25, -25],
+                      transition: {
+                        rotateZ: {
+                          yoyo: Infinity,
+                          duration: 1,
+                          delay: 1,
+                          type: "spring",
                         },
                       },
-                      removed: {
-                        opacity: 1,
-                      },
-                    }}
-                    initial="hidden"
-                    animate="visible"
-                  >
-                    <MdExpandMore />
-                  </motion.div>
-                </motion.button>
-                <span className="text-violet-500 font-semibold hover:text-violet-700 hover:cursor-pointer">
-                  Learn More
-                </span>
-              </div>
+                    },
+                    removed: {
+                      opacity: 1,
+                    },
+                  }}
+                  initial="hidden"
+                  animate="visible"
+                >
+                  <MdExpandMore />
+                </motion.div>
+              </motion.button>
+              <span className="text-violet-500 font-semibold hover:text-violet-700 hover:cursor-pointer">
+                Learn More
+              </span>
             </div>
-          </motion.div>
-        </div>
+          </div>
+        </motion.div>
+      </div>
 
-        {/* Right Side  */}
-        <div className="flex flex-col justify-center items-center xl:w-1/2 lg:w-1/2 md:w-1/2  h-1/2 w-screen">
-          <motion.div
-            initial={{
-              opacity: 0,
-            }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 1 }}
-          >
-            <Lottie loop animationData={animationData} play speed={0.3} />
-          </motion.div>
-        </div>
+      {/* Right Side  */}
+      <div className="flex flex-col justify-center items-center xl:w-1/2 lg:w-1/2 md:w-1/2  h-1/2 w-screen">
+        <motion.div
+          initial={{
+            opacity: 0,
+          }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 1 }}
+        >
+          <Lottie loop animationData={animationData} play speed={0.3} />
+        </motion.div>
       </div>
     </div>
   );
