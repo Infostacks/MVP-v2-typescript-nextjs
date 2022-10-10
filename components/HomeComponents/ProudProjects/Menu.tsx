@@ -23,7 +23,7 @@ const menu = ({ items }) => {
                   transition={{ duration: 1 }}
                 >
                   <motion.div
-                    className="opacity-50"
+                    className="opacity-95"
                     whileHover={{
                       opacity: 1,
                       scale: 1.15,

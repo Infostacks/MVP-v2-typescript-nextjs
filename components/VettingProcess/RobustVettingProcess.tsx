@@ -1,19 +1,11 @@
+/* eslint-disable react/no-unescaped-entities */
 import React from "react";
 import HireTopDeveloper from "../Buttons/HireTopDeveloper";
 import HiringProcress from "../HomeComponents/HiringProcress";
 
 const RobustVettingProcess = () => {
   return (
-    <div
-      className="
-      flex
-      flex-col
-      items-center
-      h-auto
-      my-20
-      max-w-screen-lg gap-32
-      "
-    >
+    <div className="flex flex-col items-center h-auto my-20 max-w-screen-lg gap-32">
       <div>
         <h1 className="fontsize2 fontsize text-center text-white pt-52">
           Our Robust Vetting Process

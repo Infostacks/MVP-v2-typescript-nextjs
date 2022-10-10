@@ -1,6 +1,8 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import useAuth from "../../hooks/useAuth";
 import styles from "../../styles/Global.js";
 import React, { useState } from "react";
+import Image from "next/image";
 import { Transition } from "@headlessui/react";
 
 const header = () => {
@@ -23,7 +25,7 @@ const header = () => {
   window.addEventListener("scroll", changeNavBG);
 
   return (
-    <div>
+    <div className="overflow-hidden scroll-hidden">
       <nav
         className={`${
           navbar ? "bg-teal-500 bg-opacity-90 drop-shadow-md" : "bg-transparent"
@@ -33,10 +35,12 @@ const header = () => {
           <div className="flex items-center justify-between h-16">
             <div className="flex justify-between items-center w-full">
               <div className="flex-shrink-0">
-                <img
-                  className="h-8 w-8"
+                <Image
                   src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg"
                   alt="Workflow"
+                  width="40%"
+                  height="40%"
+                  unoptimized
                 />
               </div>
               <div className="flex flex-row justify-center items-center">
