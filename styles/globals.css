@@ -63,7 +63,7 @@ a {
   
 }
 .background-animate {
-  background-size: 700%;
+  background-size: 600%;
 
   -webkit-animation: AnimationName 11s ease infinite;
   -moz-animation: AnimationName 4s ease infinite;

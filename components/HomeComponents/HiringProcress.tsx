@@ -6,26 +6,26 @@ import { hiringData } from "../utils/data";
 
 const HiringProcress = () => {
   return (
-    <div
-      className="
-      flex 
-      flex-col 
-      items-center 
-      h-auto 
-      px-20 
-      py-5 
-      gap-5 
-      w-screen 
-      gap-y-16
-      background-animate
-      "
-    >
-      <h1 className="fontsize2 fontsize text-white">How We Hire?</h1>
+    <div className="flex flex-col items-center h-auto px-20 py-5 gap-5 w-screen gap-y-16 background-animate">
+      <h1 className="fontsize2 fontsize text-slate-400 ">How We Hire?</h1>
 
       <div className="flex flex-col items-center gap-5">
         {hiringData.map((hire, index) => {
           return (
-            <div
+            <motion.div
+              initial={{
+                x: index % 2 === 0 ? "-10vw" : "10vw",
+                opacity: 0,
+              }}
+              whileInView={{
+                x: 0,
+                opacity: 1,
+                transition: {
+                  duration: 2,
+                  type: "spring",
+                  bounce: 0.3,
+                },
+              }}
               key={index}
               className="drop-shadow-md shadow-lg shadow-cyan-200 flex flex-row items-center justify-around bg-gray-900 rounded-full h-48 w-7/12 "
             >
@@ -43,12 +43,12 @@ const HiringProcress = () => {
                 </motion.div>
               </div>
               <div className="w-3/4 ">
-                <div className="text-white font-bold text-2xl mb-2">
+                <div className="text-teal-50 font-bold text-2xl mb-2">
                   {hire.heading}
                 </div>
-                <p className="text-slate-400 text-xl">{hire.desc}</p>
+                <p className="text-teal-100 font-sans text-lg">{hire.desc}</p>
               </div>
-            </div>
+            </motion.div>
           );
         })}
       </div>
@@ -64,7 +64,7 @@ const HiringProcress = () => {
             height="50"
           />
         </div>
-        <div className="drop-shadow-md shadow-md shadow-cyan-400  z-0 flex flex-col items-center  rounded-full bg-gradient-to-t from-cyan-500 to-blue-500 p-2 py-11 px-4 gap-y-2">
+        <div className="shadow-xl shadow-teal-600 bg-teal-600 text-center border-teal-600 border-4  z-0 flex flex-col items-center rounded-full bg-gradient-to-t from-teal-600 to-teal-600 p-2 py-11 px-4 gap-y-2">
           <div>
             <HiOutlineUser className=" w-24 h-24 " />
           </div>

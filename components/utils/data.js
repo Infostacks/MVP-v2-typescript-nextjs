@@ -297,40 +297,135 @@ const hourlyRate = [
   {
     rate: "$80+",
   },
-]
+];
 
-const hiringData=[
+const hiringData = [
   {
-    icon: <VscSettingsGear className=" w-16 h-16 text-white"/>,
+    icon: <VscSettingsGear className=" w-16 h-16 text-white" />,
     heading: "Loom Video",
-    desc: "First, the developers apply online by attaching a 3 minute loom video of themselves going through their resume. Here we can quickly do most of the filtering by assessing experience, resume, and communication."
+    desc: "First, the developers apply online by attaching a 3 minute loom video of themselves going through their resume. Here we can quickly do most of the filtering by assessing experience, resume, and communication.",
   },
   {
-    icon: <TbHeartRateMonitor className=" w-16 h-16 text-white"/>,
+    icon: <TbHeartRateMonitor className=" w-16 h-16 text-white" />,
     heading: "Online Test",
-    desc: "If the candidate passes the 1st step, they then have to take 2 quizzes personalized to their skills."
+    desc: "If the candidate passes the 1st step, they then have to take 2 quizzes personalized to their skills.",
   },
   {
-    icon: <BiMessageAlt className=" w-16 h-16 text-white"/>,
+    icon: <BiMessageAlt className=" w-16 h-16 text-white" />,
     heading: "Casual Interview",
-    desc:"We then conduct a casual interview discussing their experience, assessing their soft skills, and seeing if they're passionate about what they do."
+    desc: "We then conduct a casual interview discussing their experience, assessing their soft skills, and seeing if they're passionate about what they do.",
   },
   {
-    icon: <HiOutlineDesktopComputer className=" w-16 h-16 text-white"/>,
+    icon: <HiOutlineDesktopComputer className=" w-16 h-16 text-white" />,
     heading: "Technical Interview",
-    desc:"Technical Interview After they pass the casual interview, we conduct 1-2 rounds of technical interviews."
+    desc: "Technical Interview After they pass the casual interview, we conduct 1-2 rounds of technical interviews.",
   },
   {
-    icon: <BsCalendar4Week className=" w-16 h-16 text-white"/>,
+    icon: <BsCalendar4Week className=" w-16 h-16 text-white" />,
     heading: "Test Phase",
-    desc:"After all the steps above are passed, the developer joins your team for 1 week at no cost. This, without doubt, is the best possible way to truly asses ones skills, communication, team work, and passion. We pay for this so that you can confidently hire the best remote developers for your team."
-  }
+    desc: "After all the steps above are passed, the developer joins your team for 1 week at no cost. This, without doubt, is the best possible way to truly asses ones skills, communication, team work, and passion. We pay for this so that you can confidently hire the best remote developers for your team.",
+  },
+];
 
-]
+const howitworksCards = [
+  {
+    icons:
+      "https://assets.website-files.com/632a6ffabd6820ec560a3c0c/6331c8f2dc63246972b97cd1_tell-us.svg",
+    heading: "1",
+    desc: "Tell us your needs",
+  },
+  {
+    icons:
+      "https://assets.website-files.com/632a6ffabd6820ec560a3c0c/6331c918231912419070da38_Recommendation.svg",
+    heading: "2",
+    desc: "Get recommendations",
+  },
+  {
+    icons:
+      "https://assets.website-files.com/632a6ffabd6820ec560a3c0c/6331c955af3a445e8020bddc_video.svg",
+    heading: "3",
+    desc: "Interview",
+  },
+  {
+    icons:
+      "https://assets.website-files.com/632a6ffabd6820ec560a3c0c/6331c98b49ace95a26b93c22_Onboard.svg",
+    heading: "4",
+    desc: "Pick",
+  },
+];
 
-const howitworksCards
+const NoCounter = [
+  {
+    from: 0,
+    to: 100,
+    durat: 4,
+    textcard: "Developers",
+  },
+  {
+    from: 0,
+    to: 150000,
+    durat: 4,
+    textcard: "Hours worked",
+  },
+  {
+    from: 0,
+    to: 40,
+    durat: 4,
+    textcard: "Companies",
+  },
+];
+
+const TrustedByIcons = [
+  {
+    icon: "https://assets.website-files.com/632a6ffabd6820ec560a3c0c/6331cf589573fd958a21725e_Deel%20svg.webp",
+  },
+  {
+    icon: "https://assets.website-files.com/632a6ffabd6820ec560a3c0c/632a6ffabd6820fbc60a3cac_webflow.png",
+  },
+  {
+    icon: "https://assets.website-files.com/632a6ffabd6820ec560a3c0c/632a6ffabd6820bc960a3dd1_donotpay.png",
+  },
+  {
+    icon: "https://assets.website-files.com/632a6ffabd6820ec560a3c0c/633613949ec4badbcd7d97e4_immutable-x.webp",
+  },
+];
+
+const FaQsData = [
+  {
+    heading: "What is micro1?",
+    desc: "<span className={`mt-4 leading-relaxed text-gray-700 w-full`}>We help companies hire the best remote developers easily.</span>",
+  },
+  {
+    heading: "How does the free trial work?",
+    desc: "<span className={`mt-4 leading-relaxed text-gray-700 w-full`}>Once you find a developer you like, you get to test them for 1 week, no cost, no questions asked.</span>",
+  },
+  {
+    heading: "Will the developer work directly for me?",
+    desc: "<span className={`mt-4 leading-relaxed text-gray-700 w-full`}>The developer will be in direct contact with you and your company. You can also add the developer to all of your company channels and softwares; however, you will not be directly hiring the developer, you will be hiring micro1. Hiring micro1 builds a layer of abstraction for the legal, pay, and benefits.</span>",
+  },
+  {
+    heading: "How does billing work?",
+    desc: "<span className={`mt-4 leading-relaxed text-gray-700 w-full`}>You pay us for a full time or part time developer. The total pay is the developer's rate * hours a week. We take care of paying the developer.</span>",
+  },
+  {
+    heading: "How are you different?",
+    desc: "<span className={`mt-4 leading-relaxed text-gray-700 w-full`}>1.) We have a unique interview process that has a large emphasis on the developer's soft skills.<br><br>2.) We have a 1 week free trial that allows you to test the developer in the best way possible.<br><br>3.) We have a very transparent pricing model; the price you see on the developer's profiles is the price you pay, no extra fees at all.</span>",
+  },
+  {
+    heading: "What technologies do micro1 developers know?",
+    desc: "<span className={`mt-4 leading-relaxed text-gray-700 w-full`}>React, Node.js, AWS, design, and much more</span>",
+  },
+  {
+    heading: "Is there a contract?",
+    desc: "<span className={`mt-4 leading-relaxed text-gray-700 w-full`}>Our contract is month to month and you can cancel anytime.</span>",
+  },
+];
 
 export {
+  FaQsData,
+  TrustedByIcons,
+  NoCounter,
+  howitworksCards,
   hiringData,
   animList,
   previewTextData,
