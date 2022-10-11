@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import React, { useEffect, useRef, useState } from "react";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
@@ -55,7 +56,7 @@ const contact = () => {
     return (
       <div
         ref={ref}
-        className="bg-white flex flex-col md:flex-row lg:flex-row xl:flex-row  items-center justify-center h-screen px-20 py-5 gap-5 w-full"
+        className="bg-white flex flex-col md:flex-row lg:flex-row xl:flex-row  items-center justify-center h-screen px-20 gap-5 w-full"
       >
         {/* Left side form */}
         <div className="flex flex-col justify-center items-center xl:gap-5 lg:gap-5 md:gap-5 gap-2 xl:w-1/2 lg:w-1/2 md:w-1/2 h-1/2 w-screen">

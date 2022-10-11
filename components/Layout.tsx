@@ -1,14 +1,18 @@
-import React from "react";
+import Navbar from "./Navbar/Header";
+import Footer from "./Footer";
 
-function Layout({ children }: { children: React.ReactNode }) {
+export default function Layout({ children }) {
   return (
-    <div>
-      <nav className="flex flex-row bg-slate-400 h-20 items-center pl-5">
-        <li className="list-none text-2xl">Home</li>
-      </nav>
-      {children}
-    </div>
+    <>
+      <div className="w-full">
+        <div className="w-full fixed top-0 z-50">
+          <Navbar />
+        </div>
+        <main>{children}</main>
+        <div className="w-full relative">
+          <Footer />
+        </div>
+      </div>
+    </>
   );
 }
-
-export default Layout;

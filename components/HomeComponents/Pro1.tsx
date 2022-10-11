@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import { useAnimation } from "framer-motion";
 import React from "react";
 import Image from "next/image";
@@ -6,31 +7,25 @@ import { AiOutlineInstagram, AiOutlineFacebook } from "react-icons/ai";
 import { RiTwitterLine } from "react-icons/ri";
 
 const promo = () => {
-  // const leftAnimation = useAnimation();
-  // const rightAnimation = useAnimation();
-  // const btnAnimation = useAnimation();
   return (
-    // <div className="bubblePattern w-screen h-screen">
     <div>
-      <div
-        className="flex justify-evenly lg:flex-row xl:flex-row items-center h-screen px-20 py-5 gap-5 w-screen 
-     bg-gradient-to-r from-white to-transparent bg-white bg-opacity-70"
-      >
+      <div className="flex justify-evenly lg:flex-row xl:flex-row items-center h-screen px-20 py-5 gap-5 w-screen ">
         <div>
           <Image
             src={productImages.product1}
             unoptimized
+            alt=""
             width="450"
             height="400"
             className="shadow-md  z-50 opacity-80"
           />
         </div>
         <div className=" flex flex-col paragraphfont md:leading-loose leading-loose w-1/4 ">
-          <p className="paragraphfont">We are Designknot....</p>
-          <h1 className="text-5xl">
+          <p className="text-slate-50">We are Design-knot....</p>
+          <h1 className="text-5xl text-slate-100">
             Not a "yet another curved lines" kind of Studio.
           </h1>
-          <p className="leading-loose md:leading-loose paragraphfont">
+          <p className="text-slate-100">
             Hello,Looking for a new winter outfit? Get 25% off our new
             collection. Place an order
           </p>

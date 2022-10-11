@@ -84,7 +84,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
       .then((userCredential) => {
         setUser(userCredential.user);
         // router.push("/characters");
-        router.push("/home")
+        router.push("/")
         setLoading(false);
       })
       .catch((error))
@@ -108,7 +108,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     await signInWithPopup(auth, provider) // Sign in with google
       .then((userCredential) => {
         setUser(userCredential.user);
-        router.push("/characters");
+        router.push("/");
         setLoading(false);
       })
       .catch((error) => alert(error.message))

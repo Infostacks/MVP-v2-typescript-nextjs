@@ -2,17 +2,18 @@ import "../styles/globals.css";
 import type { AppProps } from "next/app";
 import { AuthProvider } from "../hooks/useAuth";
 import { RecoilRoot } from "recoil";
+import Layout from "../components/Layout";
 import Header from "../components/Navbar/Header";
+import Footer from "../components/Footer";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <RecoilRoot>
       {/* Higher Order Component */}
       <AuthProvider>
-        <div className="w-full fixed top-0 z-50">
-          <Header />
-        </div>
-        <Component {...pageProps} />
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
       </AuthProvider>
     </RecoilRoot>
   );
