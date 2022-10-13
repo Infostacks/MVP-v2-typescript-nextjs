@@ -339,7 +339,8 @@ const findUS = [
   },
   {
     platform: "Other",
-=======
+  },
+];
 
 const howitworksCards = [
   {

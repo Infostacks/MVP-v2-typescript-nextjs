@@ -9,7 +9,7 @@ import useAuth from "../../hooks/useAuth";
 
 import CalendlyEvent from "./CalendlyEvent";
 
-const hourlyplatforminfo = () => {
+const AboutInfo = () => {
   const [formStep, setFormStep] = useState(10);
   const [errors, setErrors] = useState(null);
   const [confirmPassError, setConfirmPassError] = useState(false);
@@ -863,7 +863,7 @@ const hourlyplatforminfo = () => {
             exit={{ y: -10, opacity: 0 }}
             transition={{ duration: 1 }}
           >
-            <CalendlyEvent/>
+            <CalendlyEvent />
           </motion.section>
         )}
         {formStep === 11 && (
@@ -879,16 +879,8 @@ const hourlyplatforminfo = () => {
 
         {renderBtn()}
       </form>
-
-      {/* horizontal line  */}
-
-      {/* horizontal line  */}
-      {/* <div className="w-full h-[1px] bg-slate-400 "></div> */}
     </div>
   );
 };
 
-export default hourlyplatforminfo;
-function signUp(developerNeeded: string, fullname: string) {
-  throw new Error("Function not implemented.");
-}
+export default AboutInfo;
