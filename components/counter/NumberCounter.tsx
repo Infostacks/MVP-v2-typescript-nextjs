@@ -10,12 +10,12 @@ export default function Counter({ from, to, dur }) {
     const controls = animate(from, to, {
       duration: dur,
       onUpdate(value) {
-        node.textContent = value.toFixed(2);
+        // node.textContent = value.toFixed(2);
       },
     });
 
     return () => controls.stop();
-  }, [from, to]);
+  }, [from, to, dur]);
 
   return <p ref={nodeRef} />;
 }
