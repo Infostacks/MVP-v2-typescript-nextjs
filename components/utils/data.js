@@ -436,7 +436,76 @@ const FaQsData = [
   },
 ];
 
+const DevelopersBio = [
+  {
+    name: "Luke Jordan",
+    desig: "Web3 Developer",
+    country: "America",
+    icons:
+      "https://images.unsplash.com/photo-1529068755536-a5ade0dcb4e8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=881&q=80",
+  },
+  {
+    name: "Grace Hope",
+    desig: "UI/UX Designer",
+    country: "Canada",
+    icons:
+      "https://images.unsplash.com/photo-1527980965255-d3b416303d12?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80",
+  },
+  {
+    name: "Adah",
+    desig: "Backend Developer",
+    country: "Mexico",
+    icons:
+      "https://images.unsplash.com/photo-1484186139897-d5fc6b908812?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80",
+  },
+  {
+    name: "Adina",
+    desig: "Project Manager",
+    country: "China",
+    icons:
+      "https://images.unsplash.com/photo-1499887142886-791eca5918cd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80",
+  },
+];
+
+const IconsSlider = [
+  {
+    icon: "https://assets.website-files.com/632a6ffabd682055930a3c11/632a6ffabd6820468b0a4319_solidity-logo.png",
+  },
+  {
+    icon: "https://assets.website-files.com/632a6ffabd682055930a3c11/632a6ffabd6820e1ca0a431d_webflow-logo.png",
+  },
+  {
+    icon: "https://assets.website-files.com/632a6ffabd682055930a3c11/632a6ffabd6820036f0a431a_react-native-logo.png",
+  },
+  {
+    icon: "https://assets.website-files.com/632a6ffabd682055930a3c11/632a6ffabd682007fd0a4317_node-js-logo.png",
+  },
+  {
+    icon: "https://assets.website-files.com/632a6ffabd682055930a3c11/632a6ffabd6820510c0a431e_react-logo.png",
+  },
+  {
+    icon: "https://assets.website-files.com/632a6ffabd682055930a3c11/632a6ffabd6820cb8d0a431b_python-logo.png",
+  },
+  {
+    icon: "https://assets.website-files.com/632a6ffabd682055930a3c11/632a6ffabd6820631d0a4316_js-logo.png",
+  },
+  {
+    icon: "https://assets.website-files.com/632a6ffabd682055930a3c11/632a6ffabd682052800a431f_figma.png",
+  },
+  {
+    icon: "https://assets.website-files.com/632a6ffabd682055930a3c11/632a6ffabd682080b80a4318_aws-logo.png",
+  },
+  {
+    icon: "https://assets.website-files.com/632a6ffabd682055930a3c11/632a6ffabd6820e7620a431c_ethereum-logo.png",
+  },
+  {
+    icon: "https://assets.website-files.com/632a6ffabd682055930a3c11/632a6ffabd682069de0a4320_typescript.png",
+  },
+];
+
 export {
+  IconsSlider,
+  DevelopersBio,
   FaQsData,
   TrustedByIcons,
   NoCounter,

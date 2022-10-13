@@ -9,7 +9,7 @@ const HiringProcress = () => {
     <div className="flex flex-col items-center px-20 py-5 gap-5 w-full gap-y-16 background-animate">
       <h1 className="fontsize2 fontsize text-white">How We Hire?</h1>
 
-      <div className="flex flex-col items-center gap-5">
+      <div className="flex flex-col items-center gap-8 w-full">
         {hiringData.map((hire, index) => {
           return (
             <motion.div
@@ -27,7 +27,7 @@ const HiringProcress = () => {
                 },
               }}
               key={index}
-              className="drop-shadow-md shadow-lg shadow-cyan-200 flex flex-row items-center justify-around bg-gray-900 rounded-full h-48 w-7/12 "
+              className="drop-shadow-md shadow-lg shadow-cyan-200 flex flex-row items-center justify-around bg-gray-900 rounded-full h-48"
             >
               <div className="border rounded-full  bg-gray-800">
                 <motion.div
@@ -53,7 +53,7 @@ const HiringProcress = () => {
         })}
       </div>
 
-      <div className="flex flex-col">
+      <div className="flex flex-col p-8">
         <div className="absolute ml-52 pt-4">
           <Image
             src="https://assets.website-files.com/632a6ffabd6820ec560a3c0c/632a6ffabd682075e50a3e1c_certified-icon.png"
@@ -63,7 +63,6 @@ const HiringProcress = () => {
             unoptimized
             className="z-10"
           />
-
         </div>
         <div className="drop-shadow-md shadow-md shadow-cyan-400 z-0 flex flex-col items-center rounded-full bg-gradient-to-t from-cyan-500 to-blue-500 p-2 py-11 px-4 gap-y-2">
           <div>
