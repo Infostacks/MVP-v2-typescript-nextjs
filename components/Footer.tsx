@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import { FaInstagram } from 'react-icons/fa';
 import { GoDeviceMobile } from 'react-icons/go'
 import { BiMapPin } from 'react-icons/bi'
