@@ -3,11 +3,11 @@ import type { AppProps } from "next/app";
 import { AuthProvider } from "../hooks/useAuth";
 import { RecoilRoot } from "recoil";
 import Layout from "../components/Layout";
-import Header from "../components/Navbar/Header";
-import Footer from "../components/Footer";
 
 import "swiper/css";
+// import 'swiper/swiper.min.css';
 import "swiper/css/bundle";
+// import 'swiper/swiper-bundle.css';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
