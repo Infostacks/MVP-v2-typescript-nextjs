@@ -297,37 +297,50 @@ const hourlyRate = [
   {
     rate: "$80+",
   },
-]
+];
 
-const hiringData=[
+const hiringData = [
   {
-    icon: <VscSettingsGear className=" w-16 h-16 text-white"/>,
+    icon: <VscSettingsGear className=" w-16 h-16 text-white" />,
     heading: "Loom Video",
-    desc: "First, the developers apply online by attaching a 3 minute loom video of themselves going through their resume. Here we can quickly do most of the filtering by assessing experience, resume, and communication."
+    desc: "First, the developers apply online by attaching a 3 minute loom video of themselves going through their resume. Here we can quickly do most of the filtering by assessing experience, resume, and communication.",
   },
   {
-    icon: <TbHeartRateMonitor className=" w-16 h-16 text-white"/>,
+    icon: <TbHeartRateMonitor className=" w-16 h-16 text-white" />,
     heading: "Online Test",
-    desc: "If the candidate passes the 1st step, they then have to take 2 quizzes personalized to their skills."
+    desc: "If the candidate passes the 1st step, they then have to take 2 quizzes personalized to their skills.",
   },
   {
-    icon: <BiMessageAlt className=" w-16 h-16 text-white"/>,
+    icon: <BiMessageAlt className=" w-16 h-16 text-white" />,
     heading: "Casual Interview",
-    desc:"We then conduct a casual interview discussing their experience, assessing their soft skills, and seeing if they're passionate about what they do."
+    desc: "We then conduct a casual interview discussing their experience, assessing their soft skills, and seeing if they're passionate about what they do.",
   },
   {
-    icon: <HiOutlineDesktopComputer className=" w-16 h-16 text-white"/>,
+    icon: <HiOutlineDesktopComputer className=" w-16 h-16 text-white" />,
     heading: "Technical Interview",
-    desc:"Technical Interview After they pass the casual interview, we conduct 1-2 rounds of technical interviews."
+    desc: "Technical Interview After they pass the casual interview, we conduct 1-2 rounds of technical interviews.",
   },
   {
-    icon: <BsCalendar4Week className=" w-16 h-16 text-white"/>,
+    icon: <BsCalendar4Week className=" w-16 h-16 text-white" />,
     heading: "Test Phase",
-    desc:"After all the steps above are passed, the developer joins your team for 1 week at no cost. This, without doubt, is the best possible way to truly asses ones skills, communication, team work, and passion. We pay for this so that you can confidently hire the best remote developers for your team."
-  }
+    desc: "After all the steps above are passed, the developer joins your team for 1 week at no cost. This, without doubt, is the best possible way to truly asses ones skills, communication, team work, and passion. We pay for this so that you can confidently hire the best remote developers for your team.",
+  },
+];
 
-]
-
+const findUS = [
+  {
+    platform: "Linkedin",
+  },
+  {
+    platform: "Clutch",
+  },
+  {
+    platform: "Google",
+  },
+  {
+    platform: "Other",
+  },
+];
 
 export {
   hiringData,
@@ -338,4 +351,5 @@ export {
   companiesList,
   requiredSkills,
   hourlyRate,
+  findUS,
 };

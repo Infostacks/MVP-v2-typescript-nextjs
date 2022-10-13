@@ -4,11 +4,13 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Joi from "joi-browser";
-import { hourlyRate, requiredSkills } from "../utils/data";
+import { requiredSkills, findUS, hourlyRate } from "../utils/data";
 import useAuth from "../../hooks/useAuth";
 
-const hourlyRateinfo = () => {
-  const [formStep, setFormStep] = useState(8);
+import CalendlyEvent from "./CalendlyEvent";
+
+const hourlyplatforminfo = () => {
+  const [formStep, setFormStep] = useState(10);
   const [errors, setErrors] = useState(null);
   const [confirmPassError, setConfirmPassError] = useState(false);
   // const { signIn, signUp, resetfullname } = useAuth();
@@ -17,15 +19,13 @@ const hourlyRateinfo = () => {
     jobtypeoption: "",
     developerNeeded: "",
     fullname: "",
-    // confirmfullname: "",
     email: "",
     phoneNumber: "",
     developerType: "",
     requiredSkill: "",
-    hourlyRate: "",
-    projectname: "",
-    techstack: "",
-    linkto: "",
+    hourlyplatform: "",
+    about_company: "",
+    findUsPlatform: "",
   });
 
   const companySignUpSchema = {
@@ -33,18 +33,13 @@ const hourlyRateinfo = () => {
     jobtypeoption: Joi.string().required().label("Full name"),
     developerNeeded: Joi.string().required().label("Developers Needed"),
     fullname: Joi.string().required().label("fullname"),
-    // confirmfullname: Joi.string()
-    //   .required()
-    //   .valid(Joi.ref("fullname"))
-    //   .label("fullname did not match"),
     email: Joi.string().required().label("email"),
     phoneNumber: Joi.string().required().label("phoneNumber"),
     developerType: Joi.string().required().label("developerType"),
     requiredSkill: Joi.string().required().label("requiredSkill"),
-    hourlyRate: Joi.string().required().label("hourlyRate"),
-    projectname: Joi.string().required().label("projectname"),
-    techstack: Joi.string().required().label("techstack"),
-    linkto: Joi.string().required().label("linkto"),
+    hourlyplatform: Joi.string().required().label("hourlyplatform"),
+    about_company: Joi.string().required().label("about_company"),
+    findUsPlatform: Joi.string().required().label("findUsPlatform"),
   };
 
   const validate = () => {
@@ -106,10 +101,9 @@ const hourlyRateinfo = () => {
       phoneNumber: "",
       developerType: "",
       requiredSkill: "",
-      hourlyRate: "",
-      projectname: "",
-      techstack: "",
-      linkto: "",
+      hourlyplatform: "",
+      about_company: "",
+      findUsPlatform: "",
     });
   };
 
@@ -177,7 +171,7 @@ const hourlyRateinfo = () => {
   };
 
   return (
-    <div className="w-3/4 h-3/4 z-50 drop-shadow-md bg-[#508AA8] bg-opacity-70 flex flex-col items-center rounded-3xl justify-center gap-3">
+    <div className="w-3/4 h-3/4 drop-shadow-md bg-[#508AA8] bg-opacity-70 flex flex-col items-center rounded-3xl justify-center gap-3">
       <h1
         className="py-5 text-3xl font-semibold text-[#ffb703]"
         style={{ fontFamily: "Bebas Neue" }}
@@ -728,30 +722,30 @@ const hourlyRateinfo = () => {
           >
             <div className="flex flex-col gap-2">
               <label className="text-xl font-semibold text-slate-50">
-                What is the ideal hourly rate range? *
+                What is the ideal hourly platform range? *
               </label>
               <label className="text-md text-slate-50">
-                The average rate of a micro1 developer is $40/hour.
+                The average platform of a micro1 developer is $40/hour.
               </label>
 
               {/* start  */}
               <div className="grid xl:grid-cols-3 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5">
-                {hourlyRate.map((rate, index) => {
+                {hourlyRate.map((platform, index) => {
                   return (
                     <div className="relative" key={index}>
                       <input
                         className="hidden group peer"
                         type="radio"
-                        name="hourlyRate"
-                        value={rate.rate}
-                        id={rate.rate}
+                        name="hourlyplatform"
+                        value={platform.platform}
+                        id={platform.platform}
                       />
 
                       <label
                         className="block p-4 text-sm font-medium border text-gray-200 hover:text-black border-gray-200 rounded-lg cursor-pointer transition-colors shadow-sm peer-checked:border-blue-500 hover:bg-[#ffb703] peer-checked:ring-1 peer-checked:ring-blue-500"
-                        htmlFor={rate.rate}
+                        htmlFor={platform.platform}
                       >
-                        <span className="text-lg">{rate.rate}</span>
+                        <span className="text-lg">{platform.platform}</span>
                       </label>
 
                       <svg
@@ -786,15 +780,15 @@ const hourlyRateinfo = () => {
           >
             <div className="flex flex-col gap-2">
               <label className="text-xl font-bold text-slate-50">
-                What is your email? *
+                Anything else we should know? (optional)
               </label>
               <label className="text-md text-slate-50">
-                We'll need this for later
+                Feel free to tell us about your company or anything else here
               </label>
               <input
-                id="email"
-                name="email"
-                placeholder="Your Email"
+                id="about_company"
+                name="about_company"
+                placeholder="Write Here..."
                 type="textarea"
                 defaultValue={formData.fullname}
                 onChange={handleChange}
@@ -814,17 +808,50 @@ const hourlyRateinfo = () => {
             transition={{ duration: 1 }}
           >
             <div className="flex flex-col gap-2">
-              <label className="text-md text-slate-50">Tech Stack:</label>
-              <input
-                id="techstack"
-                name="techstack"
-                type="text"
-                defaultValue={formData.techstack}
-                onChange={handleChange}
-                className="w-72 h-10 drop-shadow-md bg-[#ffb703] bg-opacity-75 text-white  rounded-2xl pl-4 border-[1px] text-md z-12"
-              />
+              <label className="text-xl font-semibold text-slate-50">
+                Where did you find us? *
+              </label>
+              <label className="text-md text-slate-50">We appreciate it!</label>
+
+              {/* start  */}
+              <div className="grid xl:grid-cols-3 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5">
+                {findUS.map((platform, index) => {
+                  return (
+                    <div className="relative" key={index}>
+                      <input
+                        className="hidden group peer"
+                        type="radio"
+                        name="findUsPlatform"
+                        value={platform.platform}
+                        id={platform.platform}
+                      />
+
+                      <label
+                        className="block p-4 text-sm font-medium border text-gray-200 hover:text-black border-gray-200 rounded-lg cursor-pointer transition-colors shadow-sm peer-checked:border-blue-500 hover:bg-[#ffb703] peer-checked:ring-1 peer-checked:ring-blue-500"
+                        htmlFor={platform.platform}
+                      >
+                        <span className="text-lg">{platform.platform}</span>
+                      </label>
+
+                      <svg
+                        className="absolute w-5 h-5 text-blue-600 opacity-0 top-4 right-4 peer-checked:opacity-100"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                    </div>
+                  );
+                })}
+              </div>
+              {/* end  */}
               <span className="text-[#DA373E] font-semibold text-xs">
-                {errors ? errors.techstack : ""}
+                {errors ? errors.jobtypeoption : ""}
               </span>
             </div>
           </motion.section>
@@ -836,20 +863,7 @@ const hourlyRateinfo = () => {
             exit={{ y: -10, opacity: 0 }}
             transition={{ duration: 1 }}
           >
-            <div className="flex flex-col gap-2">
-              <label className="text-md text-slate-50">Link To:</label>
-              <input
-                id="linkto"
-                name="linkto"
-                type="text"
-                defaultValue={formData.linkto}
-                onChange={handleChange}
-                className="w-72 h-10 drop-shadow-md bg-[#ffb703] bg-opacity-75 text-white  rounded-2xl pl-4 border-[1px] text-md z-12"
-              />
-              <span className="text-[#DA373E] font-semibold text-xs">
-                {errors ? errors.linkto : ""}
-              </span>
-            </div>
+            <CalendlyEvent/>
           </motion.section>
         )}
         {formStep === 11 && (
@@ -874,7 +888,7 @@ const hourlyRateinfo = () => {
   );
 };
 
-export default hourlyRateinfo;
+export default hourlyplatforminfo;
 function signUp(developerNeeded: string, fullname: string) {
   throw new Error("Function not implemented.");
 }
