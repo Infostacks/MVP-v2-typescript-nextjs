@@ -12,7 +12,20 @@ const HiringProcress = () => {
       <div className="flex flex-col items-center gap-5">
         {hiringData.map((hire, index) => {
           return (
-            <div
+            <motion.div
+              initial={{
+                x: index % 2 === 0 ? "-10vw" : "10vw",
+                opacity: 0,
+              }}
+              whileInView={{
+                x: 0,
+                opacity: 1,
+                transition: {
+                  duration: 2,
+                  type: "spring",
+                  bounce: 0.3,
+                },
+              }}
               key={index}
               className="drop-shadow-md shadow-lg shadow-cyan-200 flex flex-row items-center justify-around bg-gray-900 rounded-full h-48 w-7/12 "
             >
@@ -33,9 +46,9 @@ const HiringProcress = () => {
                 <div className="text-white font-bold text-2xl mb-2">
                   {hire.heading}
                 </div>
-                <p className="text-slate-400 text-xl">{hire.desc}</p>
+                <p className="text-teal-100 font-sans text-lg">{hire.desc}</p>
               </div>
-            </div>
+            </motion.div>
           );
         })}
       </div>
