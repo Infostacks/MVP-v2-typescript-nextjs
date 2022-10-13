@@ -6,6 +6,9 @@ import Layout from "../components/Layout";
 import Header from "../components/Navbar/Header";
 import Footer from "../components/Footer";
 
+import "swiper/css";
+import "swiper/css/bundle";
+
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <RecoilRoot>
