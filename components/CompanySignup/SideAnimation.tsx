@@ -8,7 +8,7 @@ const SideAnimation = () => {
   }, []);
 
   return (
-    <div className="w-full h-full drop-shadow-sm z-50 overflow-hidden">
+    <div className="w-full h-full drop-shadow-sm z-0 overflow-hidden">
       <lottie-player
         id="firstLottie"
         ref={uRef}

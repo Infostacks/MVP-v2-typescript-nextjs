@@ -327,6 +327,20 @@ const hiringData = [
   },
 ];
 
+const findUS = [
+  {
+    platform: "Linkedin",
+  },
+  {
+    platform: "Clutch",
+  },
+  {
+    platform: "Google",
+  },
+  {
+    platform: "Other",
+=======
+
 const howitworksCards = [
   {
     icons:
@@ -434,4 +448,5 @@ export {
   companiesList,
   requiredSkills,
   hourlyRate,
+  findUS,
 };

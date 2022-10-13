@@ -24,7 +24,9 @@ const Login: NextPage = () => {
     confirmPassword: "",
   });
 
-  const [logInFormData, setLogInFormData] = useState(_.omit(formData, ["confirmPassword"]));
+  const [logInFormData, setLogInFormData] = useState(
+    _.omit(formData, ["confirmPassword"])
+  );
   const [resetPassFormData, setResetPassFormData] = useState(
     _.omit(formData, ["password", "confirmPassword"])
   );
@@ -63,9 +65,9 @@ const Login: NextPage = () => {
   const changeAuthCard = () => {
     // show Change Card button text
     if (authType === 1 || authType === 3) {
-      return setAuthType(2);    // if (login/resetPass then change to signup)
+      return setAuthType(2); // if (login/resetPass then change to signup)
     } else {
-      return setAuthType(1); 
+      return setAuthType(1);
     }
   };
 
@@ -74,7 +76,6 @@ const Login: NextPage = () => {
     if (authType === 1) {
       return (
         <SignUpCard
-          isAnimating={isAnimating}
           onChange={handleChange}
           valueEmail={formData.email}
           valuePass={formData.password}
@@ -85,7 +86,6 @@ const Login: NextPage = () => {
     } else if (authType === 2) {
       return (
         <LogInCard
-          isAnimating={isAnimating}
           onChange={handleChange}
           valueEmail={logInFormData.email}
           valuePass={logInFormData.password}
@@ -95,7 +95,6 @@ const Login: NextPage = () => {
     } else {
       return (
         <ResetPassCard
-          isAnimating={isAnimating}
           onChange={handleChange}
           valueEmail={resetPassFormData.email}
           onClick={handleSubmit}
@@ -147,16 +146,16 @@ const Login: NextPage = () => {
     if (authType === 1) {
       schemaValidation = signUpSchema;
       cardData = formData;
-    }else if(authType ===2){
+    } else if (authType === 2) {
       schemaValidation = signInSchema;
       cardData = logInFormData;
-      console.log("in validaiton: ", schemaValidation)
-    }else{
+      console.log("in validaiton: ", schemaValidation);
+    } else {
       schemaValidation = resetPassSchema;
       cardData = resetPassFormData;
     }
 
-    console.log("in validaiton: ", authType)
+    console.log("in validaiton: ", authType);
 
     let { error } = Joi.validate(cardData, schemaValidation, options); // error = Joi error object
     if (!error) return null; // if no error, return null
@@ -174,7 +173,7 @@ const Login: NextPage = () => {
     // Function to handle submit
     setErrors(null);
     let data = validate(); // Validation function call
-    console.log("data: ", data)
+    console.log("data: ", data);
     if (data) {
       // If validation fails
       setErrors(data);
@@ -184,21 +183,20 @@ const Login: NextPage = () => {
       }, 1500);
     } else {
       try {
-        if (authType===1) {
+        if (authType === 1) {
           if (formData.password !== formData.confirmPassword) {
             setConfirmPassError(true);
           } else {
-            
             console.log("sign up method called");
             await signUp(formData.email, formData.password);
             alert("Successfully Signed Up. authType Now!");
             setAuthType(2);
             resetForm();
           }
-        } else if(authType === 2) {
-          console.log("sign in method called")
+        } else if (authType === 2) {
+          console.log("sign in method called");
           await signIn(logInFormData.email, logInFormData.password);
-        }else{
+        } else {
           await resetPassword(resetPassFormData.email);
         }
       } catch (err) {
@@ -222,7 +220,6 @@ const Login: NextPage = () => {
       setResetPassFormData({ ...resetPassFormData, [name]: value });
     }
   };
-
 
   const resetForm = () => {
     setConfirmPassError(false);

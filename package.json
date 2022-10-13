@@ -24,6 +24,7 @@
     "lottie-web": "^5.9.5",
     "next": "12.1.6",
     "react": "18.1.0",
+    "react-calendly": "^4.1.0",
     "react-dom": "18.1.0",
     "react-hook-inview": "^4.5.0",
     "react-icons": "^4.4.0",
