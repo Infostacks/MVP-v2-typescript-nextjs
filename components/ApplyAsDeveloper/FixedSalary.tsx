@@ -1,0 +1,19 @@
+import React from "react";
+import HireTopDeveloper from "../Buttons/HireTopDeveloper";
+
+const FixedSalary = () => {
+  return (
+    <div className="w-1/2 items-center gap-10 flex flex-col">
+      <h1 className="fontsize2 fontsize text-center text-slate-400">
+        Fixed Salary
+      </h1>
+      <p className="text-2xl text-center text-gray-400">
+        We pay you what you believe is fair. Pay is a fixed monthly salary and
+        is paid bi-weekly.
+      </p>
+      <HireTopDeveloper />
+    </div>
+  );
+};
+
+export default FixedSalary;
