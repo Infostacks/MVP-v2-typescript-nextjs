@@ -1,5 +1,6 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import useAuth from "../../hooks/useAuth";
+import Link from "next/link";
 import styles from "../../styles/Global.js";
 import React, { useState } from "react";
 import Image from "next/image";
@@ -48,50 +49,44 @@ const header = () => {
                   <div className="ml-10 flex items-baseline space-x-4">
                     <a
                       href="#"
-                      className={`text-white hover:bg-gray-700  px-3 py-2 rounded-md text-sm font-medium`}
+                      className={`text-white hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium`}
                     >
                       Services
                     </a>
 
                     <a
                       href="#"
-                      className={`text-white  hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium`}
+                      className={`text-white hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium`}
                     >
-                      Team
+                      Vetting Process
                     </a>
 
                     <a
                       href="#"
-                      className={`text-white  hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium`}
+                      className={`text-white hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium`}
                     >
-                      Projects
+                      How it Works
                     </a>
 
                     <a
                       href="#"
-                      className={`text-white  hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium`}
+                      className={`text-white hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium`}
                     >
-                      Blog
+                      Pricing
                     </a>
 
                     <a
                       href="#"
-                      className={`text-white  hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium`}
+                      className={`text-white hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium`}
                     >
                       Contact Us
                     </a>
-                    <a
-                      href="#"
-                      className={`text-white  hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium`}
-                    >
-                      Admin Panel
-                    </a>
-                    <a
-                      className={`text-white  hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium`}
+                    <button
+                      className={`text-white hover:cursor-pointer hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium`}
                       onClick={handleLogout}
                     >
                       Logout
-                    </a>
+                    </button>
                   </div>
                 </div>
               </div>
@@ -169,21 +164,21 @@ const header = () => {
                   href="#"
                   className="text-gray-800 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
                 >
-                  Team
+                  Vetting Process
                 </a>
 
                 <a
                   href="#"
                   className="text-gray-800 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
                 >
-                  Projects
+                  How it Works
                 </a>
 
                 <a
                   href="#"
                   className="text-gray-800 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
                 >
-                  Blog
+                  Pricing
                 </a>
 
                 <a
@@ -192,18 +187,12 @@ const header = () => {
                 >
                   Contact Us
                 </a>
-                <a
-                  href="#"
-                  className="text-gray-800 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-                >
-                  Admin Panel
-                </a>
-                <a
+                <button
                   className={`text-violet-700 rounded-full drop-shadow-xl px-5 py-2 hover:text-xl ${styles.buttonHover}`}
                   onClick={handleLogout}
                 >
                   Logout
-                </a>
+                </button>
               </div>
             </div>
           )}
