@@ -6,7 +6,7 @@ import TrustedBy from "../TrustedBy/TrustedBy";
 
 const SimplePricing = () => {
   return (
-    <div className="flex flex-col items-center w-full max-w-screen-2xl gap-32">
+    <div className="flex flex-col items-center w-full max-w-screen-2xl my-20 gap-32">
       <div className="flex flex-col items-center w-full max-w-screen-2xl ">
         <div className="text-center">
           <h1 className="fontsize2 fontsize text-slate-400 pt-52 p-3">
