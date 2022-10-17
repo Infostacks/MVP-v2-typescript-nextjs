@@ -44,7 +44,7 @@ const ChatArea = () => {
         })
       );
     });
-  }, [sendMessage]);
+  }, [sendMessage, q]);
 
   const handleSendMessage = async () => {
     try {
