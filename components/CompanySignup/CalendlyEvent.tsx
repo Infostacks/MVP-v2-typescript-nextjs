@@ -2,10 +2,21 @@ import React from "react";
 import { InlineWidget } from "react-calendly";
 
 const CalendlyEvent = () => {
+  const head = document.querySelector("head");
+  const script = document.createElement("script");
+  script.setAttribute(
+    "src",
+    "https://assets.calendly.com/assets/external/widget.js"
+  );
+  head.appendChild(script);
+
   return (
-    <div className="h-4/5">
-      {/* <InlineWidget
+    <div className="">
+      <InlineWidget
         url="https://calendly.com/asif88383/30min"
+        styles={{
+          height: "1000px",
+        }}
         pageSettings={{
           backgroundColor: "ffffff",
           hideEventTypeDetails: false,
@@ -14,10 +25,10 @@ const CalendlyEvent = () => {
           textColor: "4d5055",
         }}
         prefill={{
-        //   email: "asif88383@gmail.com",
-        //   firstName: "Muhammad",
-        //   lastName: "Asif",
-        //   name: "Muhammad Asif",
+          email: "test@test.com",
+          firstName: "Jon",
+          lastName: "Snow",
+          name: "Jon Snow",
           customAnswers: {
             a1: "a1",
             a2: "a2",
@@ -38,9 +49,7 @@ const CalendlyEvent = () => {
           utmSource: "Facebook",
           utmTerm: "Spring",
         }}
-      /> */}
-      
-      <InlineWidget url="https://calendly.com/asif883838" />
+      />
     </div>
   );
 };
