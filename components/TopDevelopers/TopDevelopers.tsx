@@ -14,8 +14,8 @@ function TopDevelopers() {
         </p>
         <HireTopDeveloper />
       </div>
-      <div className="relative border-gray-700 text-center border-2 w-11/12 rounded-b-3xl  h-10 z-10"></div>
-      <div className="relative border-gray-700 text-center border-2 w-10/12 rounded-b-3xl  h-10"></div>
+      <div className="relative border-gray-700 border-t-0 text-center border-2 w-11/12 rounded-b-3xl  h-10 z-10"></div>
+      <div className="relative border-gray-700 border-t-0 text-center border-2 w-10/12 rounded-b-3xl  h-10"></div>
     </div>
   );
 }
