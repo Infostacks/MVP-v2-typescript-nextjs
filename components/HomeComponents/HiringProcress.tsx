@@ -6,7 +6,7 @@ import { hiringData } from "../utils/data";
 
 const HiringProcress = () => {
   return (
-    <div className="flex flex-col items-center px-20 py-5 gap-36 w-full background-animate">
+    <div className="flex flex-col items-center px-20 py-5 gap-36 w-full">
       <h1 className="fontsize2 fontsize text-white">How We Hire?</h1>
 
       <div className="flex flex-col items-center gap-8 w-full">
