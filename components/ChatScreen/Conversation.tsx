@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const Conversation = () => {
   const conversationArray = [
     {
@@ -31,7 +33,14 @@ const Conversation = () => {
             }`}
             key={index}
           >
-            <img className="msg-profile" src={userImage} alt="Img" />
+            <Image
+              alt=""
+              width="100"
+              height="100"
+              unoptimized
+              className="msg-profile"
+              src={userImage}
+            />
             <div className="msg-detail">
               <div className="msg-username">{name}</div>
               <div className="msg-content">

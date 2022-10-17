@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import { TrustedByIcons } from "../utils/data";
 
 const TrustedBy = () => {
@@ -12,7 +13,14 @@ const TrustedBy = () => {
               key={index}
               className="flex flex-row items-center justify-between "
             >
-              <img src={counter.icon} alt="" className="w-36" />
+              <Image
+                alt=""
+                width="100"
+                height="100"
+                unoptimized
+                src={counter.icon}
+                className="w-36"
+              />
             </div>
           );
         })}
