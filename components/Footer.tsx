@@ -32,7 +32,7 @@ const footer = () => {
 
     return (
       <div className="footerPattern">
-        <div className="flex flex-col justify-center xl:px-40 lg:px-40 md:px-24 px-10 py-20 gap-5 w-full bg-gradient-to-b from-white to-transparent bg-violet-100 bg-opacity-70">
+        <div className="flex flex-col justify-center xl:px-40 lg:px-40 md:px-24 px-10 py-20 gap-5 w-full bg-gradient-to-b from-gray-900 to-transparent bg-gray-600 bg-opacity-90">
           {/* adress details  */}
           <div className="flex flex-row justify-between w-full items-center">
             <Image 
@@ -42,7 +42,7 @@ const footer = () => {
             width={50}
             height={50}
             />
-            <div className="flex xl:flex-row lg:flex-row md:flex-row flex-col gap-5">
+            <div className="flex xl:flex-row lg:flex-row md:flex-row flex-col gap-5 text-slate-100">
               <div className="flex flex-row gap-3 items-center">
                 <div className="hover:cursor-pointer text-4xl xl:text-slate-300 lg:text-slate-100 md:text-slate-150 text-violet-800 hover:text-violet-900">
                   <GoDeviceMobile />
@@ -64,10 +64,10 @@ const footer = () => {
             </div>
           </div>
           {/* horizontal line  */}
-          <div className="w-full h-[1px] bg-black"></div>
+          <div className="w-full h-[1px] bg-slate-200"></div>
 
           {/* navigation links  */}
-          <div className="flex xl:flex-row lg:flex-row md:flex-row flex-col justify-between xl:gap-0 lg:gap-0 md:gap-0 gap-3 w-full">
+          <div className="flex xl:flex-row lg:flex-row md:flex-row flex-col justify-between xl:gap-0 lg:gap-0 md:gap-0 gap-3 w-full text-slate-100">
             <div className="flex flex-col xl:w-1/4 lg:w-1/4 md:w-1/4 w-11/12 gap-5">
               <div className="font-bold">About Us</div>
               <div className="text-xs">

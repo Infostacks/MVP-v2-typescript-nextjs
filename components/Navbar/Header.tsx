@@ -54,12 +54,14 @@ const header = () => {
                       Services
                     </a>
 
-                    <a
-                      href="#"
-                      className={`text-white hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium`}
-                    >
-                      Vetting Process
-                    </a>
+                    <Link href="/vetting-process">
+                      <a
+                        // href="#"
+                        className={`text-white hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium`}
+                      >
+                        Vetting Process
+                      </a>
+                    </Link>
 
                     <a
                       href="#"
