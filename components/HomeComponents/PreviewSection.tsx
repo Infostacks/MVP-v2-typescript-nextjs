@@ -51,7 +51,7 @@ const previewsection = () => {
       rightAnimation.start({ x: "5vw", opacity: 0 });
       btnAnimation.start({ opacity: 0, translateY: "-80vh" });
     }
-  }, [inView]);
+  }, [inView, btnAnimation, leftAnimation, rightAnimation]);
 
   const loadAnimData = async (sourceUrl) => {
     try {

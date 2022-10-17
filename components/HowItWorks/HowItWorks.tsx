@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import React from "react";
 import HireTopDeveloper from "../Buttons/HireTopDeveloper";
 import TopDevelopers from "../TopDevelopers/TopDevelopers";

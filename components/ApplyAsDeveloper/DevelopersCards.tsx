@@ -27,9 +27,12 @@ const DevelopersCards = () => {
             className="drop-shadow-md shadow-lg shadow-cyan-200 flex flex-col justify-evenly bg-gray-900 rounded-xl h-[20rem] w-[15rem]"
           >
             <div className="self-center ">
-              <img
+              <Image
                 src={hire.icons}
                 alt=""
+                width="100"
+                height="100"
+                unoptimized
                 className="text-white w-40 rounded-full"
               />
             </div>

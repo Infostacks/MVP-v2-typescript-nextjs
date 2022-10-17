@@ -46,10 +46,12 @@ const featuredsection = () => {
                     <div className=" absolute">
                       <Image
                         src={member.img}
+                        alt=""
                         unoptimized
                         width="310"
                         height="350"
                         className="rounded-2xl"
+                        
                       />
                     </div>
                     {/* intro  */}

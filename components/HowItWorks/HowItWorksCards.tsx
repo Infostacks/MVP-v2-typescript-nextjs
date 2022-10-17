@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import Image from "next/image";
 import React from "react";
 import { howitworksCards } from "../utils/data";
 
@@ -28,7 +29,14 @@ const HowItWorksCards = () => {
               {hire.heading}
             </div>
             <div className=" rounded-full p-8 self-center bg-gray-700">
-              <img src={hire.icons} alt="" className="text-white" />
+              <Image
+                alt=""
+                width="100"
+                height="100"
+                unoptimized
+                src={hire.icons}
+                className="text-white"
+              />
             </div>
             <div className="w-3/4 flex justify-center self-center text-center">
               <p className="text-slate-400 text-xl">{hire.desc}</p>
