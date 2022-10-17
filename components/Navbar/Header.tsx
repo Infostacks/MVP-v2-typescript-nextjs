@@ -36,53 +36,60 @@ const header = () => {
           <div className="flex items-center justify-between h-16">
             <div className="flex justify-between items-center w-full">
               <div className="flex-shrink-0">
-                <Image
-                  src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg"
-                  alt="Workflow"
-                  width="40%"
-                  height="40%"
-                  unoptimized
-                />
+                <Link href="/">
+                  <a>
+                    <Image
+                      src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg"
+                      alt="Workflow"
+                      width="40%"
+                      height="40%"
+                      unoptimized
+                    />
+                  </a>
+                </Link>
               </div>
               <div className="flex flex-row justify-center items-center">
                 <div className="hidden md:block">
                   <div className="ml-10 flex items-baseline space-x-4">
-                    <a
-                      href="#"
-                      className={`text-white hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium`}
-                    >
-                      Services
-                    </a>
+                    <Link href="/">
+                      <a
+                        className={`text-white hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium`}
+                      >
+                        Home
+                      </a>
+                    </Link>
 
                     <Link href="/vetting-process">
                       <a
-                        // href="#"
                         className={`text-white hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium`}
                       >
                         Vetting Process
                       </a>
                     </Link>
 
-                    <a
-                      href="#"
-                      className={`text-white hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium`}
-                    >
-                      How it Works
-                    </a>
+                    <Link href="/how-it-works">
+                      <a
+                        className={`text-white hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium`}
+                      >
+                        How it Works
+                      </a>
+                    </Link>
 
-                    <a
-                      href="#"
-                      className={`text-white hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium`}
-                    >
-                      Pricing
-                    </a>
+                    <Link href="/simple-pricing">
+                      <a
+                        className={`text-white hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium`}
+                      >
+                        Pricing
+                      </a>
+                    </Link>
 
-                    <a
-                      href="#"
-                      className={`text-white hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium`}
-                    >
-                      Contact Us
-                    </a>
+                    <Link href="/company">
+                      <a
+                        className={`text-white hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium`}
+                      >
+                        Hire Top Developer
+                      </a>
+                    </Link>
                     <button
                       className={`text-white hover:cursor-pointer hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium`}
                       onClick={handleLogout}
@@ -155,40 +162,38 @@ const header = () => {
                 ref={ref}
                 className="mx-2 pt-2 pb-3 border-t-[1px] space-y-1 sm:px-3"
               >
-                <a
-                  href="#"
-                  className="hover:bg-gray-700 text-white block px-3 py-2 rounded-md text-base font-medium"
-                >
-                  Services
-                </a>
+                <Link href="/">
+                  <a className="hover:bg-gray-700 text-white block px-3 py-2 rounded-md text-base font-medium">
+                    Home
+                  </a>
+                </Link>
 
-                <a
-                  href="#"
-                  className="text-gray-800 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-                >
-                  Vetting Process
-                </a>
+                <Link href="/vetting-process">
+                  <a className="text-gray-800 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">
+                    Vetting Process
+                  </a>
+                </Link>
 
-                <a
-                  href="#"
-                  className="text-gray-800 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-                >
-                  How it Works
-                </a>
+                <Link href="/how-it-works">
+                  <a className="text-gray-800 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">
+                    How it Works
+                  </a>
+                </Link>
 
-                <a
-                  href="#"
-                  className="text-gray-800 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-                >
-                  Pricing
-                </a>
+                <Link href="/simple-pricing">
+                  <a className="text-gray-800 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">
+                    Pricing
+                  </a>
+                </Link>
 
-                <a
-                  href="#"
-                  className="text-gray-800 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-                >
-                  Contact Us
-                </a>
+                <Link href="/company">
+                  <a
+                    href="#"
+                    className="text-gray-800 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+                  >
+                    Hire Top Developer
+                  </a>
+                </Link>
                 <button
                   className={`text-violet-700 rounded-full drop-shadow-xl px-5 py-2 hover:text-xl ${styles.buttonHover}`}
                   onClick={handleLogout}
