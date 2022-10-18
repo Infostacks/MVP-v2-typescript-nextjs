@@ -3,7 +3,6 @@ import type { AppProps } from "next/app";
 import { AuthProvider } from "../hooks/useAuth";
 import { RecoilRoot } from "recoil";
 import Layout from "../components/Layout";
-import { ThemeProvider } from "next-themes";
 
 import "swiper/css";
 // import 'swiper/swiper.min.css';
@@ -16,9 +15,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       {/* Higher Order Component */}
       <AuthProvider>
         <Layout>
-          <ThemeProvider attribute="class">
-            <Component {...pageProps} />
-          </ThemeProvider>
+          <Component {...pageProps} />
         </Layout>
       </AuthProvider>
     </RecoilRoot>
