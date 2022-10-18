@@ -39,7 +39,6 @@ const FaQs = () => {
                 <h5 className="text-xl text-teal-50 font-bold">
                   {head.heading}
                 </h5>
-
                 <span className="flex-shrink-0 ml-1.5 p-1.5 text-gray-900 bg-teal-200 rounded-3xl sm:p-3">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"

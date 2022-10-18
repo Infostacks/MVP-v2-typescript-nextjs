@@ -11,7 +11,7 @@ const RobustVettingProcess = () => {
         <h1 className="fontsize2 fontsize text-center text-slate-400 pt-52">
           Our Robust Vetting Process
         </h1>
-        <p className="text-2xl w-7/6 text-center text-gray-400">
+        <p className="text-2xl text-center text-gray-400">
           Unlike typical technical interviews, we put lots of emphasis on the
           developer's soft skills. Technical skills are crucial but it's
           critical to realize the importance of attitude, willingness to learn,

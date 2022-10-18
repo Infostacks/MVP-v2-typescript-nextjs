@@ -5,7 +5,7 @@ import { howitworksCards } from "../utils/data";
 
 const HowItWorksCards = () => {
   return (
-    <div className="flex flex-row flex-wrap justify-around items-center w-full gap-5">
+    <div className="grid grid-cols-2 place-items-center gap-36 w-full ">
       {howitworksCards.map((hire, index) => {
         return (
           <motion.div
