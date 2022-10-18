@@ -6,9 +6,6 @@ import FeaturedSection from "./FeaturedSection";
 import ProudProjects from "./ProudProjects";
 import Companies from "./Companies";
 import Contact from "./Contact";
-import Footer from "../Footer";
-import Pro1 from "./Pro1";
-import HiringProcress from "./HiringProcress";
 
 const index = () => {
   return (
@@ -28,9 +25,6 @@ const index = () => {
       <div className="w-full h-full mt-5">
         <Companies />
       </div>
-      {/* <div className="w-full h-full py-5">
-        <HiringProcress />
-      </div> */}
       <div className="w-full h-screen">
         <Contact />
       </div>
