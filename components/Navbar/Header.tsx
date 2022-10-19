@@ -7,11 +7,11 @@ import Image from "next/image";
 import { Transition } from "@headlessui/react";
 
 const header = () => {
-  const { logout } = useAuth();
+  // const { logout } = useAuth();
 
-  const handleLogout = async () => {
-    await logout();
-  };
+  // const handleLogout = async () => {
+  //   await logout();
+  // };
   const [isOpen, setIsOpen] = useState(false);
   const [navbar, setNavbar] = useState(false);
 
@@ -90,12 +90,12 @@ const header = () => {
                         Hire Top Developer
                       </a>
                     </Link>
-                    <button
+                    {/* <button
                       className={`text-white hover:cursor-pointer hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium`}
                       onClick={handleLogout}
                     >
                       Logout
-                    </button>
+                    </button> */}
                   </div>
                 </div>
               </div>
@@ -194,12 +194,12 @@ const header = () => {
                     Hire Top Developer
                   </a>
                 </Link>
-                <button
+                {/* <button
                   className={`text-violet-700 rounded-full drop-shadow-xl px-5 py-2 hover:text-xl ${styles.buttonHover}`}
                   onClick={handleLogout}
                 >
                   Logout
-                </button>
+                </button> */}
               </div>
             </div>
           )}
