@@ -81,7 +81,6 @@ const Login: NextPage = () => {
           valuePass={formData.password}
           valueConfPass={formData.confirmPassword}
           onClick={handleSubmit}
-          isAnimating={false}
         />
       );
     } else if (authType === 2) {
@@ -99,7 +98,6 @@ const Login: NextPage = () => {
           onChange={handleChange}
           valueEmail={resetPassFormData.email}
           onClick={handleSubmit}
-          isAnimating={false}
         />
       );
     }
