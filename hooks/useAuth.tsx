@@ -57,7 +57,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
           // Not logged in...
           setUser(null);    //  Set user to null
           setLoading(true);
-          router.push("/login");  //  Redirect to login page after successful sign up
+          router.push("/");  //  Redirect to login page after successful sign up
         }
 
         setInitialLoading(false);
