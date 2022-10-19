@@ -53,7 +53,7 @@ const HiringProcress = () => {
         })}
       </div>
 
-      <div className="flex flex-col p-8 ">
+      <div className="flex flex-col p-8">
         <div className="absolute ml-52 pt-4">
           <Image
             src="https://assets.website-files.com/632a6ffabd6820ec560a3c0c/632a6ffabd682075e50a3e1c_certified-icon.png"
