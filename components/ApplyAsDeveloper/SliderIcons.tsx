@@ -11,7 +11,7 @@ const SliderIcons = () => {
         TECHNOLOGIES OUR DEVELOPERS KNOW
       </p>
       <div className="flex flex-row flex-wrap justify-around items-center w-full">
-        <div className="drop-shadow-md shadow-lg shadow-cyan-200 flex flex-row items-center justify-around bg-gray-900 rounded-full max-w-screen-xl h-full p-10">
+        <div className="drop-shadow-md shadow-lg shadow-cyan-200 flex flex-row items-center justify-around bg-gray-900 rounded-full max-w-screen-lg h-full p-10">
           <Swiper
             spaceBetween={30}
             slidesPerView={7}

@@ -3,7 +3,7 @@ import HireTopDeveloper from "../Buttons/HireTopDeveloper";
 
 const FixedSalary = () => {
   return (
-    <div className="w-1/2 items-center gap-10 flex flex-col">
+    <div className="items-center gap-10 flex flex-col">
       <h1 className="fontsize2 fontsize text-center text-slate-400">
         Fixed Salary
       </h1>
