@@ -373,19 +373,19 @@ const NoCounter = [
   {
     from: 0,
     to: 100,
-    durat: 4,
+    durat: 1,
     textcard: "Developers",
   },
   {
     from: 0,
     to: 150000,
-    durat: 4,
+    durat: 1,
     textcard: "Hours worked",
   },
   {
     from: 0,
     to: 40,
-    durat: 4,
+    durat: 1,
     textcard: "Companies",
   },
 ];

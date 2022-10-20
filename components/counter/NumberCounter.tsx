@@ -1,5 +1,7 @@
-import { animate } from "framer-motion";
-import React, { useEffect, useRef } from "react";
+/* eslint-disable react-hooks/rules-of-hooks */
+import React, { useState } from "react";
+import CountUp from "react-countup";
+// import ScrollTrigger from "react-scroll-trigger";
 
 export default function Counter({ from, to, dur }) {
   const nodeRef = useRef(null);
