@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/rules-of-hooks */
-import React, { useState } from "react";
-import CountUp from "react-countup";
+import { animate } from "framer-motion";
+import React, { useEffect, useRef } from "react";
 // import ScrollTrigger from "react-scroll-trigger";
 
 export default function Counter({ from, to, dur }) {
