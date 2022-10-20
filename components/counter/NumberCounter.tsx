@@ -1,21 +1,24 @@
-import { animate } from "framer-motion";
-import React, { useEffect, useRef } from "react";
+/* eslint-disable react-hooks/rules-of-hooks */
+import React, { useState } from "react";
+import CountUp from "react-countup";
+// import ScrollTrigger from "react-scroll-trigger";
 
-export default function Counter({ from, to, dur }) {
-  const nodeRef = useRef();
-
-  useEffect(() => {
-    const node = nodeRef.current;
-
-    const controls = animate(from, to, {
-      duration: dur,
-      onUpdate(value) {
-        // node.textContent = value.toFixed(2);
-      },
-    });
-
-    return () => controls.stop();
-  }, [from, to, dur]);
-
-  return <p ref={nodeRef} />;
+export default function Counter({ from, to, dur }): JSX.Element {
+  const [counterOn, setCounterOn] = useState(false);
+  
+  return (
+      // <ScrollTrigger
+      //   onEnter={() => setCounterOn(true)}
+      //   onExit={() => setCounterOn(false)}
+      // >
+      //   <div>
+      //     <h1>
+      //       {counterOn && (
+      //         <CountUp start={from} end={to} duration={dur} delay={0} />
+      //       )}
+      //     </h1>
+      //   </div>
+      // </ScrollTrigger>
+ 
+  );
 }
