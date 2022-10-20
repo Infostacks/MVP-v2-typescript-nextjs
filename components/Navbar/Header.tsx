@@ -90,6 +90,14 @@ const header = () => {
                         Hire Top Developer
                       </a>
                     </Link>
+
+                    <Link href="/apply-as-developer">
+                      <a
+                        className={`text-white hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium`}
+                      >
+                        Apply As Developer
+                      </a>
+                    </Link>
                     {/* <button
                       className={`text-white hover:cursor-pointer hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium`}
                       onClick={handleLogout}
@@ -192,6 +200,15 @@ const header = () => {
                     className="text-gray-800 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
                   >
                     Hire Top Developer
+                  </a>
+                </Link>
+
+                <Link href="/apply-as-developer">
+                  <a
+                    href="#"
+                    className="text-gray-800 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+                  >
+                    Apply As Developer
                   </a>
                 </Link>
                 {/* <button
