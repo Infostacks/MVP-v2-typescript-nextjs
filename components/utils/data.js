@@ -392,15 +392,23 @@ const NoCounter = [
 
 const TrustedByIcons = [
   {
+    width: "160",
+    height: "70",
     icon: "https://assets.website-files.com/632a6ffabd6820ec560a3c0c/6331cf589573fd958a21725e_Deel%20svg.webp",
   },
   {
+    width: "230",
+    height: "70",
     icon: "https://assets.website-files.com/632a6ffabd6820ec560a3c0c/632a6ffabd6820fbc60a3cac_webflow.png",
   },
   {
+    width: "250",
+    height: "70",
     icon: "https://assets.website-files.com/632a6ffabd6820ec560a3c0c/632a6ffabd6820bc960a3dd1_donotpay.png",
   },
   {
+    width: "300",
+    height: "70",
     icon: "https://assets.website-files.com/632a6ffabd6820ec560a3c0c/633613949ec4badbcd7d97e4_immutable-x.webp",
   },
 ];

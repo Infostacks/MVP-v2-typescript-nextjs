@@ -15,8 +15,8 @@ const TrustedBy = () => {
             >
               <Image
                 alt=""
-                width="160"
-                height="70"
+                width={counter.width}
+                height={counter.height}
                 unoptimized
                 src={counter.icon}
                 className="w-36"
