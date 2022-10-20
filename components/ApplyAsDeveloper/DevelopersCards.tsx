@@ -6,7 +6,7 @@ import Image from "next/image";
 
 const DevelopersCards = () => {
   return (
-    <div className="flex flex-row flex-wrap justify-around items-center w-full">
+    <div className="grid grid-cols-2 place-items-center gap-36 w-full">
       {DevelopersBio.map((hire, index) => {
         return (
           <motion.div
@@ -24,14 +24,14 @@ const DevelopersCards = () => {
               },
             }}
             key={index}
-            className="drop-shadow-md shadow-lg shadow-cyan-200 flex flex-col justify-evenly bg-gray-900 rounded-xl h-[20rem] w-[15rem]"
+            className="drop-shadow-md shadow-lg shadow-cyan-200 flex flex-col justify-evenly bg-gray-900 rounded-xl h-[25rem] w-[25rem]"
           >
             <div className="self-center ">
               <Image
                 src={hire.icons}
                 alt=""
-                width="100"
-                height="100"
+                width="150"
+                height="150"
                 unoptimized
                 className="text-white w-40 rounded-full"
               />
