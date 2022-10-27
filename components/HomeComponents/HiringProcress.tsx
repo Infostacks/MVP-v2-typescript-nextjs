@@ -30,9 +30,9 @@ const HiringProcress = () => {
                 },
               }}
               key={index}
-              className="drop-shadow-md shadow-lg shadow-cyan-200 flex xl:flex-row lg:flex-row flex-col items-center justify-around bg-gray-900 xl:rounded-full lg:rounded-full rounded-xl xl:h-48 lg:h-48 h-auto lg:p-5 xl:p-5 md:p-3 p-8"
+              className="drop-shadow-md shadow-lg shadow-primary border-2 border-primary flex xl:flex-row lg:flex-row flex-col items-center justify-around bg-gray-900 xl:rounded-full lg:rounded-full rounded-xl xl:h-48 lg:h-48 h-auto lg:p-5 xl:p-5 md:p-3 p-8"
             >
-              <div className="border rounded-full bg-gray-800">
+              <div className="border-2 rounded-full border-primary">
                 <motion.div
                   animate={{ rotateY: 360 }}
                   transition={{
@@ -69,7 +69,7 @@ const HiringProcress = () => {
             className="z-10"
           />
         </div>
-        <div className="drop-shadow-md shadow-md shadow-cyan-400 flex flex-col items-center rounded-full bg-gradient-to-t from-cyan-500 to-blue-500 xl:py-11 xl:px-4 xl:gap-y-2 lg:py-11 lg:px-4 lg:gap-y-2 py-9">
+        <div className="drop-shadow-md shadow-md border-2 border-primary shadow-primary flex flex-col items-center rounded-full bg-gradient-to-t from-cyan-500 to-blue-500 xl:py-11 xl:px-4 xl:gap-y-2 lg:py-11 lg:px-4 lg:gap-y-2 py-9">
           <div>
             <HiOutlineUser className="w-24 h-24" />
           </div>

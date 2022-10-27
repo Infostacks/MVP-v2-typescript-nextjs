@@ -8,7 +8,7 @@ const TrustedBy = () => {
       <p className="lg:text-7xl xl:text-7xl md:text-3xl text-2xl font-bold text-center text-slate-400 lg:max-w-4xl sm:max-w-sm">
         Trusted By
       </p>
-      <div className="drop-shadow-md shadow-lg shadow-cyan-200 flex flex-row items-center justify-around bg-gray-900 rounded-full h-48 w-full gap-14 px-10">
+      <div className="drop-shadow-md shadow-lg shadow-primary border-2 border-primary flex flex-row items-center justify-around rounded-full h-48 w-full gap-14 px-10">
         {TrustedByIcons.map((counter, index) => {
           return (
             <div

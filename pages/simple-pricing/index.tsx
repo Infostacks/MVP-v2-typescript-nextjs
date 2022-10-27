@@ -3,7 +3,7 @@ import SimplePricing from "../../components/SimplePricing/SimplePricing";
 
 const index = () => {
   return (
-    <div className="w-screen flex flex-col items-center py-5 bg-gray-900">
+    <div className="w-screen flex flex-col items-center py-5 bg-bgColor">
       <SimplePricing />
     </div>
   );

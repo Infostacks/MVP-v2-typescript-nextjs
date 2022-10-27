@@ -6,6 +6,7 @@ import { animList, previewTextData } from "../utils/data";
 import { useInView } from "react-intersection-observer";
 import Lottie from "react-lottie-player";
 import axios from "axios";
+import AnimationButton from "../AnimationButton/AnimationButton";
 
 const previewsection = () => {
   const { ref, inView } = useInView({
@@ -95,7 +96,7 @@ const previewsection = () => {
       <div className="flex justify-center xl:w-1/2 lg:w-1/2 md:w-1/2 h-1/2 w-screen">
         <motion.div className="w-full h-full">
           <div className="flex flex-col justify-center gap-5 w-2/3">
-            <h3 className="text-primary text-2xl">
+            <h3 className="text-primary lg:text-7xl xl:text-7xl md:text-3xl text-2xl font-bold">
               {previewTextData[animListNo].heading
                 .split("")
                 .map((character, i) => {
@@ -103,50 +104,16 @@ const previewsection = () => {
                 })}
             </h3>
             <AnimatePresence>
-              <motion.h1 className="text-3xl font-extrabold">
+              <motion.h1 className="lg:text-7xl xl:text-7xl md:text-3xl text-2xl font-bold">
                 {previewTextData[animListNo].subHeading}
               </motion.h1>
             </AnimatePresence>
             <AnimatePresence>
-              <motion.p className="text-sm">
+              <motion.p className="text-2xl">
                 {previewTextData[animListNo].desc}
               </motion.p>
             </AnimatePresence>
-            <div className="flex flex-row items-center justify-start gap-3">
-              <motion.button
-                animate={btnAnimation}
-                className="rounded-full bg-secondary p-2 text-3xl text-txtColor"
-              >
-                <motion.div
-                  variants={{
-                    hidden: {
-                      opacity: 1,
-                    },
-                    visible: {
-                      rotateZ: [25, -25],
-                      transition: {
-                        rotateZ: {
-                          yoyo: Infinity,
-                          duration: 1,
-                          delay: 1,
-                          type: "spring",
-                        },
-                      },
-                    },
-                    removed: {
-                      opacity: 1,
-                    },
-                  }}
-                  initial="hidden"
-                  animate="visible"
-                >
-                  <MdExpandMore />
-                </motion.div>
-              </motion.button>
-              <span className="text-secondaryLight font-semibold hover:text-secondary hover:cursor-pointer">
-                Learn More
-              </span>
-            </div>
+            <AnimationButton btnText={"Learn More"} />
           </div>
         </motion.div>
       </div>

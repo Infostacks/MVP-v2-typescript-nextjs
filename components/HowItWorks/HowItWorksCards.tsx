@@ -23,12 +23,12 @@ const HowItWorksCards = () => {
               },
             }}
             key={index}
-            className="drop-shadow-md shadow-lg shadow-cyan-200 flex flex-col justify-evenly bg-gray-900 rounded-xl h-[25rem] w-full"
+            className="drop-shadow-md border-2 border-primary shadow-lg shadow-primary flex flex-col justify-evenly rounded-xl h-[25rem] w-full"
           >
-            <div className="font-sans text-transparent bg-clip-text pl-5 bg-gradient-to-t from-gray-900 to-gray-600 font-extrabold text-7xl">
+            <div className="bg-clip-text pl-5 font-extrabold text-secondary text-7xl">
               {hire.heading}
             </div>
-            <div className=" rounded-full xl:p-8 lg:p-8 p-6 self-center bg-gray-700">
+            <div className=" rounded-full xl:p-8 lg:p-8 p-6 self-center border-4 border-primary">
               <Image
                 alt=""
                 width="100"

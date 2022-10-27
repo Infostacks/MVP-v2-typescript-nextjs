@@ -24,13 +24,13 @@ const featuredsection = () => {
     <div className="example example4 flex flex-col items-center justify-center h-screen py-5 gap-5">
       {/* Team  */}
       <div className="flex justify-center">
-        <h1 className="rounded-xl px-8 py-3 bg-secondary text-txtColor font-semibold">
+        <h1 className="lg:text-7xl xl:text-7xl md:text-3xl text-2xl font-bold text-center lg:max-w-4xl sm:max-w-sm rounded-xl px-8 py-3">
           Featured Team
         </h1>
       </div>
 
       <div className="flex justify-center">
-        <h1 className="text-txtColor font-bold">
+        <h1 className="lg:text-7xl xl:text-5xl md:text-2xl text-2xl font-bold text-center lg:max-w-3xl sm:max-w-sm">
           Our Best Expertise
         </h1>
       </div>
