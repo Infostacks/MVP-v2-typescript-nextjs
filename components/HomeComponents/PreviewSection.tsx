@@ -95,7 +95,7 @@ const previewsection = () => {
       <div className="flex justify-center xl:w-1/2 lg:w-1/2 md:w-1/2 h-1/2 w-screen">
         <motion.div className="w-full h-full">
           <div className="flex flex-col justify-center gap-5 w-2/3">
-            <h3 className="text-primary text-2xl">
+            <h3 className="text-primary lg:text-7xl xl:text-7xl md:text-3xl text-2xl font-bold">
               {previewTextData[animListNo].heading
                 .split("")
                 .map((character, i) => {
@@ -103,12 +103,12 @@ const previewsection = () => {
                 })}
             </h3>
             <AnimatePresence>
-              <motion.h1 className="text-3xl font-extrabold">
+              <motion.h1 className="lg:text-7xl xl:text-7xl md:text-3xl text-2xl font-bold">
                 {previewTextData[animListNo].subHeading}
               </motion.h1>
             </AnimatePresence>
             <AnimatePresence>
-              <motion.p className="text-sm">
+              <motion.p className="text-2xl">
                 {previewTextData[animListNo].desc}
               </motion.p>
             </AnimatePresence>

@@ -24,7 +24,7 @@ const DevelopersCards = () => {
               },
             }}
             key={index}
-            className="drop-shadow-md shadow-lg shadow-cyan-200 bg-gray-900 rounded-xl"
+            className="drop-shadow-md shadow-lg border-2 border-primary shadow-primary rounded-xl"
           >
             <div className="xl:p-20 lg:p-20 p-4 flex flex-col justify-center gap-3">
               <div className="self-center ">
@@ -38,7 +38,7 @@ const DevelopersCards = () => {
                 />
               </div>
               <div className="flex justify-center self-center text-center">
-                <p className="text-white font-bold xl:text-xl text-xl md:text-base lg:text-xl mr-1">
+                <p className="text-txtColor font-bold xl:text-xl text-xl md:text-base lg:text-xl mr-1">
                   {hire.name}
                 </p>
                 <Image
@@ -49,12 +49,12 @@ const DevelopersCards = () => {
                   unoptimized
                 />
               </div>
-              <div className="w-3/4 flex justify-center self-center text-center">
+              <div className="w-3/4 flex justify-center self-center text-txtColor text-center">
                 <p className="text-slate-400 text-xl">{hire.desig}</p>
               </div>
-              <div className="rounded-full p-2 self-center bg-gray-700">
-                <p className="flex flex-row text-slate-400 text-xl">
-                  <MdLocationOn className="text-blue-500 mt-1" />
+              <div className="rounded-full p-2 self-center bg-secondary">
+                <p className="flex flex-row text-xl text-txtColor">
+                  <MdLocationOn className="text-primary mt-1" />
                   {hire.country}
                 </p>
               </div>

@@ -35,7 +35,7 @@ const FaQs = () => {
                 },
               }}
               key={index}
-              className={`p-6 border-l-4 border-primary  shadow-lg shadow-cyan-200 rounded-3xl bg-gray-700 group w-full`}
+              className={`p-6 border-l-4 border-2 border-primary shadow-lg shadow-primary rounded-3xl bg-gray-700 group w-full`}
             >
               <summary className="flex items-center justify-between cursor-pointer w-full">
                 <h5 className="text-xl text-primary font-bold">

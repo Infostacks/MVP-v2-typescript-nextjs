@@ -3,7 +3,7 @@ import RobustVettingProcess from "../../components/VettingProcess/RobustVettingP
 
 const index = () => {
   return (
-    <div className="w-screen flex flex-col items-center py-5 bg-gray-900">
+    <div className="w-screen flex flex-col items-center py-5 bg-bgColor">
       <RobustVettingProcess />
     </div>
   );

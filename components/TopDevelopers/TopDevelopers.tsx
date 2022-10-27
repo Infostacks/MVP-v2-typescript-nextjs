@@ -8,7 +8,7 @@ function TopDevelopers() {
         <div className="lg:text-5xl xl:text-6xl md:text-3xl font-bold text-2xl text-center">
           Hire The Top 1% Developers
         </div>
-        <p className="text-2xl">
+        <p className="text-2xl px-4">
           Get a fully remote, top 1% developer in your team within 9 days
         </p>
         <div>

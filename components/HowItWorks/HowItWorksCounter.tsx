@@ -23,7 +23,7 @@ const HowItWorksCounter = () => {
               },
             }}
             key={index}
-            className="drop-shadow-md shadow-lg items-center shadow-cyan-200 flex flex-col justify-evenly bg-gray-900 rounded-3xl h-[13rem] w-[19rem]"
+            className="drop-shadow-md shadow-lg items-center shadow-primary flex flex-col justify-evenly border-primary border-2 rounded-3xl h-[13rem] w-[19rem]"
           >
             <div className="flex flex-row gap-2 text-4xl fontsize">
               <NumberCounter

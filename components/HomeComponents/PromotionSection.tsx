@@ -30,8 +30,8 @@ const promotionsection = () => {
           }
           unoptimized
           alt=""
-          width="450"
-          height="400"
+          width="600"
+          height="600"
           className="shadow-md opacity-80"
         />
       </div>
@@ -41,7 +41,7 @@ const promotionsection = () => {
         <div className="flex flex-col justify-center gap-5 w-2/3">
           <motion.h3
             animate={leftAnimation}
-            className="text-primary font-bold text-xl flex flex-row"
+            className="text-primary lg:text-7xl xl:text-7xl md:text-3xl text-2xl font-bold flex flex-row"
           >
             Every Purchase Will Be Made With Pleasure
           </motion.h3>
@@ -57,7 +57,7 @@ const promotionsection = () => {
             }}
             animate={{ opacity: 1 }}
             transition={{ duration: 3, delay: 0.5 }}
-            className="text-sm"
+            className="text-2xl"
           >
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet,
             repellendus nihil fuga unde voluptas voluptates perspiciatis

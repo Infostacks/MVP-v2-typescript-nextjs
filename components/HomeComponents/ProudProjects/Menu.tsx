@@ -1,17 +1,15 @@
 import Image from "next/image";
-import Link from 'next/link';
-import {motion} from 'framer-motion';
+import Link from "next/link";
+import { motion } from "framer-motion";
 
 const menu = ({ items }) => {
   return (
-    <div className="flex flex-row justify-center items-center flex-wrap gap-5 xl:px-28 lg:px-28 md:px-28">
+    <div className="flex flex-row justify-center items-center flex-wrap gap-10 xl:px-28 lg:px-28 md:px-28">
       {items.map((menuItem: any) => {
         const { id, link, img, title } = menuItem;
         return (
           <div key={id} className="">
-            <Link
-              href=""
-            >
+            <Link href="">
               <a>
                 <motion.div
                   initial={{
