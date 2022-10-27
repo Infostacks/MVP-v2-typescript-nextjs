@@ -7,7 +7,7 @@ import { hiringData } from "../utils/data";
 const HiringProcress = () => {
   return (
     <div className="flex flex-col items-center max-w-screen-lg px-20 py-5 gap-36 w-full">
-      <h1 className="fontsize2 fontsize text-white">How We Hire?</h1>
+      <h1 className="fontsize2 fontsize text-txtColor">How We Hire?</h1>
 
       <div className="flex flex-col items-center gap-8 w-full">
         {hiringData.map((hire, index) => {
@@ -43,10 +43,10 @@ const HiringProcress = () => {
                 </motion.div>
               </div>
               <div className="w-3/4">
-                <div className="text-white font-bold text-2xl mb-2">
+                <div className="font-bold text-2xl mb-2">
                   {hire.heading}
                 </div>
-                <p className="text-teal-100 font-sans text-lg">{hire.desc}</p>
+                <p className="font-sans text-lg">{hire.desc}</p>
               </div>
             </motion.div>
           );
@@ -68,8 +68,8 @@ const HiringProcress = () => {
           <div>
             <HiOutlineUser className="w-24 h-24" />
           </div>
-          <div className="font-bold text-xl text-white">Top 1% </div>
-          <div className="w-2/3 font-bold text-xl text-center text-white">
+          <div className="font-bold text-xl">Top 1% </div>
+          <div className="w-2/3 font-bold text-xl text-center">
             Micro1 Certified Developer
           </div>
         </div>

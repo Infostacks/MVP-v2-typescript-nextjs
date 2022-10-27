@@ -8,14 +8,14 @@ export interface InputProps {
 const resetPassword = (props: InputProps) => {
   return (
     <div className="flex flex-col gap-3">
-      <label className="text-xs text-slate-500">Email:</label>
+      <label className="text-xs text-bgColor">Email:</label>
       <input
         id="email"
         name="email"
         type="email"
         value={props.valueEmail}
         onChange={props.onChange}
-        className={`w-72 h-7 pl-2 bg-white border-2 rounded-sm text-lg z-12 focus:outline-none`}
+        className={`w-72 h-7 pl-2 border-2 rounded-sm text-lg z-12 focus:outline-none`}
       />
     </div>
   );

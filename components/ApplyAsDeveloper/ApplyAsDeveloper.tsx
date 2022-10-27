@@ -11,17 +11,17 @@ import TopSiliconValleyCard from "./TopSiliconValley";
 
 const ApplyAsDeveloper = () => {
   return (
-    <div className="flex flex-col items-center h-auto my-20 max-w-screen-lg  gap-36 w-full">
+    <div className="flex flex-col items-center h-auto my-20 max-w-screen-lg  gap-36 w-full text-txtColor">
       <div className="w-full max-w-screen-xl">
-        <h1 className="fontsize2 fontsize text-center text-slate-400 pt-32 ">
+        <h1 className="fontsize2 fontsize text-center pt-32 ">
           Get a Remote Developer Position with Silicon Valley Companies
         </h1>
-        <p className="text-2xl text-center text-gray-400">
+        <p className="text-2xl text-center">
           Get the rate you want plus other amazing benefits.
         </p>
       </div>
       <HireTopDeveloper />
-      <CgArrowLongDown className="w-16 h-16 text-white animate-bounce" />
+      <CgArrowLongDown className="w-16 h-16 animate-bounce" />
       <DevelopersCards />
       <TrustedBy />
       <TopSiliconValleyCard />

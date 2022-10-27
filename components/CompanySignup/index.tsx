@@ -4,7 +4,7 @@ import SideAnimation from "./SideAnimation";
 const index = () => {
   return (
     <div className="companySignupBG">
-      <div className="bg-white bg-opacity-50 flex flex-row m-0 p-0 h-screen w-screen">
+      <div className="bg-txtColor bg-opacity-50 text-txtColor flex flex-row m-0 p-0 h-screen w-screen">
         <div className="h-full w-1/3 xl:block lg:block hidden">
           <SideAnimation />
         </div>

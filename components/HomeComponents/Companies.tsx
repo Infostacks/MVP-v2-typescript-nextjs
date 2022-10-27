@@ -3,11 +3,11 @@ import Image from "next/image";
 
 const companies = () => {
   return (
-    <div className="flex flex-col items-center justify-evenly px-20 py-20 gap-5 w-full bg-white">
-      <h1 className="text-violet-600 font-bold text-2xl">
+    <div className="flex flex-col items-center justify-evenly px-20 py-20 gap-5 w-full bg-txtColor text-secondary">
+      <h1 className="font-bold text-2xl">
         Great software needs great relationships
       </h1>
-      <p className="text-slate-700 text-xs">
+      <p className="text-xs">
         Beyond our skilled expertise, it is our customers and our relationship
         with them that sets us apart.
       </p>

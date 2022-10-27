@@ -6,7 +6,7 @@ import Image from "next/image";
 
 const DevelopersCards = () => {
   return (
-    <div className="grid grid-cols-2 place-items-center gap-36 w-full">
+    <div className="grid grid-cols-2 place-items-center gap-36 w-full text-txtColor">
       {DevelopersBio.map((hire, index) => {
         return (
           <motion.div
@@ -33,11 +33,11 @@ const DevelopersCards = () => {
                 width="150"
                 height="150"
                 unoptimized
-                className="text-white w-40 rounded-full"
+                className="w-40 rounded-full"
               />
             </div>
             <div className="w-3/4 flex justify-center self-center text-center">
-              <p className="text-white font-bold text-xl mr-1">{hire.name}</p>
+              <p className="font-bold text-xl mr-1">{hire.name}</p>
               <Image
                 src="https://assets.website-files.com/632a6ffabd6820ec560a3c0c/632a6ffabd682075e50a3e1c_certified-icon.png"
                 alt=""
@@ -47,10 +47,10 @@ const DevelopersCards = () => {
               />
             </div>
             <div className="w-3/4 flex justify-center self-center text-center">
-              <p className="text-slate-400 text-xl">{hire.desig}</p>
+              <p className="text-xl">{hire.desig}</p>
             </div>
             <div className="rounded-full p-2 self-center bg-gray-700">
-              <p className="flex flex-row text-slate-400 text-xl">
+              <p className="flex flex-row text-xl">
                 <MdLocationOn className="text-blue-500 mt-1" />
                 {hire.country}
               </p>

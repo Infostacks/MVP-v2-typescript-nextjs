@@ -7,7 +7,7 @@ import { Autoplay } from "swiper";
 const SliderIcons = () => {
   return (
     <div className="flex flex-col items-center gap-20">
-      <p className="text-slate-400 text-2xl tracking-widest font-semibold">
+      <p className="text-txtColor text-2xl tracking-widest font-semibold">
         TECHNOLOGIES OUR DEVELOPERS KNOW
       </p>
       <div className="flex flex-row flex-wrap justify-around items-center w-full">

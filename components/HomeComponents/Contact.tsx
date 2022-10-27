@@ -56,17 +56,17 @@ const contact = () => {
     return (
       <div
         ref={ref}
-        className="bg-white flex flex-col md:flex-row lg:flex-row xl:flex-row  items-center justify-center h-screen px-20 gap-5 w-full"
+        className="flex flex-col md:flex-row lg:flex-row xl:flex-row  items-center justify-center h-screen px-20 gap-5 w-full text-txtColor"
       >
         {/* Left side form */}
         <div className="flex flex-col justify-center items-center xl:gap-5 lg:gap-5 md:gap-5 gap-2 xl:w-1/2 lg:w-1/2 md:w-1/2 h-1/2 w-screen">
           <div className="flex flex-col justify-center items-center gap-5 w-11/12">
-            <h1 className="rounded-xl px-3 py-2 w-28 bg-violet-100 text-violet-500 font-semibold">
+            <h1 className="rounded-xl px-3 py-2 w-28 bg-secondary font-semibold">
               Contact Us
             </h1>
             <motion.h1
               animate={leftAnimation}
-              className=" xl:text-2xl lg:text-2xl md:text-2xl text-md xl:font-extrabold lg:font-extrabold font-bold text-slate-800"
+              className=" xl:text-2xl lg:text-2xl md:text-2xl text-md xl:font-extrabold lg:font-extrabold font-bold"
             >
               We Love To Help Great Companies To Enlarge Their Revenues.
             </motion.h1>
@@ -74,25 +74,25 @@ const contact = () => {
               <input
                 type="text"
                 name="user_name"
-                className="border-[1px] border-zinc-200 text-sm rounded-full focus:outline-none px-5 py-2 bg-violet-100 w-full"
+                className="border-[1px] border-zinc-200 text-sm rounded-full focus:outline-none px-5 py-2 bg-secondary placeholder:to-txtColor w-full"
                 placeholder="Name"
               />
               <input
                 type="email"
                 name="user_email"
-                className="border-[1px] border-zinc-200 text-sm rounded-full focus:outline-none px-5 py-2 bg-violet-100 w-full"
+                className="border-[1px] border-zinc-200 text-sm rounded-full focus:outline-none px-5 py-2 bg-secondary placeholder:to-txtColor w-full"
                 placeholder="Email"
               />
               <textarea
                 name="message"
-                className="border-[1px] border-zinc-200 text-sm rounded-3xl focus:outline-none px-5 py-2 bg-violet-100 w-full h-[10rem]"
+                className="border-[1px] border-zinc-200 text-sm rounded-3xl focus:outline-none px-5 py-2 bg-secondary placeholder:to-txtColor w-full h-[10rem]"
                 placeholder="Message"
               />
               <div className="flex flex-row items-center justify-start gap-3">
                 <motion.button
                   animate={btnAnimation}
                   type="submit"
-                  className="rounded-full bg-violet-500 p-2 text-3xl text-white"
+                  className="rounded-full bg-secondary p-2 text-3xl"
                 >
                   <motion.div
                     variants={{
@@ -120,7 +120,7 @@ const contact = () => {
                     <MdExpandMore />
                   </motion.div>
                 </motion.button>
-                <span className="text-violet-500 font-semibold hover:text-violet-700 hover:cursor-pointer">
+                <span className="text-secondaryLight font-semibold hover:text-secondary hover:cursor-pointer">
                   Submit Now
                 </span>
               </div>
@@ -135,9 +135,10 @@ const contact = () => {
             id="firstLottie"
             ref={ref}
             autoplay
+            // speed={0.8}
             loop
             mode="normal"
-            src="https://assets5.lottiefiles.com/packages/lf20_7wwm6az7.json"
+            src="https://assets3.lottiefiles.com/packages/lf20_sxk2ofvv.json"
           ></lottie-player>
         </div>
       </div>

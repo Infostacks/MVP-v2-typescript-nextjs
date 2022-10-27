@@ -27,10 +27,10 @@ const proudprojects = () => {
 
   return (
     <section className="flex flex-col justify-center items-center w-full gap-5">
-      <div className="rounded-xl px-8 py-3 bg-violet-100 text-violet-500 font-semibold">
+      <div className="rounded-xl px-8 py-3 bg-secondary text-txtColor font-semibold">
         <h2>Proud Projects</h2>
       </div>
-      <div className="rounded-xl px-8 py-3 xl:mx-40 lg:mx-40 md:mx-40 mx-10 bg-violet-100 text-violet-500">
+      <div className="rounded-xl px-8 py-3 xl:mx-40 lg:mx-40 md:mx-40 mx-10 bg-primary text-txtColor">
         <Categories
           categories={categories}
           filterItems={filterItems}
