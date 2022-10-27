@@ -2,7 +2,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { MdExpandMore } from "react-icons/md";
+import AnimationButton from "../AnimationButton/AnimationButton";
+// import { MdExpandMore } from "react-icons/md";
 
 const contact = () => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
@@ -87,42 +88,7 @@ const contact = () => {
               className="border-[1px] border-zinc-200 text-sm rounded-3xl focus:outline-none px-5 py-5 bg-secondary placeholder:to-txtColor w-full h-[10rem]"
               placeholder="Message"
             />
-            <div className="flex flex-row items-center justify-start gap-3">
-              <motion.button
-                animate={btnAnimation}
-                type="submit"
-                className="rounded-full bg-secondary p-2 text-3xl"
-              >
-                <motion.div
-                  variants={{
-                    hidden: {
-                      opacity: 1,
-                    },
-                    visible: {
-                      rotateZ: [25, -25],
-                      transition: {
-                        rotateZ: {
-                          yoyo: Infinity,
-                          duration: 1,
-                          delay: 1,
-                          type: "spring",
-                        },
-                      },
-                    },
-                    removed: {
-                      opacity: 1,
-                    },
-                  }}
-                  initial="hidden"
-                  animate="visible"
-                >
-                  <MdExpandMore />
-                </motion.div>
-              </motion.button>
-              <span className="text-secondaryLight font-semibold hover:text-secondary hover:cursor-pointer">
-                Submit Now
-              </span>
-            </div>
+            <AnimationButton btnText={"Submit Now"} />
           </form>
         </div>
       </div>

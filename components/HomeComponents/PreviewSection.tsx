@@ -6,6 +6,7 @@ import { animList, previewTextData } from "../utils/data";
 import { useInView } from "react-intersection-observer";
 import Lottie from "react-lottie-player";
 import axios from "axios";
+import AnimationButton from "../AnimationButton/AnimationButton";
 
 const previewsection = () => {
   const { ref, inView } = useInView({
@@ -112,41 +113,7 @@ const previewsection = () => {
                 {previewTextData[animListNo].desc}
               </motion.p>
             </AnimatePresence>
-            <div className="flex flex-row items-center justify-start gap-3">
-              <motion.button
-                animate={btnAnimation}
-                className="rounded-full bg-secondary p-2 text-3xl text-txtColor"
-              >
-                <motion.div
-                  variants={{
-                    hidden: {
-                      opacity: 1,
-                    },
-                    visible: {
-                      rotateZ: [25, -25],
-                      transition: {
-                        rotateZ: {
-                          yoyo: Infinity,
-                          duration: 1,
-                          delay: 1,
-                          type: "spring",
-                        },
-                      },
-                    },
-                    removed: {
-                      opacity: 1,
-                    },
-                  }}
-                  initial="hidden"
-                  animate="visible"
-                >
-                  <MdExpandMore />
-                </motion.div>
-              </motion.button>
-              <span className="text-secondaryLight font-semibold hover:text-secondary hover:cursor-pointer">
-                Learn More
-              </span>
-            </div>
+            <AnimationButton btnText={"Learn More"} />
           </div>
         </motion.div>
       </div>

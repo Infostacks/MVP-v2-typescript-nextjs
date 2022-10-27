@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import React, { useEffect } from "react";
 import { useInView } from "react-intersection-observer";
 import { useAnimation } from "framer-motion";
+import AnimationButton from "../AnimationButton/AnimationButton";
 
 const promotionsection = () => {
   const { ref, inView } = useInView({
@@ -63,38 +64,7 @@ const promotionsection = () => {
             repellendus nihil fuga unde voluptas voluptates perspiciatis
             aspernatur.
           </motion.p>
-          <div className="flex flex-row items-center justify-start gap-3">
-            <motion.button
-              animate={btnAnimation}
-              className="rounded-full bg-secondary p-2 text-3xl text-txtColor"
-            >
-              <motion.div
-                variants={{
-                  hidden: {
-                    opacity: 1,
-                  },
-                  visible: {
-                    rotateZ: [25, -25],
-                    transition: {
-                      rotateZ: {
-                        yoyo: Infinity,
-                        duration: 1,
-                        delay: 1,
-                        type: "spring",
-                      },
-                    },
-                  },
-                }}
-                initial="hidden"
-                animate="visible"
-              >
-                <MdExpandMore />
-              </motion.div>
-            </motion.button>
-            <span className="text-secondaryLight font-semibold hover:text-secondary hover:cursor-pointer">
-              Shop Now
-            </span>
-          </div>
+          <AnimationButton btnText={"Shop Now"} />
         </div>
       </div>
     </div>
