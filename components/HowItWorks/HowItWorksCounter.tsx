@@ -5,7 +5,7 @@ import { NoCounter } from "../utils/data";
 
 const HowItWorksCounter = () => {
   return (
-    <div className="flex flex-row flex-wrap justify-evenly items-center w-full text-txtColor">
+    <div className="flex flex-row flex-wrap justify-evenly items-center w-full xl:gap-0 lg:gap-0 gap-11 xl:px-0 lg:px-0 px-14 text-txtColor">
       {NoCounter.map((counter, index) => {
         return (
           <motion.div

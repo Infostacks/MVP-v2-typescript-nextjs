@@ -6,7 +6,7 @@ import Image from "next/image";
 
 const DevelopersCards = () => {
   return (
-    <div className="grid grid-cols-2 place-items-center gap-36 w-full text-txtColor">
+    <div className="grid xl:grid-cols-2 lg:grid-cols-2 sm:grid-cols-1 md:grid-cols-1 place-items-center lg:gap-10 xl:gap-36 gap-10 max-w-screen-lg px-1 w-full xl:px-0 lg:px-10">
       {DevelopersBio.map((hire, index) => {
         return (
           <motion.div
@@ -24,36 +24,40 @@ const DevelopersCards = () => {
               },
             }}
             key={index}
-            className="drop-shadow-md shadow-lg shadow-cyan-200 flex flex-col justify-evenly bg-gray-900 rounded-xl h-[25rem] w-[25rem]"
+            className="drop-shadow-md shadow-lg shadow-cyan-200 bg-gray-900 rounded-xl"
           >
-            <div className="self-center ">
-              <Image
-                src={hire.icons}
-                alt=""
-                width="150"
-                height="150"
-                unoptimized
-                className="w-40 rounded-full"
-              />
-            </div>
-            <div className="w-3/4 flex justify-center self-center text-center">
-              <p className="font-bold text-xl mr-1">{hire.name}</p>
-              <Image
-                src="https://assets.website-files.com/632a6ffabd6820ec560a3c0c/632a6ffabd682075e50a3e1c_certified-icon.png"
-                alt=""
-                width="25"
-                height="25"
-                unoptimized
-              />
-            </div>
-            <div className="w-3/4 flex justify-center self-center text-center">
-              <p className="text-xl">{hire.desig}</p>
-            </div>
-            <div className="rounded-full p-2 self-center bg-gray-700">
-              <p className="flex flex-row text-xl">
-                <MdLocationOn className="text-blue-500 mt-1" />
-                {hire.country}
-              </p>
+            <div className="xl:p-20 lg:p-20 p-4 flex flex-col justify-center gap-3">
+              <div className="self-center ">
+                <Image
+                  src={hire.icons}
+                  alt=""
+                  width="270"
+                  height="270"
+                  unoptimized
+                  className="w-40 rounded-full"
+                />
+              </div>
+              <div className="flex justify-center self-center text-center">
+                <p className="text-white font-bold xl:text-xl text-xl md:text-base lg:text-xl mr-1">
+                  {hire.name}
+                </p>
+                <Image
+                  src="https://assets.website-files.com/632a6ffabd6820ec560a3c0c/632a6ffabd682075e50a3e1c_certified-icon.png"
+                  alt=""
+                  width="25"
+                  height="25"
+                  unoptimized
+                />
+              </div>
+              <div className="w-3/4 flex justify-center self-center text-center">
+                <p className="text-slate-400 text-xl">{hire.desig}</p>
+              </div>
+              <div className="rounded-full p-2 self-center bg-gray-700">
+                <p className="flex flex-row text-slate-400 text-xl">
+                  <MdLocationOn className="text-blue-500 mt-1" />
+                  {hire.country}
+                </p>
+              </div>
             </div>
           </motion.div>
         );

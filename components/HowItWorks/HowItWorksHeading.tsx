@@ -3,8 +3,8 @@ import React from "react";
 
 const HowItWorksHeading = () => {
   return (
-    <div className="text-center text-txtColor">
-      <h1 className="fontsize2 fontsize pt-52 p-3">
+    <div className="w-full flex items-center flex-col px-14 justify-around text-center text-txtColor">
+      <h1 className="lg:text-7xl xl:text-7xl md:text-3xl text-2xl font-bold text-center text-slate-400 my-32 lg:max-w-4xl sm:max-w-sm">
         How it works
       </h1>
       <p className="text-2xl text-gray-400 ">

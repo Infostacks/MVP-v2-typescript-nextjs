@@ -7,7 +7,7 @@ import SimplePricingHeading from "./SimplePricingHeading";
 
 const SimplePricing = () => {
   return (
-    <div className="flex flex-col items-center w-full max-w-screen-lg my-20 gap-36">
+    <div className="flex flex-col items-center h-auto my-20 w-full max-w-screen-lg gap-36">
       <SimplePricingHeading />
       <HireTopDeveloper />
       <TrustedBy />

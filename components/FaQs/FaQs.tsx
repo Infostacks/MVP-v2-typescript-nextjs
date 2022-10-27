@@ -13,9 +13,11 @@ function createMarkup(faq) {
 
 const FaQs = () => {
   return (
-    <div className="flex flex-col items-center w-screen">
-      <h1 className="fontsize2 fontsize text-txtColor pb-10">FAQs</h1>
-      <div className="max-w-screen-lg space-y-6 w-full flex flex-col items-center">
+    <div className="flex flex-col items-center w-screen px-14">
+      <h1 className="lg:text-7xl xl:text-7xl md:text-3xl text-2xl font-bold text-txtColor pb-10">
+        FAQs
+      </h1>
+      <div className="lg:max-w-4xl md:max-w-xl xl:max-w-5xl space-y-6 w-full flex flex-col items-center">
         {FaQsData.map((head, index) => {
           return (
             <motion.details

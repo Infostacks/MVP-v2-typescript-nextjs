@@ -7,8 +7,8 @@ import TopDevelopers from "../TopDevelopers/TopDevelopers";
 const RobustVettingProcess = () => {
   return (
     <div className="flex flex-col items-center h-auto my-20 max-w-screen-lg gap-36 text-txtColor">
-      <div>
-        <h1 className="fontsize2 fontsize text-center pt-52">
+      <div className="w-full flex items-center flex-col justify-evenly gap-36 px-14">
+        <h1 className="lg:text-7xl xl:text-7xl md:text-3xl text-2xl font-bold text-center text-slate-400 lg:max-w-4xl sm:max-w-sm pt-32">
           Our Robust Vetting Process
         </h1>
         <p className="text-2xl text-center">
