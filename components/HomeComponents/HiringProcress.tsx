@@ -73,8 +73,8 @@ const HiringProcress = () => {
           <div>
             <HiOutlineUser className="w-24 h-24" />
           </div>
-          <div className="font-bold text-xl text-white">Top 1% </div>
-          <div className="w-2/3 font-bold text-xl text-center text-white">
+          <div className="font-bold text-xl">Top 1% </div>
+          <div className="w-2/3 font-bold text-xl text-center">
             Micro1 Certified Developer
           </div>
         </div>

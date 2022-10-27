@@ -10,7 +10,7 @@ import useAuth from "../../hooks/useAuth";
 import CalendlyEvent from "./CalendlyEvent";
 
 const AboutInfo = () => {
-  const [formStep, setFormStep] = useState(10);
+  const [formStep, setFormStep] = useState(0);
   const [errors, setErrors] = useState(null);
   const [confirmPassError, setConfirmPassError] = useState(false);
   // const { signIn, signUp, resetfullname } = useAuth();
@@ -28,9 +28,10 @@ const AboutInfo = () => {
     findUsPlatform: "",
   });
 
-  const companySignUpSchema = {
+  const companySignUpSchema = Joi.object({
     // Joi schema for validation
-    jobtypeoption: Joi.string().required().label("Full name"),
+    // jobtypeoption: Joi.string().required().label("Job type"),
+    jobtypeoption: Joi.string().required().label("Job type"),
     developerNeeded: Joi.string().required().label("Developers Needed"),
     fullname: Joi.string().required().label("fullname"),
     email: Joi.string().required().label("email"),
@@ -40,7 +41,7 @@ const AboutInfo = () => {
     hourlyplatform: Joi.string().required().label("hourlyplatform"),
     about_company: Joi.string().required().label("about_company"),
     findUsPlatform: Joi.string().required().label("findUsPlatform"),
-  };
+  });
 
   const validate = () => {
     // Validation function for Joi schema
@@ -59,6 +60,7 @@ const AboutInfo = () => {
   };
 
   const handleSubmit = async () => {
+   
     // Function to handle submit
     setErrors(null);
     let data = validate(); // Validation function call
@@ -88,7 +90,9 @@ const AboutInfo = () => {
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    
     const { name, value } = e.target;
+    console.log(" I am validating",companySignUpSchema.validate( { [name]: value  }))
     setFormData({ ...formData, [name]: value });
   };
 
@@ -143,7 +147,7 @@ const AboutInfo = () => {
           whileTap={{ scale: 0.9 }}
           type="submit"
           onClick={completeFormStep}
-          className={`rounded-lg w-28 text-white pt-1 pb-1 text-sm `}
+          className={`rounded-lg w-28 text-txtColor pt-1 pb-1 text-sm `}
           style={{ backgroundColor: "#006d77" }}
         >
           Create Account
@@ -161,7 +165,7 @@ const AboutInfo = () => {
           transition={{ duration: 0.3 }}
           type="button"
           onClick={completeFormStep}
-          className={`rounded-lg w-28 text-white pt-1 pb-1 text-sm `}
+          className={`rounded-lg w-28 text-txtColor pt-1 pb-1 text-sm `}
           style={{ backgroundColor: "#F18F01" }}
         >
           Next Step
@@ -188,10 +192,10 @@ const AboutInfo = () => {
             transition={{ duration: 1 }}
           >
             <div className="flex flex-col gap-2">
-              <label className="text-xl font-bold text-slate-50">
+              <label className="text-xl font-bold text-txtColor">
                 What type of hire do you need? *
               </label>
-              <label className="text-md text-slate-50">
+              <label className="text-md text-txtColor">
                 We offer full time (40 hours/week) and part time (20 hours/week)
               </label>
 
@@ -274,10 +278,10 @@ const AboutInfo = () => {
             transition={{ duration: 1 }}
           >
             <div className="flex flex-col gap-2">
-              <label className="text-xl font-bold text-slate-50">
+              <label className="text-xl font-bold text-txtColor">
                 How many developers are you looking for? *
               </label>
-              <label className="text-md text-slate-50">
+              <label className="text-md text-txtColor">
                 You can start with 1 or 10. We have the talent ready!
               </label>
 
@@ -392,10 +396,10 @@ const AboutInfo = () => {
             transition={{ duration: 1 }}
           >
             <div className="flex flex-col gap-2">
-              <label className="text-xl font-bold text-slate-50">
+              <label className="text-xl font-bold text-txtColor">
                 What’s your name? *
               </label>
-              <label className="text-md text-slate-50">Nice to meet you!</label>
+              <label className="text-md text-txtColor">Nice to meet you!</label>
               <input
                 id="fullname"
                 name="fullname"
@@ -403,7 +407,7 @@ const AboutInfo = () => {
                 type="text"
                 defaultValue={formData.fullname}
                 onChange={handleChange}
-                className="w-full p-4 drop-shadow-md bg-[#ffb703] bg-opacity-75 text-white placeholder:text-white border-gray-200 rounded-lg border text-sm"
+                className="w-full p-4 drop-shadow-md bg-[#ffb703] bg-opacity-75 text-txtColor placeholder:text-txtColor border-gray-200 rounded-lg border text-sm"
               />
               <span className="text-[#DA373E] font-semibold text-xs">
                 {errors ? errors.jobtypeoption : ""}
@@ -419,10 +423,10 @@ const AboutInfo = () => {
             transition={{ duration: 1 }}
           >
             <div className="flex flex-col gap-2">
-              <label className="text-xl font-bold text-slate-50">
+              <label className="text-xl font-bold text-txtColor">
                 What is your email? *
               </label>
-              <label className="text-md text-slate-50">
+              <label className="text-md text-txtColor">
                 We'll need this for later
               </label>
               <input
@@ -432,7 +436,7 @@ const AboutInfo = () => {
                 type="text"
                 defaultValue={formData.fullname}
                 onChange={handleChange}
-                className="w-full p-4 drop-shadow-md bg-[#ffb703] bg-opacity-75 text-white placeholder:text-white border-gray-200 rounded-lg border text-sm"
+                className="w-full p-4 drop-shadow-md bg-[#ffb703] bg-opacity-75 text-txtColor placeholder:text-txtColor border-gray-200 rounded-lg border text-sm"
               />
               <span className="text-[#DA373E] font-semibold text-xs">
                 {errors ? errors.jobtypeoption : ""}
@@ -448,10 +452,10 @@ const AboutInfo = () => {
             transition={{ duration: 1 }}
           >
             <div className="flex flex-col gap-2">
-              <label className="text-xl font-bold text-slate-50">
+              <label className="text-xl font-bold text-txtColor">
                 What’s your phone number? *
               </label>
-              <label className="text-md text-slate-50">
+              <label className="text-md text-txtColor">
                 Incase we need to reach you
               </label>
               <input
@@ -461,7 +465,7 @@ const AboutInfo = () => {
                 type="text"
                 defaultValue={formData.fullname}
                 onChange={handleChange}
-                className="w-full p-4 drop-shadow-md bg-[#ffb703] bg-opacity-75 text-white placeholder:text-white border-gray-200 rounded-lg border text-sm"
+                className="w-full p-4 drop-shadow-md bg-[#ffb703] bg-opacity-75 text-txtColor placeholder:text-txtColor border-gray-200 rounded-lg border text-sm"
               />
               <span className="text-[#DA373E] font-semibold text-xs">
                 {errors ? errors.jobtypeoption : ""}
@@ -477,10 +481,10 @@ const AboutInfo = () => {
             transition={{ duration: 1 }}
           >
             <div className="flex flex-col gap-2">
-              <label className="text-xl font-bold text-slate-50">
+              <label className="text-xl font-bold text-txtColor">
                 What type of developers are you looking for? *
               </label>
-              <label className="text-md text-slate-50">
+              <label className="text-md text-txtColor">
                 We have all types of developers ready to work!
               </label>
 
@@ -659,7 +663,7 @@ const AboutInfo = () => {
             transition={{ duration: 1 }}
           >
             <div className="flex flex-col gap-2">
-              <label className="text-md text-slate-50">
+              <label className="text-md text-txtColor">
                 If you don't know, that's okay. Just press next to skip.
               </label>
 
@@ -721,10 +725,10 @@ const AboutInfo = () => {
             transition={{ duration: 1 }}
           >
             <div className="flex flex-col gap-2">
-              <label className="text-xl font-semibold text-slate-50">
+              <label className="text-xl font-semibold text-txtColor">
                 What is the ideal hourly platform range? *
               </label>
-              <label className="text-md text-slate-50">
+              <label className="text-md text-txtColor">
                 The average platform of a micro1 developer is $40/hour.
               </label>
 
@@ -779,10 +783,10 @@ const AboutInfo = () => {
             transition={{ duration: 1 }}
           >
             <div className="flex flex-col gap-2">
-              <label className="text-xl font-bold text-slate-50">
+              <label className="text-xl font-bold text-txtColor">
                 Anything else we should know? (optional)
               </label>
-              <label className="text-md text-slate-50">
+              <label className="text-md text-txtColor">
                 Feel free to tell us about your company or anything else here
               </label>
               <input
@@ -792,7 +796,7 @@ const AboutInfo = () => {
                 type="textarea"
                 defaultValue={formData.fullname}
                 onChange={handleChange}
-                className="w-full p-4 drop-shadow-md bg-[#ffb703] bg-opacity-75 text-white placeholder:text-white border-gray-200 rounded-lg border text-sm"
+                className="w-full p-4 drop-shadow-md bg-[#ffb703] bg-opacity-75 text-txtColor placeholder:text-txtColor border-gray-200 rounded-lg border text-sm"
               />
               <span className="text-[#DA373E] font-semibold text-xs">
                 {errors ? errors.jobtypeoption : ""}
@@ -808,10 +812,10 @@ const AboutInfo = () => {
             transition={{ duration: 1 }}
           >
             <div className="flex flex-col gap-2">
-              <label className="text-xl font-semibold text-slate-50">
+              <label className="text-xl font-semibold text-txtColor">
                 Where did you find us? *
               </label>
-              <label className="text-md text-slate-50">We appreciate it!</label>
+              <label className="text-md text-txtColor">We appreciate it!</label>
 
               {/* start  */}
               <div className="grid xl:grid-cols-3 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5">
@@ -873,7 +877,7 @@ const AboutInfo = () => {
             exit={{ y: -10, opacity: 0 }}
             transition={{ duration: 1 }}
           >
-            <label className="text-md text-slate-50">Congratulations!</label>
+            <label className="text-md text-txtColor">Congratulations!</label>
           </motion.section>
         )}
 

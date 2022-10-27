@@ -22,6 +22,9 @@ const ApplyAsDeveloper = () => {
         <HireTopDeveloper />
         <CgArrowLongDown className="w-16 h-16 text-white animate-bounce" />
       </div>
+      <HireTopDeveloper />
+      <CgArrowLongDown className="w-16 h-16 animate-bounce" />
+
       <DevelopersCards />
       <TrustedBy />
       <TopSiliconValleyCard />

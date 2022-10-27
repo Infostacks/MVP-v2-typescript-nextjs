@@ -24,13 +24,13 @@ const featuredsection = () => {
     <div className="example example4 flex flex-col items-center justify-center h-screen py-5 gap-5">
       {/* Team  */}
       <div className="flex justify-center">
-        <h1 className="rounded-xl px-8 py-3 bg-violet-100 text-violet-500 font-semibold">
+        <h1 className="rounded-xl px-8 py-3 bg-secondary text-txtColor font-semibold">
           Featured Team
         </h1>
       </div>
 
       <div className="flex justify-center">
-        <h1 className="text-violet-400 font-bold text-3xl">
+        <h1 className="text-txtColor font-bold">
           Our Best Expertise
         </h1>
       </div>
@@ -54,25 +54,25 @@ const featuredsection = () => {
                       />
                     </div>
                     {/* intro  */}
-                    <div className="flex flex-row justify-between bg-white rounded-xl px-4 py-6 z-50 drop-shadow-md mt-72 ml-4 gap-3 w-full">
+                    <div className="flex flex-row justify-between bg-txtColor rounded-xl px-4 py-6 z-50 drop-shadow-md mt-72 ml-4 gap-3 w-full">
                       {/* text  */}
                       <div className="flex flex-col flex-wrap justify-center gap-1">
-                        <h1 className="text-2xl font-bold text-violet-900">
+                        <h1 className="text-2xl font-bold text-secondary">
                           {member.name}
                         </h1>
-                        <h3 className="text-xs text-violet-900">
+                        <h3 className="text-xs text-secondary">
                           {member.designation}
                         </h3>
                       </div>
                       {/* icons  */}
                       <div className="flex flex-row justify-center items-center gap-2">
-                        <div className="bg-violet-100 p-3 rounded-full text-violet-500">
+                        <div className="bg-secondary p-3 rounded-full text-txtColor">
                           <GrFacebookOption />
                         </div>
-                        <div className="bg-violet-100 p-3 rounded-full text-violet-500">
+                        <div className="bg-secondary p-3 rounded-full text-txtColor">
                           <FaInstagram />
                         </div>
-                        <div className="bg-violet-100 p-3 rounded-full text-violet-500">
+                        <div className="bg-secondary p-3 rounded-full text-txtColor">
                           <GrTwitter />
                         </div>
                       </div>

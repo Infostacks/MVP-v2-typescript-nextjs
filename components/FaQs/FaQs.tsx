@@ -14,7 +14,7 @@ function createMarkup(faq) {
 const FaQs = () => {
   return (
     <div className="flex flex-col items-center w-screen px-14">
-      <h1 className="lg:text-7xl xl:text-7xl md:text-3xl text-2xl font-bold text-slate-400 pb-10">
+      <h1 className="lg:text-7xl xl:text-7xl md:text-3xl text-2xl font-bold text-txtColor pb-10">
         FAQs
       </h1>
       <div className="lg:max-w-4xl md:max-w-xl xl:max-w-5xl space-y-6 w-full flex flex-col items-center">
@@ -35,13 +35,13 @@ const FaQs = () => {
                 },
               }}
               key={index}
-              className={`p-6 border-l-4 border-cyan-200  shadow-lg shadow-cyan-200 rounded-3xl bg-gray-700 group w-full`}
+              className={`p-6 border-l-4 border-primary  shadow-lg shadow-cyan-200 rounded-3xl bg-gray-700 group w-full`}
             >
               <summary className="flex items-center justify-between cursor-pointer w-full">
-                <h5 className="text-xl text-teal-50 font-bold">
+                <h5 className="text-xl text-primary font-bold">
                   {head.heading}
                 </h5>
-                <span className="flex-shrink-0 ml-1.5 p-1.5 text-gray-900 bg-teal-200 rounded-3xl sm:p-3">
+                <span className="flex-shrink-0 ml-1.5 p-1.5 text-txtColor bg-primary rounded-3xl sm:p-3">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="flex-shrink-0 w-5 h-5 transition duration-300 group-open:-rotate-45"
@@ -56,7 +56,7 @@ const FaQs = () => {
                   </svg>
                 </span>
               </summary>
-              <div className="text-teal-100 font-sans text-lg">
+              <div className="text-txtColor font-sans text-lg">
                 <Answer faq={head.desc} />
               </div>
             </motion.details>

@@ -18,7 +18,7 @@ const promotionsection = () => {
   return (
     <div
       ref={ref}
-      className="flex flex-col md:flex-row lg:flex-row xl:flex-row items-center justify-center h-screen px-20 py-5 gap-5 w-full "
+      className="flex flex-col md:flex-row lg:flex-row xl:flex-row items-center justify-center h-screen px-20 py-5 gap-5 w-full text-txtColor"
     >
       {/* Left Side  */}
       <div className="flex justify-center items-center xl:w-1/2 lg:w-1/2 md:w-1/2 h-1/2 w-full">
@@ -41,15 +41,15 @@ const promotionsection = () => {
         <div className="flex flex-col justify-center gap-5 w-2/3">
           <motion.h3
             animate={leftAnimation}
-            className="text-violet-500 text-xl flex flex-row"
+            className="text-primary font-bold text-xl flex flex-row"
           >
             Every Purchase Will Be Made With Pleasure
           </motion.h3>
           <motion.h1
             animate={rightAnimation}
-            className="text-3xl font-extrabold text-slate-50"
+            className="text-3xl font-extrabold"
           >
-            Upto <span className="text-violet-500">70%</span> OFF...
+            Upto <span className="text-primary">70%</span> OFF...
           </motion.h1>
           <motion.p
             initial={{
@@ -57,7 +57,7 @@ const promotionsection = () => {
             }}
             animate={{ opacity: 1 }}
             transition={{ duration: 3, delay: 0.5 }}
-            className="text-sm text-slate-100"
+            className="text-sm"
           >
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet,
             repellendus nihil fuga unde voluptas voluptates perspiciatis
@@ -66,7 +66,7 @@ const promotionsection = () => {
           <div className="flex flex-row items-center justify-start gap-3">
             <motion.button
               animate={btnAnimation}
-              className="rounded-full bg-violet-500 p-2 text-3xl text-white"
+              className="rounded-full bg-secondary p-2 text-3xl text-txtColor"
             >
               <motion.div
                 variants={{
@@ -91,7 +91,7 @@ const promotionsection = () => {
                 <MdExpandMore />
               </motion.div>
             </motion.button>
-            <span className="text-violet-500 font-semibold hover:text-violet-700 hover:cursor-pointer">
+            <span className="text-secondaryLight font-semibold hover:text-secondary hover:cursor-pointer">
               Shop Now
             </span>
           </div>

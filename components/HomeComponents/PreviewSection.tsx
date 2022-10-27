@@ -89,13 +89,13 @@ const previewsection = () => {
   return (
     <div
       ref={ref}
-      className="flex flex-col md:flex-row lg:flex-row xl:flex-row items-center justify-center h-screen px-20 py-5 gap-5"
+      className="flex flex-col md:flex-row lg:flex-row xl:flex-row items-center justify-center h-screen px-20 py-5 gap-5 text-txtColor"
     >
       {/* Left Side  */}
       <div className="flex justify-center xl:w-1/2 lg:w-1/2 md:w-1/2 h-1/2 w-screen">
         <motion.div className="w-full h-full">
           <div className="flex flex-col justify-center gap-5 w-2/3">
-            <h3 className="text-violet-500 text-2xl">
+            <h3 className="text-primary text-2xl">
               {previewTextData[animListNo].heading
                 .split("")
                 .map((character, i) => {
@@ -103,19 +103,19 @@ const previewsection = () => {
                 })}
             </h3>
             <AnimatePresence>
-              <motion.h1 className="text-3xl font-extrabold text-slate-50">
+              <motion.h1 className="text-3xl font-extrabold">
                 {previewTextData[animListNo].subHeading}
               </motion.h1>
             </AnimatePresence>
             <AnimatePresence>
-              <motion.p className="text-sm text-slate-100">
+              <motion.p className="text-sm">
                 {previewTextData[animListNo].desc}
               </motion.p>
             </AnimatePresence>
             <div className="flex flex-row items-center justify-start gap-3">
               <motion.button
                 animate={btnAnimation}
-                className="rounded-full bg-violet-500 p-2 text-3xl text-white"
+                className="rounded-full bg-secondary p-2 text-3xl text-txtColor"
               >
                 <motion.div
                   variants={{
@@ -143,7 +143,7 @@ const previewsection = () => {
                   <MdExpandMore />
                 </motion.div>
               </motion.button>
-              <span className="text-violet-500 font-semibold hover:text-violet-700 hover:cursor-pointer">
+              <span className="text-secondaryLight font-semibold hover:text-secondary hover:cursor-pointer">
                 Learn More
               </span>
             </div>

@@ -11,7 +11,7 @@ const SignUpCard = (props: InputProps) => {
   return (
     <div className="flex flex-col gap-3">
       <div className="flex flex-col gap-2">
-        <label htmlFor="email" className="text-xs text-slate-500">
+        <label htmlFor="email" className="text-xs text-bgColor">
           Email:
         </label>
         <input
@@ -22,7 +22,7 @@ const SignUpCard = (props: InputProps) => {
           onChange={props.onChange}
           className={`w-72 h-7 pl-2 border-2 rounded-sm text-md z-12 focus:outline-none`}
         />
-        <label htmlFor="password" className="text-xs text-slate-500">
+        <label htmlFor="password" className="text-xs text-bgColor">
           Password:
         </label>
         <input
@@ -33,7 +33,7 @@ const SignUpCard = (props: InputProps) => {
           onChange={props.onChange}
           className={`w-72 h-7 pl-2 border-2 rounded-sm text-md z-12 focus:outline-none`}
         />
-        <label className="text-xs text-slate-500">Confirm Password:</label>
+        <label className="text-xs text-bgColor">Confirm Password:</label>
         <input
           id="confirmPassword"
           name="confirmPassword"

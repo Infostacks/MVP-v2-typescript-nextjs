@@ -9,7 +9,7 @@ import Contact from "./Contact";
 
 const index = () => {
   return (
-    <div className="flex flex-col items-center mx-auto w-full overflow-x-hidden scroll-hidden bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900">
+    <div className="flex flex-col items-center mx-auto w-full overflow-x-hidden scroll-hidden bg-bgColor text-txtColor">
       <div className="w-full h-screen">
         <PreviewSection />
       </div>

@@ -5,7 +5,7 @@ import { howitworksCards } from "../utils/data";
 
 const HowItWorksCards = () => {
   return (
-    <div className="grid xl:grid-cols-2 lg:grid-cols-2 sm:grid-cols-1 md:grid-cols-1 place-items-center lg:gap-10 xl:gap-36 px-14 gap-10 max-w-screen-lg w-full xl:px-0 lg:px-10 ">
+    <div className="grid xl:grid-cols-2 lg:grid-cols-2 sm:grid-cols-1 md:grid-cols-1 place-items-center lg:gap-10 xl:gap-36 px-14 gap-10 max-w-screen-lg w-full xl:px-0 lg:px-10 text-txtColor">
       {howitworksCards.map((hire, index) => {
         return (
           <motion.div
@@ -35,11 +35,10 @@ const HowItWorksCards = () => {
                 height="100"
                 unoptimized
                 src={hire.icons}
-                className="text-white"
               />
             </div>
-            <div className="flex justify-center self-center text-center">
-              <p className="text-slate-400 text-xl">{hire.desc}</p>
+            <div className="w-3/4 flex justify-center self-center text-center">
+              <p className="text-xl">{hire.desc}</p>
             </div>
           </motion.div>
         );

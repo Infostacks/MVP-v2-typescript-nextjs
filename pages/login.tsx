@@ -245,11 +245,11 @@ const Login: NextPage = () => {
         className="absolute flex justify-center flex-col items-center m-0 w-screen h-screen bg-no-repeat bg-cover 
         bg-[url('https://images.unsplash.com/photo-1438382458652-54431bf59e01?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=874&q=80')]"
       >
-        <div className="flex justify-center items-center w-screen h-screen bg-opacity-90 bg-slate-700 shadow-lg z-50">
-          <div className="absolute h-3/4 w-3/4 bg-white flex xl:flex-row lg:flex-row md:flex-col flex-col max-w-5xl">
+        <div className="flex justify-center items-center w-screen h-screen bg-opacity-90 bg-bgColor shadow-lg z-50">
+          <div className="absolute h-3/4 w-3/4 bg-bgColor flex xl:flex-row lg:flex-row md:flex-col flex-col max-w-5xl text-txtColor">
             {/* Left Side Logo  */}
             <div
-              className="xl:w-1/3 xl:h-full lg:w-1/3 lg:h-full md:h-1/3 md:w-full h-1/3 w-full flex flex-col gap-5 items-center justify-center text-white"
+              className="xl:w-1/3 xl:h-full lg:w-1/3 lg:h-full md:h-1/3 md:w-full h-1/3 w-full flex flex-col gap-5 items-center justify-center"
               style={{ backgroundColor: "#414770" }}
             >
               <motion.span
@@ -287,7 +287,7 @@ const Login: NextPage = () => {
             </div>
 
             {/* LogIn Card  */}
-            <div className="xl:w-2/3 xl:h-full lg:w-2/3 lg:h-full md:h-2/3 md:w-full h-2/3 w-full bg-slate-200 flex justify-center items-center">
+            <div className="xl:w-2/3 xl:h-full lg:w-2/3 lg:h-full md:h-2/3 md:w-full h-2/3 w-full bg-bgColor/5 flex justify-center items-center">
               <AnimatePresence initial={false}>
                 <motion.div
                   variants={{
@@ -332,15 +332,15 @@ const Login: NextPage = () => {
                       {/* temp code  */}
                       <div
                         id="SignUp"
-                        className="flex justify-center items-center flex-col bg-white shadow-lg max-w-max"
+                        className="flex justify-center items-center flex-col bg-txtColor shadow-lg max-w-max"
                       >
                         <div className="flex items-start p-8 flex-col">
                           <div className="mt-10 mb-5 flex gap-3 flex-col">
-                            <h2 className="text-xs text-slate-400">
+                            <h2 className="text-xs">
                               Welcom to Candlefish
                             </h2>
                             <h1
-                              className="text-2xl text-slate-600 font-semibold"
+                              className="text-2xl font-semibold"
                               id="logoFont"
                             >
                               {showCardTitleText()}
@@ -367,7 +367,7 @@ const Login: NextPage = () => {
                             <div className="flex flex-row gap-2 items-center">
                               <button
                                 type="submit"
-                                className={`rounded-sm text-white pl-2 pr-2 pt-1 pb-1 text-sm `}
+                                className={`rounded-sm pl-2 pr-2 pt-1 pb-1 text-sm `}
                                 onClick={handleSubmit}
                                 style={{ backgroundColor: "#5B85AA" }}
                               >
