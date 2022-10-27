@@ -35,7 +35,7 @@ const featuredsection = () => {
         </h1>
       </div>
 
-      <div className="App">
+      <div className="">
         <div className="container drop-shadow-md hover:cursor-grab">
           <div className="card-container flex rounded-2xl">
             <div className="flex flex-row gap-3 p-3 card-container-content">
@@ -51,7 +51,6 @@ const featuredsection = () => {
                         width="310"
                         height="350"
                         className="rounded-2xl"
-                        
                       />
                     </div>
                     {/* intro  */}
