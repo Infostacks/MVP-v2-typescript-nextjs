@@ -301,27 +301,37 @@ const hourlyRate = [
 
 const hiringData = [
   {
-    icon: <VscSettingsGear className=" w-16 h-16 text-white" />,
+    icon: (
+      <VscSettingsGear className="xl:w-16 xl:h-16 lg:w-16 lg:h-16 md:w-8 md:h-8 w-8 h-8 text-white" />
+    ),
     heading: "Loom Video",
     desc: "First, the developers apply online by attaching a 3 minute loom video of themselves going through their resume. Here we can quickly do most of the filtering by assessing experience, resume, and communication.",
   },
   {
-    icon: <TbHeartRateMonitor className=" w-16 h-16 text-white" />,
+    icon: (
+      <TbHeartRateMonitor className="xl:w-16 xl:h-16 lg:w-16 lg:h-16 md:w-8 md:h-8 w-8 h-8 text-white" />
+    ),
     heading: "Online Test",
     desc: "If the candidate passes the 1st step, they then have to take 2 quizzes personalized to their skills.",
   },
   {
-    icon: <BiMessageAlt className=" w-16 h-16 text-white" />,
+    icon: (
+      <BiMessageAlt className=" xl:w-16 xl:h-16 lg:w-16 lg:h-16 md:w-8 md:h-8 w-8 h-8 text-white" />
+    ),
     heading: "Casual Interview",
     desc: "We then conduct a casual interview discussing their experience, assessing their soft skills, and seeing if they're passionate about what they do.",
   },
   {
-    icon: <HiOutlineDesktopComputer className=" w-16 h-16 text-white" />,
+    icon: (
+      <HiOutlineDesktopComputer className=" xl:w-16 xl:h-16 lg:w-16 lg:h-16 md:w-8 md:h-8 w-8 h-8 text-white" />
+    ),
     heading: "Technical Interview",
     desc: "Technical Interview After they pass the casual interview, we conduct 1-2 rounds of technical interviews.",
   },
   {
-    icon: <BsCalendar4Week className=" w-16 h-16 text-white" />,
+    icon: (
+      <BsCalendar4Week className="xl:w-16 xl:h-16 lg:w-16 lg:h-16 md:w-8 md:h-8 w-8 h-8 text-white" />
+    ),
     heading: "Test Phase",
     desc: "After all the steps above are passed, the developer joins your team for 1 week at no cost. This, without doubt, is the best possible way to truly asses ones skills, communication, team work, and passion. We pay for this so that you can confidently hire the best remote developers for your team.",
   },
@@ -392,15 +402,23 @@ const NoCounter = [
 
 const TrustedByIcons = [
   {
+    width: "160",
+    height: "70",
     icon: "https://assets.website-files.com/632a6ffabd6820ec560a3c0c/6331cf589573fd958a21725e_Deel%20svg.webp",
   },
   {
+    width: "230",
+    height: "70",
     icon: "https://assets.website-files.com/632a6ffabd6820ec560a3c0c/632a6ffabd6820fbc60a3cac_webflow.png",
   },
   {
+    width: "250",
+    height: "70",
     icon: "https://assets.website-files.com/632a6ffabd6820ec560a3c0c/632a6ffabd6820bc960a3dd1_donotpay.png",
   },
   {
+    width: "300",
+    height: "70",
     icon: "https://assets.website-files.com/632a6ffabd6820ec560a3c0c/633613949ec4badbcd7d97e4_immutable-x.webp",
   },
 ];
@@ -444,6 +462,7 @@ const DevelopersBio = [
     icons:
       "https://images.unsplash.com/photo-1529068755536-a5ade0dcb4e8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=881&q=80",
   },
+
   {
     name: "Adah",
     desig: "UI/UX Designer",

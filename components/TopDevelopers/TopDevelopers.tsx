@@ -3,12 +3,12 @@ import HireTopDeveloper from "../Buttons/HireTopDeveloper";
 
 function TopDevelopers() {
   return (
-    <div className="flex flex-col items-center w-full rounded-3xl">
-      <div className="flex flex-col border-gray-700  border-2 items-center justify-center h-80 bg-gray-900 rounded-3xl w-full gap-8 z-20">
-        <div className="text-slate-400 fontsize text-5xl ">
+    <div className="flex flex-col items-center w-full rounded-3xl md:w-3/4 xl:w-full lg:w-5/6 lg:px-0 xl:px-0 px-14">
+      <div className="flex flex-col border-gray-700  border-2 items-center justify-center  h-80 bg-gray-900 rounded-3xl w-full gap-8 z-20">
+        <div className="text-slate-400 lg:text-5xl xl:text-6xl md:text-3xl font-bold text-2xl text-center font-boldtext-center">
           Hire The Top 1% Developers
         </div>
-        <p className="text-gray-400 text-2xl">
+        <p className="text-gray-400 text-2xl text-center ">
           Get a fully remote, top 1% developer in your team within 9 days
         </p>
         <div>

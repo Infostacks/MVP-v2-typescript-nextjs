@@ -5,7 +5,7 @@ import { howitworksCards } from "../utils/data";
 
 const HowItWorksCards = () => {
   return (
-    <div className="grid grid-cols-2 place-items-center gap-36 w-full ">
+    <div className="grid xl:grid-cols-2 lg:grid-cols-2 sm:grid-cols-1 md:grid-cols-1 place-items-center lg:gap-10 xl:gap-36 px-14 gap-10 max-w-screen-lg w-full xl:px-0 lg:px-10 ">
       {howitworksCards.map((hire, index) => {
         return (
           <motion.div
@@ -23,12 +23,12 @@ const HowItWorksCards = () => {
               },
             }}
             key={index}
-            className="drop-shadow-md shadow-lg shadow-cyan-200 flex flex-col justify-around bg-gray-900 rounded-xl h-[20rem] w-[20rem]"
+            className="drop-shadow-md shadow-lg shadow-cyan-200 flex flex-col justify-evenly bg-gray-900 rounded-xl h-[25rem] w-full"
           >
             <div className="font-sans text-transparent bg-clip-text pl-5 bg-gradient-to-t from-gray-900 to-gray-600 font-extrabold text-7xl">
               {hire.heading}
             </div>
-            <div className=" rounded-full p-8 self-center bg-gray-700">
+            <div className=" rounded-full xl:p-8 lg:p-8 p-6 self-center bg-gray-700">
               <Image
                 alt=""
                 width="100"
@@ -38,7 +38,7 @@ const HowItWorksCards = () => {
                 className="text-white"
               />
             </div>
-            <div className="w-3/4 flex justify-center self-center text-center">
+            <div className="flex justify-center self-center text-center">
               <p className="text-slate-400 text-xl">{hire.desc}</p>
             </div>
           </motion.div>

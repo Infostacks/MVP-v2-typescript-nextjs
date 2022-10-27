@@ -3,8 +3,8 @@ import React from "react";
 
 const WhoWeAre = () => {
   return (
-    <div className="text-center flex items-center flex-col">
-      <h1 className="fontsize2 fontsize text-slate-400">
+    <div className="w-full flex items-center flex-col px-14 justify-around text-center gap-32">
+      <h1 className="lg:text-7xl xl:text-7xl md:text-3xl text-2xl font-bold text-center text-slate-400 lg:max-w-4xl sm:max-w-sm">
         Who we are & why we built this
       </h1>
       <p className="text-2xl text-gray-400 self-center ">

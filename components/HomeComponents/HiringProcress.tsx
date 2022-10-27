@@ -3,13 +3,16 @@ import Image from "next/image";
 import { HiOutlineUser } from "react-icons/hi";
 import { motion } from "framer-motion";
 import { hiringData } from "../utils/data";
+import ReadMore from "../ReadMore/ReadMore";
 
 const HiringProcress = () => {
   return (
-    <div className="flex flex-col items-center max-w-screen-lg px-20 py-5 gap-36 w-full">
-      <h1 className="fontsize2 fontsize text-white">How We Hire?</h1>
+    <div className="flex flex-col items-center xl:px-20 lg:px-20 md:px-20 px-12 py-5 gap-36 w-full">
+      <h1 className="lg:text-7xl xl:text-7xl md:text-3xl text-2xl font-bold text-center text-slate-400 lg:max-w-4xl sm:max-w-sm">
+        How We Hire?
+      </h1>
 
-      <div className="flex flex-col items-center gap-8 w-full">
+      <div className="flex flex-col items-center xl:gap-8 lg:gap-8 md:gap-8 gap-20 w-full">
         {hiringData.map((hire, index) => {
           return (
             <motion.div
@@ -27,9 +30,9 @@ const HiringProcress = () => {
                 },
               }}
               key={index}
-              className="drop-shadow-md shadow-lg shadow-cyan-200 flex flex-row items-center justify-around bg-gray-900 rounded-full h-48"
+              className="drop-shadow-md shadow-lg shadow-cyan-200 flex xl:flex-row lg:flex-row flex-col items-center justify-around bg-gray-900 xl:rounded-full lg:rounded-full rounded-xl xl:h-48 lg:h-48 h-auto lg:p-5 xl:p-5 md:p-3 p-8"
             >
-              <div className="border rounded-full  bg-gray-800">
+              <div className="border rounded-full bg-gray-800">
                 <motion.div
                   animate={{ rotateY: 360 }}
                   transition={{
@@ -37,24 +40,26 @@ const HiringProcress = () => {
                     delay: 0,
                     yoyo: "Infinity",
                   }}
-                  className="p-7"
+                  className="xl:p-7 lg:p-7 md:p-7 p-4"
                 >
                   {hire.icon}
                 </motion.div>
               </div>
-              <div className="w-3/4">
-                <div className="text-white font-bold text-2xl mb-2">
+              <div className="xl:w-3/4 lg:w-3/4 xl:px-0 lg:px-0 md:px-0 px-2">
+                <div className="text-white font-bold xl:text-2xl lg:text-2xl my-2">
                   {hire.heading}
                 </div>
-                <p className="text-teal-100 font-sans text-lg">{hire.desc}</p>
+                <p className="text-teal-100 font-sans">
+                  <ReadMore>{hire.desc}</ReadMore>
+                </p>
               </div>
             </motion.div>
           );
         })}
       </div>
 
-      <div className="flex flex-col p-8">
-        <div className="absolute ml-52 pt-4">
+      <div className="flex flex-col xl:p-8 lg:p-8 ">
+        <div className="absolute xl:ml-52 lg:ml-52 ml-48 xl:pt-4 lg:pt-4 pt-5">
           <Image
             src="https://assets.website-files.com/632a6ffabd6820ec560a3c0c/632a6ffabd682075e50a3e1c_certified-icon.png"
             alt=""
@@ -64,7 +69,7 @@ const HiringProcress = () => {
             className="z-10"
           />
         </div>
-        <div className="drop-shadow-md shadow-md shadow-cyan-400 z-0 flex flex-col items-center rounded-full bg-gradient-to-t from-cyan-500 to-blue-500 p-2 py-11 px-4 gap-y-2 ">
+        <div className="drop-shadow-md shadow-md shadow-cyan-400 flex flex-col items-center rounded-full bg-gradient-to-t from-cyan-500 to-blue-500 xl:py-11 xl:px-4 xl:gap-y-2 lg:py-11 lg:px-4 lg:gap-y-2 py-9">
           <div>
             <HiOutlineUser className="w-24 h-24" />
           </div>
