@@ -21,7 +21,7 @@ const featuredsection = () => {
   }, []);
 
   return (
-    <div className="example example4 flex flex-col items-center justify-center h-screen py-5 gap-5">
+    <div className="example example4 flex flex-col items-center justify-center h-screen gap-5">
       {/* Team  */}
       <div className="flex justify-center">
         <h1 className="lg:text-7xl xl:text-7xl md:text-3xl text-2xl font-bold text-center lg:max-w-4xl sm:max-w-sm rounded-xl px-8 py-3">

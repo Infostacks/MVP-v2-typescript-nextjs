@@ -90,12 +90,12 @@ const previewsection = () => {
   return (
     <div
       ref={ref}
-      className="flex flex-col md:flex-row lg:flex-row xl:flex-row items-center justify-center h-screen px-20 py-5 gap-5 text-txtColor"
+      className="flex flex-col md:flex-row lg:flex-row xl:flex-row items-center justify-between xl:h-screen lg:h-screen xl:pt-0 lg:pt-0 pt-32 xl:px-36 lg:px-36 px-10 gap-5 text-txtColor"
     >
       {/* Left Side  */}
-      <div className="flex justify-center xl:w-1/2 lg:w-1/2 md:w-1/2 h-1/2 w-screen">
+      <div className="flex justify-center xl:w-1/2 lg:w-1/2 md:w-1/2 h-1/2">
         <motion.div className="w-full h-full">
-          <div className="flex flex-col justify-center gap-5 w-2/3">
+          <div className="flex flex-col justify-center gap-5 xl:w-2/3 lg:w-2/3 w-full">
             <h3 className="text-primary lg:text-7xl xl:text-7xl md:text-3xl text-2xl font-bold">
               {previewTextData[animListNo].heading
                 .split("")
@@ -109,7 +109,7 @@ const previewsection = () => {
               </motion.h1>
             </AnimatePresence>
             <AnimatePresence>
-              <motion.p className="text-2xl">
+              <motion.p className="xl:text-2xl lg:text-2xl text-xl">
                 {previewTextData[animListNo].desc}
               </motion.p>
             </AnimatePresence>
@@ -119,7 +119,7 @@ const previewsection = () => {
       </div>
 
       {/* Right Side  */}
-      <div className="flex flex-col justify-center items-center xl:w-1/2 lg:w-1/2 md:w-1/2  h-1/2 w-screen">
+      <div className="flex flex-col justify-center items-center xl:w-1/2 lg:w-1/2 md:w-1/2  h-1/2 xl:px-0 lg:px-0 px-14 w-screen">
         <motion.div
           initial={{
             opacity: 0,
