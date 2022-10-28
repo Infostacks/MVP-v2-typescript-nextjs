@@ -19,27 +19,10 @@ const promotionsection = () => {
   return (
     <div
       ref={ref}
-      className="flex flex-col md:flex-row lg:flex-row xl:flex-row items-center justify-center h-screen px-20 py-5 gap-5 w-full text-txtColor"
+      className="flex flex-col md:flex-row lg:flex-row xl:flex-row items-center justify-center h-screen xl:px-36 lg:px-36 px-10 gap-5 w-full text-txtColor"
     >
-      {/* Left Side  */}
-      <div className="flex justify-center items-center xl:w-1/2 lg:w-1/2 md:w-1/2 h-1/2 w-full">
-        <motion.div animate={leftAnimation}></motion.div>
-        <Image
-          // src={productImages.product1}
-          src={
-            "https://cdni.iconscout.com/illustration/premium/thumb/online-sale-advertising-5365276-4500144.png"
-          }
-          unoptimized
-          alt=""
-          width="600"
-          height="600"
-          className="shadow-md opacity-80"
-        />
-      </div>
-
-      {/* Right Side  */}
-      <div className="flex flex-col justify-center items-center gap-5  xl:w-1/2 lg:w-1/2 md:w-1/2 h-screen w-screen">
-        <div className="flex flex-col justify-center gap-5 w-2/3">
+      <div className="flex flex-col justify-center items-center gap-5 xl:w-1/2 lg:w-1/2 md:w-1/2 h-screen ">
+        <div className="flex flex-col justify-center gap-5 xl:w-2/3 lg:w-2/3 w-full">
           <motion.h3
             animate={leftAnimation}
             className="text-primary lg:text-7xl xl:text-7xl md:text-3xl text-2xl font-bold flex flex-row"
@@ -58,7 +41,7 @@ const promotionsection = () => {
             }}
             animate={{ opacity: 1 }}
             transition={{ duration: 3, delay: 0.5 }}
-            className="text-2xl"
+            className="xl:text-2xl lg:text-2xl text-xl"
           >
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet,
             repellendus nihil fuga unde voluptas voluptates perspiciatis
@@ -66,6 +49,20 @@ const promotionsection = () => {
           </motion.p>
           <AnimationButton btnText={"Shop Now"} />
         </div>
+      </div>
+      <div className="flex justify-center items-center px-14 xl:w-1/2 lg:w-1/2 md:w-1/2 h-1/2 w-full">
+        <motion.div animate={leftAnimation}></motion.div>
+        <Image
+          // src={productImages.product1}
+          src={
+            "https://cdni.iconscout.com/illustration/premium/thumb/online-sale-advertising-5365276-4500144.png"
+          }
+          unoptimized
+          alt=""
+          width="600"
+          height="600"
+          className="shadow-lg shadow-primary"
+        />
       </div>
     </div>
   );

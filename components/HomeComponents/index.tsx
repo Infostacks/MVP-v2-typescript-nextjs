@@ -9,20 +9,20 @@ import Contact from "./Contact";
 
 const index = () => {
   return (
-    <div className="flex flex-col items-center mx-auto w-full overflow-x-hidden scroll-hidden bg-bgColor text-txtColor">
-      <div className="w-full h-screen">
+    <div className="flex flex-col items-center mx-auto w-full overflow-x-hidden scroll-hidden  bg-bgColor text-txtColor">
+      <div className="w-full">
         <PreviewSection />
       </div>
-      <div className="w-full h-screen">
+      <div className="w-full ">
         <PromotionSection />
       </div>
-      <div className="h-full w-screen">
+      <div className="w-full">
         <FeaturedSection />
       </div>
-      <div className="w-full h-full py-5">
+      <div className="w-full h-full">
         <ProudProjects />
       </div>
-      <div className="w-full h-full mt-5">
+      <div className="w-full h-full">
         <Companies />
       </div>
       <div className="w-full h-screen">
