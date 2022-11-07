@@ -81,7 +81,7 @@ const AboutInfo1 = () => {
       {step === fieldGroups.length - 1 && (
         <button
           type="submit"
-          className={`py-3 px-5 bg-primary text-txtColor rounded-xl shadow-lg shadow-primary text-sm font-bold`}
+          className={`py-3 px-5 bg-primary text-txtColor rounded-xl shadow-lg shadow-txtColor text-sm font-bold`}
           disabled={!isValid}
         >
           SAVE
@@ -90,7 +90,7 @@ const AboutInfo1 = () => {
       {step < fieldGroups.length - 1 && (
         <button
           type="button"
-          className={`flex flex-row items-center text-xs font-bold bg-primary shadow-lg shadow-primary py-3 px-5 rounded-xl drop-shadow-md`}
+          className={`flex flex-row items-center text-xs font-bold bg-primary shadow-lg shadow-txtColor py-3 px-5 rounded-xl drop-shadow-md`}
           disabled={!isValid}
           onClick={() => {
             setStep(step + 1);
@@ -103,7 +103,7 @@ const AboutInfo1 = () => {
       {step > 0 && (
         <button
           type="button"
-          className={`flex flex-row items-center justify-start text-xs font-bold bg-primary shadow-lg shadow-primary py-3 px-5 rounded-xl drop-shadow-md`}
+          className={`flex flex-row items-center justify-start text-xs font-bold bg-primary shadow-lg shadow-txtColor py-3 px-5 rounded-xl drop-shadow-md`}
           onClick={() => {
             setStep(step - 1);
           }}
@@ -135,10 +135,10 @@ const AboutInfo1 = () => {
 
   return (
     <main
-      className={`min-h-screen w-full font-roboto bg-primary bg-opacity-50 py-6 flex flex-col justify-center items-center sm:py-12`}
+      className={`min-h-screen w-full font-roboto bg-primary py-6 flex flex-col justify-center items-center sm:py-12`}
     >
       <form
-        className={`bg-secondary p-8 xl:w-1/2 lg:w-2/3 md:w-4/6 w-5/6 rounded-3xl shadow-lg shadow-primary`}
+        className={`bg-primary bg-opacity-50 p-8 xl:w-1/2 lg:w-2/3 md:w-4/6 w-5/6 rounded-3xl shadow-lg shadow-txtColor`}
         onSubmit={handleSubmit(onSubmit)}
       >
         <h2>User Register</h2>
