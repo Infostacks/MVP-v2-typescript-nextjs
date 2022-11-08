@@ -12,6 +12,7 @@
   "dependencies": {
     "@emotion/react": "^11.9.3",
     "@emotion/styled": "^11.9.3",
+    "@hapi/joi": "^17.1.1",
     "@headlessui/react": "^1.6.6",
     "@lottiefiles/lottie-player": "^1.5.7",
     "@mui/icons-material": "^5.10.9",
@@ -19,6 +20,7 @@
     "@use-gesture/react": "^10.2.15",
     "axios": "^0.27.2",
     "firebase": "^9.9.1",
+    "formik": "^2.2.9",
     "framer-motion": "^7.3.6",
     "joi-browser": "^13.4.0",
     "lodash": "^4.17.21",
@@ -28,6 +30,7 @@
     "react-calendly": "^4.1.0",
     "react-countup": "^6.3.2",
     "react-dom": "^18.2.0",
+    "react-hook-form": "^7.39.1",
     "react-hook-inview": "^4.5.0",
     "react-icons": "^4.4.0",
     "react-intersection-observer": "^9.3.5",

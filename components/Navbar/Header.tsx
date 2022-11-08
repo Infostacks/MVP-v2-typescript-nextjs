@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/rules-of-hooks */
-import useAuth from "../../hooks/useAuth";
+// import useAuth from "../../hooks/useAuth";
 import Link from "next/link";
-import styles from "../../styles/Global.js";
+// import styles from "../../styles/Global.js";
 import React, { useState } from "react";
 import Image from "next/image";
 import LogaImage from "../../public/Logo1.png";
@@ -114,7 +114,7 @@ const header = () => {
               <button
                 onClick={() => setIsOpen(!isOpen)}
                 type="button"
-                className="bg-gray-900 inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-txtColor hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-txtext-txtColor"
+                className="bg-gray-900 inline-flex bg-primary items-center justify-center p-2 rounded-md text-gray-400 hover:text-txtColor hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-txtext-txtColor"
                 aria-controls="mobile-menu"
                 aria-expanded="false"
               >
@@ -167,39 +167,52 @@ const header = () => {
           leaveTo="opacity-0 scale-95"
         >
           {(ref) => (
-            <div className="md:hidden" id="mobile-menu">
+            <div className="md:hidden bg-bgColor" id="mobile-menu">
               <div
                 ref={ref}
                 className="mx-2 pt-2 pb-3 border-t-[1px] space-y-1 sm:px-3"
               >
                 <Link href="/">
-                  <a className="text-txtColor block px-3 py-2 rounded-md text-base font-medium">
+                  <a
+                    onClick={() => setIsOpen(false)}
+                    className="text-txtColor block px-3 py-2 rounded-md text-base font-medium"
+                  >
                     Home
                   </a>
                 </Link>
 
                 <Link href="/vetting-process">
-                  <a className="text-gray-800 hover:text-txtColor block px-3 py-2 rounded-md text-base font-medium">
+                  <a
+                    onClick={() => setIsOpen(false)}
+                    className="text-gray-800 text-txtColor block px-3 py-2 rounded-md text-base font-medium"
+                  >
                     Vetting Process
                   </a>
                 </Link>
 
                 <Link href="/how-it-works">
-                  <a className="text-gray-800 hover:text-txtColor block px-3 py-2 rounded-md text-base font-medium">
+                  <a
+                    onClick={() => setIsOpen(false)}
+                    className="text-gray-800 text-txtColor block px-3 py-2 rounded-md text-base font-medium"
+                  >
                     How it Works
                   </a>
                 </Link>
 
                 <Link href="/simple-pricing">
-                  <a className="text-gray-800 hover:text-txtColor block px-3 py-2 rounded-md text-base font-medium">
+                  <a
+                    onClick={() => setIsOpen(false)}
+                    className="text-gray-800 text-txtColor block px-3 py-2 rounded-md text-base font-medium"
+                  >
                     Pricing
                   </a>
                 </Link>
 
                 <Link href="/company">
                   <a
+                    onClick={() => setIsOpen(false)}
                     href="#"
-                    className="text-gray-800 hover:text-txtColor block px-3 py-2 rounded-md text-base font-medium"
+                    className="text-gray-800 text-txtColor block px-3 py-2 rounded-md text-base font-medium"
                   >
                     Hire Top Developer
                   </a>
@@ -207,8 +220,9 @@ const header = () => {
 
                 <Link href="/apply-as-developer">
                   <a
+                    onClick={() => setIsOpen(false)}
                     href="#"
-                    className="text-gray-800 hover:text-txtColor block px-3 py-2 rounded-md text-base font-medium"
+                    className="text-gray-800 text-txtColor block px-3 py-2 rounded-md text-base font-medium"
                   >
                     Apply As Developer
                   </a>
