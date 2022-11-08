@@ -1,4 +1,4 @@
-import AboutInfo from "./AboutInfo";
+// import AboutInfo from "./AboutInfo";
 import AboutInfo1 from "./AboutInfo1";
 import SideAnimation from "./SideAnimation";
 
@@ -10,6 +10,8 @@ const index = () => {
       </div>
       <div className="h-full xl:w-2/3 lg:w-2/3 w-full flex justify-center items-center">
         <AboutInfo1 />
+
+        {/* <AboutInfo /> */}
       </div>
     </div>
   );

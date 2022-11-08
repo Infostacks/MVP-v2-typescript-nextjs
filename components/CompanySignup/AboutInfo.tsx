@@ -232,7 +232,6 @@ const AboutInfo = () => {
       );
     }
   };
-
   console.log("items array: ", items);
 
   return (
