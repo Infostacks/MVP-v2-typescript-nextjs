@@ -5,16 +5,16 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Joi from "joi-browser";
 import { requiredSkills, findUS, hourlyRate } from "../utils/data";
-import useAuth from "../../hooks/useAuth";
-
+// import useAuth from "../../hooks/useAuth";
 import CalendlyEvent from "./CalendlyEvent";
 
 const AboutInfo = () => {
+  var items = [];
   const [formStep, setFormStep] = useState(0);
   const [errors, setErrors] = useState(null);
   const [confirmPassError, setConfirmPassError] = useState(false);
   // const { signIn, signUp, resetfullname } = useAuth();
-  const [confirmfullname, setConfirmfullname] = useState("");
+  // const [confirmfullname, setConfirmfullname] = useState("");
   const [formData, setFormData] = useState({
     jobtypeoption: "",
     developerNeeded: "",
@@ -33,9 +33,27 @@ const AboutInfo = () => {
     // jobtypeoption: Joi.string().required().label("Job type"),
     jobtypeoption: Joi.string().required().label("Job type"),
     developerNeeded: Joi.string().required().label("Developers Needed"),
-    fullname: Joi.string().required().label("fullname"),
-    email: Joi.string().required().label("email"),
-    phoneNumber: Joi.string().required().label("phoneNumber"),
+    fullname: Joi.string()
+      .alphanum()
+      .min(3)
+      .max(30)
+      .required()
+      .label("fullname"),
+    // email: Joi.string().trim().required().label("email"),
+    email: Joi.string()
+      .email({
+        minDomainSegments: 2,
+        tlds: { allow: ["com", "net", "in", "co"] },
+      })
+      .trim()
+      .required()
+      .label("email"),
+    phoneNumber: Joi.number()
+      .integer()
+      .min(1000000000)
+      .max(9999999999999)
+      .required()
+      .label("phoneNumber"),
     developerType: Joi.string().required().label("developerType"),
     requiredSkill: Joi.string().required().label("requiredSkill"),
     hourlyplatform: Joi.string().required().label("hourlyplatform"),
@@ -60,7 +78,6 @@ const AboutInfo = () => {
   };
 
   const handleSubmit = async () => {
-   
     // Function to handle submit
     setErrors(null);
     let data = validate(); // Validation function call
@@ -90,9 +107,11 @@ const AboutInfo = () => {
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    
     const { name, value } = e.target;
-    console.log(" I am validating",companySignUpSchema.validate( { [name]: value  }))
+    console.log(
+      " I am validating",
+      companySignUpSchema.validate({ [name]: value })
+    );
     setFormData({ ...formData, [name]: value });
   };
 
@@ -111,8 +130,38 @@ const AboutInfo = () => {
     });
   };
 
-  /////////////////////////////////////////////////////////////////////// pending    error message ////////////////////////////////////////////////////////////////
-  const completeFormStep = () => {
+  /////////////////////////////////////////////////////////////////////// pending    error message ////////////////////////////////////////////////////////////////////////////////
+  const completeFormStep = (e) => {
+    e.preventDefault();
+    console.log("data", e.target);
+    var toggle = false;
+    let data = validate();
+    console.log("data", data);
+    if (Object.keys(data).includes(Object?.keys(formData)[formStep])) {
+      setErrors(data);
+      setTimeout(() => {
+        setErrors(null);
+      }, 3000);
+    } else {
+      if (formStep === 2) {
+        // console.log("in pswd check");
+        // if ((formData.fullname && confirmfullname) === "") {
+        if (formData.fullname === "") {
+          setConfirmPassError(true);
+          setTimeout(() => {
+            setConfirmPassError(false);
+          }, 3000);
+        } else {
+          setFormStep(formStep + 1);
+          items.push(formData[formStep]);
+        }
+      } else {
+        setFormStep(formStep + 1);
+        items.push(formData[formStep]);
+      }
+    }
+  };
+  const BackFormstep = () => {
     let data = validate();
 
     if (Object.keys(data).includes(Object.keys(formData)[formStep])) {
@@ -121,22 +170,14 @@ const AboutInfo = () => {
         setErrors(null);
       }, 3000);
     } else {
-      if (formStep === 2) {
-        console.log("in pswd check");
-        if ((formData.fullname && confirmfullname) === "") {
-          setConfirmPassError(true);
-          setTimeout(() => {
-            setConfirmPassError(false);
-          }, 3000);
-        } else {
-          setFormStep(formStep + 1);
-        }
+      if (formStep > 0) {
+        setFormStep(formStep - 1);
+        items.pop();
       } else {
-        setFormStep(formStep + 1);
+        console.log("Back Page");
       }
     }
   };
-
   const renderBtn = () => {
     if (formStep > 12) {
       return undefined;
@@ -155,27 +196,47 @@ const AboutInfo = () => {
       );
     } else {
       return (
-        <motion.button
-          whileHover={{ scale: 1.1 }}
-          whileTap={{
-            scale: 0.9,
-            color: "#f77f00",
-            backgroundColor: "#f8edeb",
-          }}
-          transition={{ duration: 0.3 }}
-          type="button"
-          onClick={completeFormStep}
-          className={`rounded-lg w-28 text-txtColor pt-1 pb-1 text-sm `}
-          style={{ backgroundColor: "#F18F01" }}
-        >
-          Next Step
-        </motion.button>
+        <div className="flex flex-row justify-evenly w-full">
+          <motion.button
+            whileHover={{ scale: 1.1 }}
+            whileTap={{
+              scale: 0.9,
+              color: "#f77f00",
+              backgroundColor: "#f8edeb",
+            }}
+            transition={{ duration: 0.3 }}
+            type="button"
+            onClick={BackFormstep}
+            className={`rounded-full w-28 text-txtColor pt-1 pb-1 text-sm `}
+            style={{ backgroundColor: "#F18F01" }}
+          >
+            Back Step
+          </motion.button>
+
+          <motion.button
+            whileHover={{ scale: 1.1 }}
+            whileTap={{
+              scale: 0.9,
+              color: "#f77f00",
+              backgroundColor: "#f8edeb",
+            }}
+            transition={{ duration: 0.3 }}
+            type="button"
+            onClick={completeFormStep}
+            className={`rounded-full w-28 text-txtColor pt-1 pb-1 text-sm `}
+            style={{ backgroundColor: "#F18F01" }}
+          >
+            Next Step
+          </motion.button>
+        </div>
       );
     }
   };
 
+  // console.log("items")
+
   return (
-    <div className="w-3/4 h-3/4 drop-shadow-md bg-[#508AA8] bg-opacity-70 flex flex-col items-center rounded-3xl justify-center gap-3">
+    <div className="w-3/4 h-3/4 px-6 drop-shadow-md bg-[#508AA8] bg-opacity-70 flex flex-col items-center rounded-3xl justify-center gap-3">
       <h1
         className="py-5 text-3xl font-semibold text-[#ffb703]"
         style={{ fontFamily: "Bebas Neue" }}
@@ -208,6 +269,8 @@ const AboutInfo = () => {
                     name="jobtypeoption"
                     value="Full Time"
                     id="full_time"
+                    defaultValue={formData.jobtypeoption}
+                    onChange={handleChange}
                   />
 
                   <label
@@ -294,6 +357,8 @@ const AboutInfo = () => {
                     name="developerNeeded"
                     value="UI/UX"
                     id="UI/UX"
+                    defaultValue={formData.developerNeeded}
+                    onChange={handleChange}
                   />
 
                   <label
@@ -324,7 +389,7 @@ const AboutInfo = () => {
                     name="developerNeeded"
                     value="Frontend"
                     id="Frontend"
-                    defaultValue={formData.jobtypeoption}
+                    defaultValue={formData.developerNeeded}
                     onChange={handleChange}
                   />
 
@@ -356,7 +421,7 @@ const AboutInfo = () => {
                     name="developerNeeded"
                     value="Backend"
                     id="Backend"
-                    defaultValue={formData.jobtypeoption}
+                    defaultValue={formData.developerNeeded}
                     onChange={handleChange}
                   />
 
@@ -383,7 +448,7 @@ const AboutInfo = () => {
               </div>
               {/* end  */}
               <span className="text-[#DA373E] font-semibold text-xs">
-                {errors ? errors.jobtypeoption : ""}
+                {errors ? errors.developerNeeded : ""}
               </span>
             </div>
           </motion.section>
@@ -407,10 +472,11 @@ const AboutInfo = () => {
                 type="text"
                 defaultValue={formData.fullname}
                 onChange={handleChange}
-                className="w-full p-4 drop-shadow-md bg-[#ffb703] bg-opacity-75 text-txtColor placeholder:text-txtColor border-gray-200 rounded-lg border text-sm"
+                className="w-full p-4 mr-16 drop-shadow-md bg-[#ffb703] bg-opacity-75 text-txtColor placeholder:text-txtColor border-gray-200 rounded-lg border text-sm"
               />
+
               <span className="text-[#DA373E] font-semibold text-xs">
-                {errors ? errors.jobtypeoption : ""}
+                {errors ? errors.fullname : ""}
               </span>
             </div>
           </motion.section>
@@ -434,12 +500,12 @@ const AboutInfo = () => {
                 name="email"
                 placeholder="Your Email"
                 type="text"
-                defaultValue={formData.fullname}
+                defaultValue={formData.email}
                 onChange={handleChange}
-                className="w-full p-4 drop-shadow-md bg-[#ffb703] bg-opacity-75 text-txtColor placeholder:text-txtColor border-gray-200 rounded-lg border text-sm"
+                className="w-full p-4 mr-16 drop-shadow-md bg-[#ffb703] bg-opacity-75 text-txtColor placeholder:text-txtColor border-gray-200 rounded-lg border text-sm"
               />
               <span className="text-[#DA373E] font-semibold text-xs">
-                {errors ? errors.jobtypeoption : ""}
+                {errors ? errors.email : ""}
               </span>
             </div>
           </motion.section>
@@ -463,12 +529,12 @@ const AboutInfo = () => {
                 name="phoneNumber"
                 placeholder="Your Phone Number"
                 type="text"
-                defaultValue={formData.fullname}
+                defaultValue={formData.phoneNumber}
                 onChange={handleChange}
                 className="w-full p-4 drop-shadow-md bg-[#ffb703] bg-opacity-75 text-txtColor placeholder:text-txtColor border-gray-200 rounded-lg border text-sm"
               />
               <span className="text-[#DA373E] font-semibold text-xs">
-                {errors ? errors.jobtypeoption : ""}
+                {errors ? errors.phoneNumber : ""}
               </span>
             </div>
           </motion.section>
@@ -527,7 +593,7 @@ const AboutInfo = () => {
                     name="developerType"
                     value="Frontend"
                     id="Frontend"
-                    defaultValue={formData.jobtypeoption}
+                    defaultValue={formData.developerType}
                     onChange={handleChange}
                   />
 
@@ -559,7 +625,7 @@ const AboutInfo = () => {
                     name="developerType"
                     value="Backend"
                     id="Backend"
-                    defaultValue={formData.jobtypeoption}
+                    defaultValue={formData.developerType}
                     onChange={handleChange}
                   />
 
@@ -591,13 +657,13 @@ const AboutInfo = () => {
                     name="developerType"
                     value="Full stack"
                     id="Full_stack"
-                    defaultValue={formData.jobtypeoption}
+                    defaultValue={formData.developerType}
                     onChange={handleChange}
                   />
 
                   <label
                     className="block p-4 text-sm font-medium border text-gray-200 hover:text-black border-gray-200 rounded-lg cursor-pointer transition-colors shadow-sm peer-checked:border-blue-500 hover:bg-[#ffb703] peer-checked:ring-1 peer-checked:ring-blue-500"
-                    htmlFor="Full stack"
+                    htmlFor="Full_stack"
                   >
                     <span className="text-lg">Full stack</span>
                   </label>
@@ -623,7 +689,7 @@ const AboutInfo = () => {
                     name="developerType"
                     value="Other"
                     id="Other"
-                    defaultValue={formData.jobtypeoption}
+                    defaultValue={formData.developerType}
                     onChange={handleChange}
                   />
 
@@ -650,7 +716,7 @@ const AboutInfo = () => {
               </div>
               {/* end  */}
               <span className="text-[#DA373E] font-semibold text-xs">
-                {errors ? errors.jobtypeoption : ""}
+                {errors ? errors.developerType : ""}
               </span>
             </div>
           </motion.section>
@@ -678,6 +744,8 @@ const AboutInfo = () => {
                         name="requiredSkill"
                         value={skill.name}
                         id={skill.name}
+                        defaultValue={formData.requiredSkill}
+                        onChange={handleChange}
                       />
 
                       <label
@@ -712,7 +780,7 @@ const AboutInfo = () => {
               </div>
               {/* end  */}
               <span className="text-[#DA373E] font-semibold text-xs">
-                {errors ? errors.jobtypeoption : ""}
+                {errors ? errors.requiredSkill : ""}
               </span>
             </div>
           </motion.section>
@@ -741,15 +809,17 @@ const AboutInfo = () => {
                         className="hidden group peer"
                         type="radio"
                         name="hourlyplatform"
-                        value={platform.platform}
-                        id={platform.platform}
+                        value={platform.rate}
+                        id={platform.rate}
+                        defaultValue={formData.hourlyplatform}
+                        onChange={handleChange}
                       />
 
                       <label
                         className="block p-4 text-sm font-medium border text-gray-200 hover:text-black border-gray-200 rounded-lg cursor-pointer transition-colors shadow-sm peer-checked:border-blue-500 hover:bg-[#ffb703] peer-checked:ring-1 peer-checked:ring-blue-500"
-                        htmlFor={platform.platform}
+                        htmlFor={platform.rate}
                       >
-                        <span className="text-lg">{platform.platform}</span>
+                        <span className="text-lg">{platform.rate}</span>
                       </label>
 
                       <svg
@@ -770,7 +840,7 @@ const AboutInfo = () => {
               </div>
               {/* end  */}
               <span className="text-[#DA373E] font-semibold text-xs">
-                {errors ? errors.jobtypeoption : ""}
+                {errors ? errors.hourlyplatform : ""}
               </span>
             </div>
           </motion.section>
@@ -793,13 +863,13 @@ const AboutInfo = () => {
                 id="about_company"
                 name="about_company"
                 placeholder="Write Here..."
-                type="textarea"
-                defaultValue={formData.fullname}
+                type="text"
+                defaultValue={formData.about_company}
                 onChange={handleChange}
                 className="w-full p-4 drop-shadow-md bg-[#ffb703] bg-opacity-75 text-txtColor placeholder:text-txtColor border-gray-200 rounded-lg border text-sm"
               />
               <span className="text-[#DA373E] font-semibold text-xs">
-                {errors ? errors.jobtypeoption : ""}
+                {errors ? errors.about_company : ""}
               </span>
             </div>
           </motion.section>
@@ -820,6 +890,7 @@ const AboutInfo = () => {
               {/* start  */}
               <div className="grid xl:grid-cols-3 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5">
                 {findUS.map((platform, index) => {
+                  // console.log("paltform", platform.platform);
                   return (
                     <div className="relative" key={index}>
                       <input
@@ -828,17 +899,19 @@ const AboutInfo = () => {
                         name="findUsPlatform"
                         value={platform.platform}
                         id={platform.platform}
+                        defaultValue={formData.findUsPlatform}
+                        onChange={handleChange}
                       />
 
                       <label
-                        className="block p-4 text-sm font-medium border text-gray-200 hover:text-black border-gray-200 rounded-lg cursor-pointer transition-colors shadow-sm peer-checked:border-blue-500 hover:bg-[#ffb703] peer-checked:ring-1 peer-checked:ring-blue-500"
+                        className="block p-6 text-sm font-medium border text-gray-200 hover:text-black border-gray-200 rounded-lg cursor-pointer transition-colors shadow-sm peer-checked:border-blue-500 hover:bg-[#ffb703] peer-checked:ring-1 peer-checked:ring-blue-500"
                         htmlFor={platform.platform}
                       >
                         <span className="text-lg">{platform.platform}</span>
                       </label>
 
                       <svg
-                        className="absolute w-5 h-5 text-blue-600 opacity-0 top-4 right-4 peer-checked:opacity-100"
+                        className="absolute w-5 h-5 text-blue-600 opacity-0 top-4 right-1 peer-checked:opacity-100"
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 20 20"
                         fill="currentColor"
@@ -855,7 +928,7 @@ const AboutInfo = () => {
               </div>
               {/* end  */}
               <span className="text-[#DA373E] font-semibold text-xs">
-                {errors ? errors.jobtypeoption : ""}
+                {errors ? errors.findUsPlatform : ""}
               </span>
             </div>
           </motion.section>
@@ -886,5 +959,4 @@ const AboutInfo = () => {
     </div>
   );
 };
-
 export default AboutInfo;

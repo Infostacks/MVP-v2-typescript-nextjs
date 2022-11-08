@@ -230,20 +230,76 @@ const proudProjects = [
 ];
 
 const companiesList = [
-  "https://arbisoft.com/wp-content/uploads/2019/05/logo-microsoft.png",
-  "https://arbisoft.com/wp-content/uploads/2019/12/cheetah.png",
-  "https://arbisoft.com/wp-content/uploads/2019/05/UCSD.png",
-  "https://arbisoft.com/wp-content/uploads/2019/05/kayak-logo.png",
-  "https://arbisoft.com/wp-content/uploads/2019/06/tenmarks.png",
-  "https://arbisoft.com/wp-content/uploads/2019/05/payperks.png",
-  "https://arbisoft.com/wp-content/uploads/2019/05/mit-1.png",
-  "https://arbisoft.com/wp-content/uploads/2019/05/Indeed_logo.png",
-  "https://arbisoft.com/wp-content/uploads/2019/06/parktag.png",
-  "https://arbisoft.com/wp-content/uploads/2019/11/stanford.png",
-  "https://arbisoft.com/wp-content/uploads/2019/05/edx-logo-registered.png",
-  "https://arbisoft.com/wp-content/uploads/2019/05/wanderu.png",
-  "https://arbisoft.com/wp-content/uploads/2019/05/logo-world-bank.png",
-  "https://arbisoft.com/wp-content/uploads/2019/06/mcdonalds.png",
+  {
+    width: "250",
+    height: "100",
+    icon: "https://arbisoft.com/wp-content/uploads/2019/05/logo-microsoft.png",
+  },
+  {
+    width: "250",
+    height: "100",
+    icon: "https://arbisoft.com/wp-content/uploads/2019/12/cheetah.png",
+  },
+  {
+    width: "250",
+    height: "80",
+    icon: "https://arbisoft.com/wp-content/uploads/2019/05/UCSD.png",
+  },
+  {
+    width: "250",
+    height: "120",
+    icon: "https://arbisoft.com/wp-content/uploads/2019/05/kayak-logo.png",
+  },
+  {
+    width: "240",
+    height: "100",
+    icon: "https://arbisoft.com/wp-content/uploads/2019/06/tenmarks.png",
+  },
+  {
+    width: "230",
+    height: "140",
+    icon: "https://arbisoft.com/wp-content/uploads/2019/05/payperks.png",
+  },
+  {
+    width: "230",
+    height: "100",
+    icon: "https://arbisoft.com/wp-content/uploads/2019/05/mit-1.png",
+  },
+  {
+    width: "230",
+    height: "100",
+    icon: "https://arbisoft.com/wp-content/uploads/2019/05/Indeed_logo.png",
+  },
+  {
+    width: "220",
+    height: "120",
+    icon: "https://arbisoft.com/wp-content/uploads/2019/06/parktag.png",
+  },
+  {
+    width: "230",
+    height: "130",
+    icon: "https://arbisoft.com/wp-content/uploads/2019/11/stanford.png",
+  },
+  {
+    width: "230",
+    height: "120",
+    icon: "https://arbisoft.com/wp-content/uploads/2019/05/edx-logo-registered.png",
+  },
+  {
+    width: "200",
+    height: "140",
+    icon: "https://arbisoft.com/wp-content/uploads/2019/05/wanderu.png",
+  },
+  {
+    width: "200",
+    height: "140",
+    icon: "https://arbisoft.com/wp-content/uploads/2019/05/logo-world-bank.png",
+  },
+  {
+    width: "200",
+    height: "100",
+    icon: "https://arbisoft.com/wp-content/uploads/2019/06/mcdonalds.png",
+  },
 ];
 
 const requiredSkills = [

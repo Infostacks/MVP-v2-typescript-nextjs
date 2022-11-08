@@ -16,11 +16,11 @@ const companies = () => {
           companiesList.map((company, index) => {
             return (
               <Image
-                src={company}
+                src={company.icon}
                 unoptimized
                 alt=""
-                width="150"
-                height="50"
+                width={company.width}
+                height={company.height}
                 className="hover:cursor-pointer"
                 key={index}
               />

@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 const menu = ({ items }) => {
   return (
-    <div className="flex flex-row justify-center items-center flex-wrap gap-10 xl:px-28 lg:px-28 md:px-28">
+    <div className="flex flex-row justify-center items-center flex-wrap gap-8 xl:px-28 lg:px-28 md:px-28">
       {items.map((menuItem: any) => {
         const { id, link, img, title } = menuItem;
         return (
@@ -21,7 +21,7 @@ const menu = ({ items }) => {
                   transition={{ duration: 1 }}
                 >
                   <motion.div
-                    className="opacity-95"
+                    className="opacity-95 px-10"
                     whileHover={{
                       opacity: 1,
                       scale: 1.15,
@@ -32,8 +32,8 @@ const menu = ({ items }) => {
                     <Image
                       src={img}
                       unoptimized
-                      width="200"
-                      height="200"
+                      width="300"
+                      height="300"
                       alt={title}
                     />
                   </motion.div>

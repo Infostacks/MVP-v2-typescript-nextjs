@@ -15,17 +15,105 @@ const AboutInfo1 = () => {
   const onSubmit = (data: any) => console.log(data);
 
   /** Input field component */
-  const Input = ({ label, required, type, placeholder }) => (
-    <div className="flex flex-col gap-1">
-      <legend>{label}</legend>
-      <input
-        {...register(label, { required })}
-        className={`${errors[label]} border border-primary text-secondary px-3 py-2 rounded-xl !important w-full`}
-        type={type}
-        placeholder={placeholder}
-      />
-      {errors[label] && <span className="text-redColor font-bold">Required</span>}
-    </div>
+  const Input = ({ label, required, type, placeholder, id, value }) => (
+    <>
+      {type !== "radio" ? (
+        <div className="flex flex-col gap-1">
+          <legend>{label}</legend>
+          <input
+            {...register(label, { required })}
+            className={`${errors[label]} border border-primary text-secondary px-3 py-2 rounded-xl !important w-full`}
+            type={type}
+            placeholder={placeholder}
+          />
+          {errors[label] && (
+            <span className="text-redColor font-bold">Required</span>
+          )}
+        </div>
+      ) : (
+        <div className="relative w-36">
+          <input
+            {...register(label, { required })}
+            className="hidden group peer"
+            type={type}
+            value={value}
+            id={id}
+          />
+
+          <label
+            className="block p-4 w-full text-sm font-medium border text-gray-200 hover:text-black border-gray-200 rounded-lg cursor-pointer transition-colors shadow-sm peer-checked:border-blue-500 hover:bg-[#ffb703] peer-checked:ring-1 peer-checked:ring-blue-500"
+            htmlFor={id}
+          >
+            <span className="text-lg">{label}</span>
+          </label>
+
+          <svg
+            className="absolute w-5 h-5 text-blue-600 opacity-0 top-5 right-4 peer-checked:opacity-100"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+          >
+            <path
+              fillRule="evenodd"
+              d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+              clipRule="evenodd"
+            />
+          </svg>
+        </div>
+      )}
+    </>
+  );
+
+  /** Group the type input fields in a component */
+  const TypeFields = () => (
+    <section className={`flex flex-col gap-5 mb-8`}>
+      <h3>Personal information</h3>
+      <p> We offer full time (40 hours/week) and part time (20 hours/week)</p>
+      <div className="flex flex-row gap-10">
+        <Input
+          label={"Full time"}
+          required
+          type={"radio"}
+          placeholder={""}
+          id={"full_time"}
+          value={"Full time"}
+        />
+        <Input
+          label={"Part time"}
+          required
+          type={"radio"}
+          placeholder={""}
+          id={"part_time"}
+          value={"Part time"}
+        />
+      </div>
+    </section>
+  );
+
+  /** Group the Developers input fields in a component */
+  const DevelopersFields = () => (
+    <section className={`flex flex-col gap-5 mb-8`}>
+      <h3>Personal information</h3>
+      <p> We offer full time (40 hours/week) and part time (20 hours/week)</p>
+      <div className="flex flex-row gap-10">
+        <Input
+          label="Full time"
+          required
+          type="radio"
+          placeholder={""}
+          id={"full_time"}
+          value="Full time"
+        />
+        <Input
+          label="Part time"
+          required
+          type="radio"
+          placeholder={""}
+          id={"part_time"}
+          value="Part time"
+        />
+      </div>
+    </section>
   );
 
   /** Group the person input fields in a component */
@@ -37,8 +125,17 @@ const AboutInfo1 = () => {
         required
         type="text"
         placeholder="Ex: Maria Leopoldina de Habsburgo"
+        id={undefined}
+        value={""}
       />
-      <Input label="Birthday" required type="date" placeholder="dd/mm/aaa" />
+      <Input
+        label="Birthday"
+        required
+        type="date"
+        placeholder="dd/mm/aaa"
+        id={undefined}
+        value={"Birthday"}
+      />
     </section>
   );
 
@@ -51,8 +148,17 @@ const AboutInfo1 = () => {
         required
         type="email"
         placeholder="exemple@exemple.com"
+        id={undefined}
+        value={""}
       />
-      <Input label="Phone" required type="tel" placeholder="(00) 0.0000-0000" />
+      <Input
+        label="Phone"
+        required
+        type="tel"
+        placeholder="(00) 0.0000-0000"
+        id={undefined}
+        value={""}
+      />
     </section>
   );
 
@@ -65,8 +171,17 @@ const AboutInfo1 = () => {
         required
         type="text"
         placeholder="Street name, avenue, etc..."
+        id={undefined}
+        value={""}
       />
-      <Input label="Number" required type="number" placeholder="000" />
+      <Input
+        label="Number"
+        required
+        type="number"
+        placeholder="000"
+        id={undefined}
+        value={""}
+      />
     </section>
   );
 
@@ -131,7 +246,13 @@ const AboutInfo1 = () => {
     return markers;
   }
 
-  const fieldGroups = [<PersonFields />, <ContactFields />, <AddressFields />];
+  const fieldGroups = [
+    <TypeFields />,
+    <DevelopersFields />,
+    <PersonFields />,
+    <ContactFields />,
+    <AddressFields />,
+  ];
 
   return (
     <main
