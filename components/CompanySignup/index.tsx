@@ -1,4 +1,5 @@
 import AboutInfo from "./AboutInfo";
+import AboutInfo1 from "./AboutInfo1";
 import SideAnimation from "./SideAnimation";
 
 const index = () => {
@@ -8,7 +9,7 @@ const index = () => {
         <SideAnimation />
       </div>
       <div className="h-full xl:w-2/3 lg:w-2/3 w-full flex justify-center items-center">
-        <AboutInfo />
+        <AboutInfo1 />
       </div>
     </div>
   );
