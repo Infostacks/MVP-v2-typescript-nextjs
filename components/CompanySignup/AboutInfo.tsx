@@ -232,8 +232,7 @@ const AboutInfo = () => {
       );
     }
   };
-
-  // console.log("items")
+  console.log("items array: ", items);
 
   return (
     <div className="w-3/4 h-3/4 px-6 drop-shadow-md bg-[#508AA8] bg-opacity-70 flex flex-col items-center rounded-3xl justify-center gap-3">
@@ -267,7 +266,7 @@ const AboutInfo = () => {
                     className="hidden group peer"
                     type="radio"
                     name="jobtypeoption"
-                    value="Full Time"
+                    value={formData.jobtypeoption}
                     id="full_time"
                     defaultValue={formData.jobtypeoption}
                     onChange={handleChange}
@@ -299,7 +298,7 @@ const AboutInfo = () => {
                     className="hidden group peer"
                     type="radio"
                     name="jobtypeoption"
-                    value="Part-Time"
+                    value={formData.jobtypeoption}
                     id="part_time"
                     defaultValue={formData.jobtypeoption}
                     onChange={handleChange}
