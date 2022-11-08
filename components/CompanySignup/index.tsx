@@ -9,7 +9,6 @@ const index = () => {
         <SideAnimation />
       </div>
       <div className="h-full xl:w-2/3 lg:w-2/3 w-full flex justify-center items-center">
-        {/* <AboutInfo /> */}
         <AboutInfo1 />
       </div>
     </div>
