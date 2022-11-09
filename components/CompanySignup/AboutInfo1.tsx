@@ -33,7 +33,7 @@ const AboutInfo1 = () => {
       ) : (
         <div className="relative">
           <input
-            {...register(label, { required })}
+            {...register(name)}
             className="hidden group peer"
             type={type}
             name={name}
@@ -75,25 +75,72 @@ const AboutInfo1 = () => {
       <h3>What type of hire do you need? *</h3>
       <p> We offer full time (40 hours/week) and part time (20 hours/week)</p>
       <div className="grid xl:grid-cols-2 lg:grid-cols-2 md:grid-cols-2 grid-cols-1 gap-5">
-        <Input
-          label={"Full time"}
-          required
-          type={"radio"}
-          placeholder={""}
-          id={"full_time"}
-          value={"Full time"}
-          name={"jobtypeoption"}
-        />
-        <Input
-          label={"Part time"}
-          required
-          type={"radio"}
-          placeholder={""}
-          id={"part_time"}
-          value={"Part time"}
-          name={"jobtypeoption"}
-        />
+        <div className="relative">
+          <input
+            {...register("jobtypeoption")}
+            className="hidden group peer"
+            type="radio"
+            name="jobtypeoption"
+            value="Full time"
+            id="full_time"
+          />
+
+          <label
+            className="block p-4 text-sm font-medium border text-gray-200 hover:text-black border-emerald rounded-lg cursor-pointer transition-colors shadow-sm peer-checked:border-blue-500 hover:bg-emerald peer-checked:ring-1 peer-checked:ring-mazeCrayola"
+            htmlFor="full_time"
+          >
+            <span className="text-lg">Full time</span>
+          </label>
+
+          <svg
+            className="absolute w-5 h-5 text-blue-600 opacity-0 top-5 right-4 peer-checked:opacity-100"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+          >
+            <path
+              fillRule="evenodd"
+              d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+              clipRule="evenodd"
+            />
+          </svg>
+        </div>
+
+        <div className="relative">
+          <input
+            {...register("jobtypeoption")}
+            className="hidden group peer"
+            type="radio"
+            name="jobtypeoption"
+            value="Part time"
+            id="part_time"
+          />
+
+          <label
+            className="block p-4 text-sm font-medium border text-gray-200 hover:text-black border-emerald rounded-lg cursor-pointer transition-colors shadow-sm peer-checked:border-blue-500 hover:bg-emerald peer-checked:ring-1 peer-checked:ring-mazeCrayola"
+            htmlFor="part_time"
+          >
+            <span className="text-lg">Part time</span>
+          </label>
+
+          <svg
+            className="absolute w-5 h-5 text-blue-600 opacity-0 top-5 right-4 peer-checked:opacity-100"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+          >
+            <path
+              fillRule="evenodd"
+              d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+              clipRule="evenodd"
+            />
+          </svg>
+        </div>
       </div>
+
+      {errors.jobtypeoption && (
+        <span className="text-redColor font-bold">Required</span>
+      )}
     </section>
   );
 

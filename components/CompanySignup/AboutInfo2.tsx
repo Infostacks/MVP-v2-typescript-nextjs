@@ -1,6 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable react-hooks/rules-of-hooks */
-import React, { useState } from "react";
+import React, { ChangeEvent, useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Joi from "joi-browser";
