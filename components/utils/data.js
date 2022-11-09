@@ -305,35 +305,51 @@ const companiesList = [
 const requiredSkills = [
   {
     icon: "https://assets.website-files.com/632a6ffabd6820ec560a3c0c/632a6ffabd6820179a0a3c4d_Ellipse%20157.svg",
-    name: "React",
+    label: "React",
+    value: "React",
+    id: "react",
   },
   {
     icon: "https://assets.website-files.com/632a6ffabd6820ec560a3c0c/632a6ffabd6820e2330a3c75_Figma.svg",
-    name: "Figma",
+    label: "Figma",
+    value: "Figma",
+    react: "figma",
   },
   {
     icon: "https://assets.website-files.com/632a6ffabd6820ec560a3c0c/632a6ffabd6820f29d0a3c7b_Java-Script.svg",
-    name: "JS",
+    label: "JS",
+    value: "JS",
+    id: "js",
   },
   {
     icon: "https://assets.website-files.com/632a6ffabd6820ec560a3c0c/632a6ffabd682023b70a3c5a_AWS.svg",
-    name: "AWS",
+    label: "AWS",
+    value: "AWS",
+    id: "aws",
   },
   {
     icon: "https://assets.website-files.com/632a6ffabd6820ec560a3c0c/632a6ffabd682008a20a3c76_Node.js.svg",
-    name: "Node.js",
+    label: "Node.js",
+    value: "Node.js",
+    id: "node_js",
   },
   {
     icon: "https://assets.website-files.com/632a6ffabd6820ec560a3c0c/632a6ffabd6820721c0a3c52_Ellipse%20159.svg",
-    name: "Python",
+    label: "Python",
+    value: "Python",
+    id: "python",
   },
   {
     icon: "https://assets.website-files.com/632a6ffabd6820ec560a3c0c/632a6ffabd682042f80a3c77_React-native.svg",
-    name: "React Native",
+    label: "React Native",
+    value: "React Native",
+    id: "react_native",
   },
   {
     icon: "https://assets.website-files.com/632a6ffabd6820ec560a3c0c/632a6ffabd68204d770a3c7e_Blockchains.svg",
-    name: "Blockchain",
+    label: "Blockchain",
+    value: "Blockchain",
+    id: "blockchain",
   },
 ];
 
@@ -578,7 +594,36 @@ const IconsSlider = [
   },
 ];
 
+const TypesOfDevelopers = [
+  {
+    label: "UI/UX",
+    id: "UI/UX",
+    value: "UI/UX",
+  },
+  {
+    label: "Frontend",
+    id: "Frontend",
+    value: "Frontend",
+  },
+  {
+    label: "Backend",
+    id: "Backend",
+    value: "Backend",
+  },
+  {
+    label: "Full Stack",
+    id: "full_stack",
+    value: "Full Stack",
+  },
+  {
+    label: "Other",
+    id: "Other",
+    value: "Other",
+  },
+];
+
 export {
+  TypesOfDevelopers,
   IconsSlider,
   DevelopersBio,
   FaQsData,
