@@ -17,6 +17,6 @@
     "downlevelIteration": true,
     "allowSyntheticDefaultImports" : true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "components/CompanySignup/AboutInfo2.tsx"],
   "exclude": ["node_modules"]
 }

@@ -1,5 +1,6 @@
 // import AboutInfo from "./AboutInfo";
 import AboutInfo1 from "./AboutInfo1";
+// import AboutInfo2 from "./AboutInfo2";
 import SideAnimation from "./SideAnimation";
 
 const index = () => {
@@ -12,6 +13,7 @@ const index = () => {
         <AboutInfo1 />
 
         {/* <AboutInfo /> */}
+        {/* <AboutInfo2 /> */}
       </div>
     </div>
   );
