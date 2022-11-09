@@ -19,7 +19,9 @@ module.exports = {
       secondaryLight: "#a0abf0", // dark blue
       txtColor: "#f2f8f7", // white/ slate
       bgColor: "#121224",
-      redColor: "#EF2D56"   // Red Crayola
+      redColor: "#EF2D56", // Red Crayola
+      emerald: "#0CCE6B", // Emerald
+      mazeCrayola: "#E2C044",     // Maze Crayola
     },
     fontFamily: {
       sans: ["Graphik", "sans-serif"],

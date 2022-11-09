@@ -1,243 +1,41 @@
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable react-hooks/rules-of-hooks */
-import React, { useState } from "react";
+import React, { ChangeEvent, useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Joi from "joi-browser";
 import { requiredSkills, findUS, hourlyRate } from "../utils/data";
-// import useAuth from "../../hooks/useAuth";
 import CalendlyEvent from "./CalendlyEvent";
+import { useForm } from "react-hook-form";
 
-const AboutInfo = () => {
+const AboutInfo2 = () => {
+  const [step, setStep] = useState(0);
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isValid },
+  } = useForm({ mode: "all" });
+
+  const onSubmit = (data: any) => console.log(data);
+
   var items = [];
-  const [formStep, setFormStep] = useState(0);
-  const [errors, setErrors] = useState(null);
-  const [confirmPassError, setConfirmPassError] = useState(false);
-  // const { signIn, signUp, resetfullname } = useAuth();
-  // const [confirmfullname, setConfirmfullname] = useState("");
-  const [formData, setFormData] = useState({
-    jobtypeoption: "",
-    developerNeeded: "",
-    fullname: "",
-    email: "",
-    phoneNumber: "",
-    developerType: "",
-    requiredSkill: "",
-    hourlyplatform: "",
-    about_company: "",
-    findUsPlatform: "",
-  });
 
-  const companySignUpSchema = Joi.object({
-    // Joi schema for validation
-    // jobtypeoption: Joi.string().required().label("Job type"),
-    jobtypeoption: Joi.string().required().label("Job type"),
-    developerNeeded: Joi.string().required().label("Developers Needed"),
-    fullname: Joi.string()
-      .alphanum()
-      .min(3)
-      .max(30)
-      .required()
-      .label("fullname"),
-    // email: Joi.string().trim().required().label("email"),
-    email: Joi.string()
-      .email({
-        minDomainSegments: 2,
-        tlds: { allow: ["com", "net", "in", "co"] },
-      })
-      .trim()
-      .required()
-      .label("email"),
-    phoneNumber: Joi.number()
-      .integer()
-      .min(1000000000)
-      .max(9999999999999)
-      .required()
-      .label("phoneNumber"),
-    developerType: Joi.string().required().label("developerType"),
-    requiredSkill: Joi.string().required().label("requiredSkill"),
-    hourlyplatform: Joi.string().required().label("hourlyplatform"),
-    about_company: Joi.string().required().label("about_company"),
-    findUsPlatform: Joi.string().required().label("findUsPlatform"),
-  });
 
-  const validate = () => {
-    // Validation function for Joi schema
-    let options = { abortEarly: false }; // abortEarly: false = return all errors
+ 
 
-    let { error } = Joi.validate(formData, companySignUpSchema, options); // error = Joi error object
-    if (!error) return null; // if no error, return null
+  function handleChange(event: ChangeEvent<HTMLInputElement>): void {
+    throw new Error("Function not implemented.");
+  }
 
-    let errors = []; // if error, create an empty array of errors
-
-    for (let item of error.details) {
-      // loop through error.details and push each error to the errors array
-      errors[item.path[0]] = item.message.replaceAll('"', "");
-    }
-    return errors;
-  };
-
-  const handleSubmit = async () => {
-    // Function to handle submit
-    setErrors(null);
-    let data = validate(); // Validation function call
-
-    if (data) {
-      // If validation fails
-      setErrors(data);
-    } else {
-      try {
-        console.log("sign up method called");
-        // await signUp(formData.developerNeeded, formData.fullname);
-        alert("Successfully Signed Up. authType Now!");
-        resetForm();
-        // If validation passes
-        // if (formData.fullname !== formData.confirmfullname) {
-        //   setConfirmPassError(true);
-        // } else {
-        //   console.log("sign up method called");
-        //   await signUp(formData.developerNeeded, formData.fullname);
-        //   alert("Successfully Signed Up. authType Now!");
-        //   resetForm();
-        // }
-      } catch (err) {
-        console.log(err);
-      }
-    }
-  };
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    console.log(
-      " I am validating",
-      companySignUpSchema.validate({ [name]: value })
-    );
-    setFormData({ ...formData, [name]: value });
-  };
-
-  const resetForm = () => {
-    setFormData({
-      jobtypeoption: "",
-      developerNeeded: "",
-      fullname: "",
-      email: "",
-      phoneNumber: "",
-      developerType: "",
-      requiredSkill: "",
-      hourlyplatform: "",
-      about_company: "",
-      findUsPlatform: "",
-    });
-  };
-
-  /////////////////////////////////////////////////////////////////////// pending    error message ////////////////////////////////////////////////////////////////////////////////
-  const completeFormStep = (e) => {
-    e.preventDefault();
-    console.log("data", e.target);
-    var toggle = false;
-    let data = validate();
-    console.log("data", data);
-    if (Object.keys(data).includes(Object?.keys(formData)[formStep])) {
-      setErrors(data);
-      setTimeout(() => {
-        setErrors(null);
-      }, 3000);
-    } else {
-      if (formStep === 2) {
-        // console.log("in pswd check");
-        // if ((formData.fullname && confirmfullname) === "") {
-        if (formData.fullname === "") {
-          setConfirmPassError(true);
-          setTimeout(() => {
-            setConfirmPassError(false);
-          }, 3000);
-        } else {
-          setFormStep(formStep + 1);
-          items.push(formData[formStep]);
-        }
-      } else {
-        setFormStep(formStep + 1);
-        items.push(formData[formStep]);
-      }
-    }
-  };
-  const BackFormstep = () => {
-    let data = validate();
-
-    if (Object.keys(data).includes(Object.keys(formData)[formStep])) {
-      setErrors(data);
-      setTimeout(() => {
-        setErrors(null);
-      }, 3000);
-    } else {
-      if (formStep > 0) {
-        setFormStep(formStep - 1);
-        items.pop();
-      } else {
-        console.log("Back Page");
-      }
-    }
-  };
-  const renderBtn = () => {
-    if (formStep > 12) {
-      return undefined;
-    } else if (formStep === 11) {
-      return (
-        <motion.button
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
-          type="submit"
-          onClick={completeFormStep}
-          className={`rounded-lg w-28 text-txtColor pt-1 pb-1 text-sm `}
-          style={{ backgroundColor: "#006d77" }}
-        >
-          Create Account
-        </motion.button>
-      );
-    } else {
-      return (
-        <div className="flex flex-row justify-evenly w-full">
-          <motion.button
-            whileHover={{ scale: 1.1 }}
-            whileTap={{
-              scale: 0.9,
-              color: "#f77f00",
-              backgroundColor: "#f8edeb",
-            }}
-            transition={{ duration: 0.3 }}
-            type="button"
-            onClick={BackFormstep}
-            className={`rounded-full w-28 text-txtColor pt-1 pb-1 text-sm `}
-            style={{ backgroundColor: "#F18F01" }}
-          >
-            Back Step
-          </motion.button>
-
-          <motion.button
-            whileHover={{ scale: 1.1 }}
-            whileTap={{
-              scale: 0.9,
-              color: "#f77f00",
-              backgroundColor: "#f8edeb",
-            }}
-            transition={{ duration: 0.3 }}
-            type="button"
-            onClick={completeFormStep}
-            className={`rounded-full w-28 text-txtColor pt-1 pb-1 text-sm `}
-            style={{ backgroundColor: "#F18F01" }}
-          >
-            Next Step
-          </motion.button>
-        </div>
-      );
-    }
-  };
-  console.log("items array: ", items);
+  function renderBtn(): React.ReactNode {
+    throw new Error("Function not implemented.");
+  }
 
   return (
     <div className="w-3/4 h-3/4 px-6 drop-shadow-md bg-[#508AA8] bg-opacity-70 flex flex-col items-center rounded-3xl justify-center gap-3">
       <h1
-        className="py-5 text-3xl font-semibold text-[#ffb703]"
+        className="py-5 text-3xl font-semibold text-mazeCrayola"
         style={{ fontFamily: "Bebas Neue" }}
       >
         Company Sign up
@@ -735,6 +533,10 @@ const AboutInfo = () => {
               {/* start  */}
               <div className="grid xl:grid-cols-3 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5">
                 {requiredSkills.map((skill, index) => {
+                  function handleChange(event: ChangeEvent<HTMLInputElement>): void {
+                    throw new Error("Function not implemented.");
+                  }
+
                   return (
                     <div className="relative" key={index}>
                       <input
@@ -802,6 +604,10 @@ const AboutInfo = () => {
               {/* start  */}
               <div className="grid xl:grid-cols-3 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5">
                 {hourlyRate.map((platform, index) => {
+                  function handleChange(event: ChangeEvent<HTMLInputElement>): void {
+                    throw new Error("Function not implemented.");
+                  }
+
                   return (
                     <div className="relative" key={index}>
                       <input
@@ -889,6 +695,10 @@ const AboutInfo = () => {
               {/* start  */}
               <div className="grid xl:grid-cols-3 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5">
                 {findUS.map((platform, index) => {
+                  function handleChange(event: ChangeEvent<HTMLInputElement>): void {
+                    throw new Error("Function not implemented.");
+                  }
+
                   // console.log("paltform", platform.platform);
                   return (
                     <div className="relative" key={index}>
@@ -958,4 +768,4 @@ const AboutInfo = () => {
     </div>
   );
 };
-export default AboutInfo;
+export default AboutInfo2;

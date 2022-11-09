@@ -1,5 +1,6 @@
 // import AboutInfo from "./AboutInfo";
 import AboutInfo1 from "./AboutInfo1";
+// import AboutInfo2 from "./AboutInfo2";
 import SideAnimation from "./SideAnimation";
 
 const index = () => {
@@ -9,10 +10,10 @@ const index = () => {
         <SideAnimation />
       </div>
       <div className="h-full xl:w-2/3 lg:w-2/3 w-full flex justify-center items-center">
-        {/* <AboutInfo /> */}
         <AboutInfo1 />
 
         {/* <AboutInfo /> */}
+        {/* <AboutInfo2 /> */}
       </div>
     </div>
   );

@@ -2,7 +2,6 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import Image from "next/image";
-import { requiredSkills, TypesOfDevelopers } from "../utils/data";
 
 const AboutInfo1 = () => {
   const [step, setStep] = useState(0);
@@ -16,16 +15,7 @@ const AboutInfo1 = () => {
   const onSubmit = (data: any) => console.log(data);
 
   /** Input field component */
-  const Input = ({
-    label,
-    required,
-    type,
-    placeholder,
-    name,
-    id,
-    value,
-    img,
-  }) => (
+  const Input = ({ label, required, type, placeholder, name, id, value }) => (
     <>
       {type !== "radio" ? (
         <div className="flex flex-col gap-1">
@@ -43,7 +33,7 @@ const AboutInfo1 = () => {
       ) : (
         <div className="relative">
           <input
-            {...register(label, { required })}
+            {...register(name)}
             className="hidden group peer"
             type={type}
             name={name}
@@ -55,16 +45,6 @@ const AboutInfo1 = () => {
             className="block p-4 text-sm font-medium border text-gray-200 hover:text-black border-emerald rounded-lg cursor-pointer transition-colors shadow-sm peer-checked:border-blue-500 hover:bg-emerald peer-checked:ring-1 peer-checked:ring-mazeCrayola"
             htmlFor={id}
           >
-            {img && (
-              <Image
-                src={img}
-                alt=""
-                unoptimized
-                width="40"
-                height="40"
-                className=""
-              />
-            )}
             <span className="text-lg">{label}</span>
           </label>
 
@@ -92,68 +72,101 @@ const AboutInfo1 = () => {
   /** Group the type input fields in a component */
   const JobTypeFields = () => (
     <section className={`flex flex-col gap-5 mb-8`}>
-      <h3>Personal information</h3>
+      <h3>What type of hire do you need? *</h3>
       <p> We offer full time (40 hours/week) and part time (20 hours/week)</p>
-      <div className="grid grid-cols-3 gap-4">
-        <Input
-          label={"Full time"}
-          required
-          type={"radio"}
-          placeholder={""}
-          id={"full_time"}
-          value={"Full time"}
-          img={undefined}
-          name={"jobtypeoption"}
-        />
-        <Input
-          label={"Part time"}
-          required
-          type={"radio"}
-          placeholder={""}
-          id={"part_time"}
-          value={"Part time"}
-          img={undefined}
-          name={"jobtypeoption"}
-        />
+      <div className="grid xl:grid-cols-2 lg:grid-cols-2 md:grid-cols-2 grid-cols-1 gap-5">
+        <div className="relative">
+          <input
+            {...register("jobtypeoption")}
+            className="hidden group peer"
+            type="radio"
+            name="jobtypeoption"
+            value="Full time"
+            id="full_time"
+          />
+
+          <label
+            className="block p-4 text-sm font-medium border text-gray-200 hover:text-black border-emerald rounded-lg cursor-pointer transition-colors shadow-sm peer-checked:border-blue-500 hover:bg-emerald peer-checked:ring-1 peer-checked:ring-mazeCrayola"
+            htmlFor="full_time"
+          >
+            <span className="text-lg">Full time</span>
+          </label>
+
+          <svg
+            className="absolute w-5 h-5 text-blue-600 opacity-0 top-5 right-4 peer-checked:opacity-100"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+          >
+            <path
+              fillRule="evenodd"
+              d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+              clipRule="evenodd"
+            />
+          </svg>
+        </div>
+
+        <div className="relative">
+          <input
+            {...register("jobtypeoption")}
+            className="hidden group peer"
+            type="radio"
+            name="jobtypeoption"
+            value="Part time"
+            id="part_time"
+          />
+
+          <label
+            className="block p-4 text-sm font-medium border text-gray-200 hover:text-black border-emerald rounded-lg cursor-pointer transition-colors shadow-sm peer-checked:border-blue-500 hover:bg-emerald peer-checked:ring-1 peer-checked:ring-mazeCrayola"
+            htmlFor="part_time"
+          >
+            <span className="text-lg">Part time</span>
+          </label>
+
+          <svg
+            className="absolute w-5 h-5 text-blue-600 opacity-0 top-5 right-4 peer-checked:opacity-100"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+          >
+            <path
+              fillRule="evenodd"
+              d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+              clipRule="evenodd"
+            />
+          </svg>
+        </div>
       </div>
+
+      {errors.jobtypeoption && (
+        <span className="text-redColor font-bold">Required</span>
+      )}
     </section>
   );
 
   /** Group the Developers input fields in a component */
   const DevelopersFields = () => (
     <section className={`flex flex-col gap-5 mb-8`}>
-      <h3>How many developers are you looking for?*</h3>
-      <p> You can start with 1 or 10. We have the talent ready!</p>
-      <div className="grid grid-cols-3 gap-4">
+      <h3>Personal information</h3>
+      <p> We offer full time (40 hours/week) and part time (20 hours/week)</p>
+      <div className="flex flex-row gap-10">
         <Input
-          label="1-2"
+          label="Full time"
           required
           type="radio"
           placeholder={""}
-          id={"1_2"}
-          value="1-2"
-          img={undefined}
-          name={"developerNeeded"}
+          id={"full_time"}
+          value="Full time"
+          name={undefined}
         />
         <Input
-          label="2-5"
+          label="Part time"
           required
           type="radio"
           placeholder={""}
-          id={"2_5"}
-          value="2-5"
-          img={undefined}
-          name={"developerNeeded"}
-        />
-        <Input
-          label="5+"
-          required
-          type="radio"
-          placeholder={""}
-          id={"5+"}
-          value="5+"
-          img={undefined}
-          name={"developerNeeded"}
+          id={"part_time"}
+          value="Part time"
+          name={undefined}
         />
       </div>
     </section>
@@ -170,8 +183,7 @@ const AboutInfo1 = () => {
         placeholder="Ex: Maria Leopoldina de Habsburgo"
         id={undefined}
         value={""}
-        img={undefined}
-        name={"fullname"}
+        name={undefined}
       />
       <Input
         label="Birthday"
@@ -180,8 +192,7 @@ const AboutInfo1 = () => {
         placeholder="dd/mm/aaa"
         id={undefined}
         value={"Birthday"}
-        img={undefined}
-        name={"fullname"}
+        name={undefined}
       />
     </section>
   );
@@ -197,8 +208,7 @@ const AboutInfo1 = () => {
         placeholder="exemple@exemple.com"
         id={undefined}
         value={""}
-        img={undefined}
-        name={"email"}
+        name={undefined}
       />
       <Input
         label="Phone"
@@ -207,64 +217,33 @@ const AboutInfo1 = () => {
         placeholder="(00) 0.0000-0000"
         id={undefined}
         value={""}
-        img={undefined}
-        name={"phoneNumber"}
+        name={undefined}
       />
     </section>
   );
 
   /** Group the address input fields in a component */
-  const StackFields = () => (
+  const AddressFields = () => (
     <section className={`flex flex-col gap-5 mb-8`}>
-      <>
-        <h3>What type developers are you looking for?*</h3>
-        <p>We have all types of developers ready to work!</p>
-        <div className="grid grid-cols-3 gap-4">
-          {TypesOfDevelopers.map((skill, index) => {
-            return (
-              <div key={index} className="">
-                <Input
-                  label={skill.label}
-                  required
-                  type="radio"
-                  placeholder={""}
-                  id={skill.id}
-                  value={skill.value}
-                  img={undefined}
-                  name={"developerType"}
-                />
-              </div>
-            );
-          })}
-        </div>
-      </>
-    </section>
-  );
-  /** Group the address input fields in a component */
-  const IconsFields = () => (
-    <section className={`flex flex-col gap-5 mb-8 `}>
-      <>
-        <h3>What type developers are you looking for?*</h3>
-        <p>We have all types of developers ready to work!</p>
-        <div className="grid grid-cols-2 gap-4">
-          {requiredSkills.map((skill, index) => {
-            return (
-              <div key={index} className="flex flex-row ">
-                <Input
-                  label={skill.label}
-                  required
-                  type="radio"
-                  placeholder={""}
-                  id={skill.id}
-                  value={skill.value}
-                  img={skill.icon}
-                  name={"requiredSkill"}
-                />
-              </div>
-            );
-          })}
-        </div>
-      </>
+      <h3>Address</h3>
+      <Input
+        label="Street"
+        required
+        type="text"
+        placeholder="Street name, avenue, etc..."
+        id={undefined}
+        value={""}
+        name={undefined}
+      />
+      <Input
+        label="Number"
+        required
+        type="number"
+        placeholder="000"
+        id={undefined}
+        value={""}
+        name={undefined}
+      />
     </section>
   );
 
@@ -334,8 +313,7 @@ const AboutInfo1 = () => {
     <DevelopersFields />,
     <PersonFields />,
     <ContactFields />,
-    <StackFields />,
-    <IconsFields />,
+    <AddressFields />,
   ];
 
   return (
