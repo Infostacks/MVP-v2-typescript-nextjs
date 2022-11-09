@@ -15,7 +15,7 @@ const AboutInfo1 = () => {
   const onSubmit = (data: any) => console.log(data);
 
   /** Input field component */
-  const Input = ({ label, required, type, placeholder, id, value }) => (
+  const Input = ({ label, required, type, placeholder, name, id, value }) => (
     <>
       {type !== "radio" ? (
         <div className="flex flex-col gap-1">
@@ -31,17 +31,18 @@ const AboutInfo1 = () => {
           )}
         </div>
       ) : (
-        <div className="relative w-36">
+        <div className="relative">
           <input
             {...register(label, { required })}
             className="hidden group peer"
             type={type}
+            name={name}
             value={value}
             id={id}
           />
 
           <label
-            className="block p-4 w-full text-sm font-medium border text-gray-200 hover:text-black border-gray-200 rounded-lg cursor-pointer transition-colors shadow-sm peer-checked:border-blue-500 hover:bg-[#ffb703] peer-checked:ring-1 peer-checked:ring-blue-500"
+            className="block p-4 text-sm font-medium border text-gray-200 hover:text-black border-emerald rounded-lg cursor-pointer transition-colors shadow-sm peer-checked:border-blue-500 hover:bg-emerald peer-checked:ring-1 peer-checked:ring-mazeCrayola"
             htmlFor={id}
           >
             <span className="text-lg">{label}</span>
@@ -59,17 +60,21 @@ const AboutInfo1 = () => {
               clipRule="evenodd"
             />
           </svg>
+
+          {errors[name] && (
+            <span className="text-redColor font-bold">Required</span>
+          )}
         </div>
       )}
     </>
   );
 
   /** Group the type input fields in a component */
-  const TypeFields = () => (
+  const JobTypeFields = () => (
     <section className={`flex flex-col gap-5 mb-8`}>
-      <h3>Personal information</h3>
+      <h3>What type of hire do you need? *</h3>
       <p> We offer full time (40 hours/week) and part time (20 hours/week)</p>
-      <div className="flex flex-row gap-10">
+      <div className="grid xl:grid-cols-2 lg:grid-cols-2 md:grid-cols-2 grid-cols-1 gap-5">
         <Input
           label={"Full time"}
           required
@@ -77,6 +82,7 @@ const AboutInfo1 = () => {
           placeholder={""}
           id={"full_time"}
           value={"Full time"}
+          name={"jobtypeoption"}
         />
         <Input
           label={"Part time"}
@@ -85,6 +91,7 @@ const AboutInfo1 = () => {
           placeholder={""}
           id={"part_time"}
           value={"Part time"}
+          name={"jobtypeoption"}
         />
       </div>
     </section>
@@ -103,6 +110,7 @@ const AboutInfo1 = () => {
           placeholder={""}
           id={"full_time"}
           value="Full time"
+          name={undefined}
         />
         <Input
           label="Part time"
@@ -111,6 +119,7 @@ const AboutInfo1 = () => {
           placeholder={""}
           id={"part_time"}
           value="Part time"
+          name={undefined}
         />
       </div>
     </section>
@@ -127,6 +136,7 @@ const AboutInfo1 = () => {
         placeholder="Ex: Maria Leopoldina de Habsburgo"
         id={undefined}
         value={""}
+        name={undefined}
       />
       <Input
         label="Birthday"
@@ -135,6 +145,7 @@ const AboutInfo1 = () => {
         placeholder="dd/mm/aaa"
         id={undefined}
         value={"Birthday"}
+        name={undefined}
       />
     </section>
   );
@@ -150,6 +161,7 @@ const AboutInfo1 = () => {
         placeholder="exemple@exemple.com"
         id={undefined}
         value={""}
+        name={undefined}
       />
       <Input
         label="Phone"
@@ -158,6 +170,7 @@ const AboutInfo1 = () => {
         placeholder="(00) 0.0000-0000"
         id={undefined}
         value={""}
+        name={undefined}
       />
     </section>
   );
@@ -173,6 +186,7 @@ const AboutInfo1 = () => {
         placeholder="Street name, avenue, etc..."
         id={undefined}
         value={""}
+        name={undefined}
       />
       <Input
         label="Number"
@@ -181,6 +195,7 @@ const AboutInfo1 = () => {
         placeholder="000"
         id={undefined}
         value={""}
+        name={undefined}
       />
     </section>
   );
@@ -196,7 +211,7 @@ const AboutInfo1 = () => {
       {step === fieldGroups.length - 1 && (
         <button
           type="submit"
-          className={`py-3 px-5 bg-primary text-txtColor rounded-xl shadow-lg shadow-txtColor text-sm font-bold`}
+          className={`py-3 px-5 bg-emerald text-txtColor rounded-xl shadow-lg shadow-emerald text-sm font-bold`}
           disabled={!isValid}
         >
           SAVE
@@ -205,7 +220,7 @@ const AboutInfo1 = () => {
       {step < fieldGroups.length - 1 && (
         <button
           type="button"
-          className={`flex flex-row items-center text-xs font-bold bg-primary shadow-lg shadow-txtColor py-3 px-5 rounded-xl drop-shadow-md`}
+          className={`flex flex-row items-center text-xs font-bold bg-emerald shadow-lg shadow-emerald py-3 px-5 rounded-xl drop-shadow-md`}
           disabled={!isValid}
           onClick={() => {
             setStep(step + 1);
@@ -218,7 +233,7 @@ const AboutInfo1 = () => {
       {step > 0 && (
         <button
           type="button"
-          className={`flex flex-row items-center justify-start text-xs font-bold bg-primary shadow-lg shadow-txtColor py-3 px-5 rounded-xl drop-shadow-md`}
+          className={`flex flex-row items-center justify-start text-xs font-bold bg-emerald shadow-lg shadow-emerald py-3 px-5 rounded-xl drop-shadow-md`}
           onClick={() => {
             setStep(step - 1);
           }}
@@ -247,7 +262,7 @@ const AboutInfo1 = () => {
   }
 
   const fieldGroups = [
-    <TypeFields />,
+    <JobTypeFields />,
     <DevelopersFields />,
     <PersonFields />,
     <ContactFields />,
@@ -259,7 +274,7 @@ const AboutInfo1 = () => {
       className={`min-h-screen w-full font-roboto bg-primary py-6 flex flex-col justify-center items-center sm:py-12`}
     >
       <form
-        className={`bg-primary bg-opacity-50 p-8 xl:w-1/2 lg:w-2/3 md:w-4/6 w-5/6 rounded-3xl shadow-lg shadow-txtColor`}
+        className={`bg-mazeCrayola p-8 xl:w-1/2 lg:w-2/3 md:w-4/6 w-5/6 rounded-3xl shadow-lg shadow-mazeCrayola`}
         onSubmit={handleSubmit(onSubmit)}
       >
         <h2>User Register</h2>
